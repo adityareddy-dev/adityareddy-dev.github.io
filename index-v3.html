@@ -229,7 +229,7 @@ html.js .reveal.in{opacity:1;transform:none}
       <div class="tag">INP 426ms &#8594; 268ms</div>
     </div>
 
-    <div class="beat" data-b="6">
+    <div class="beat left" data-b="6">
       <h2>Now the platform under all of it.</h2>
       <p>Kubernetes, Vault, Terraform, the release trains. I run what I build, and I carry the pager for it.</p>
     </div>
@@ -373,6 +373,15 @@ var SEGS=[['scatter',0,0],['name',0.055,0.15],['code',0.20,0.265],
   ['graph',0.315,0.385],['tail',0.44,0.525],['grid',0.575,0.64],
   ['one',0.69,0.75],['hex',0.80,0.855],['pct',0.90,0.965],['lift',1.02,1.2]];
 var beats=[].slice.call(document.querySelectorAll('[data-b]'));
+var exRects=[];
+function measureEx(){
+  exRects=[];
+  ['.beat0 .kicker','.beat0 .sub'].forEach(function(sel){
+    var el=document.querySelector(sel); if(!el) return;
+    var r=el.getBoundingClientRect();
+    exRects.push([r.left-14,r.top-10,r.right+14,r.bottom+10]);
+  });
+}
 var marks=document.getElementById('marks');
 /* text beat windows on film progress f */
 var BW=[[0.00,0.14],[0.185,0.29],[0.30,0.41],[0.425,0.545],[0.56,0.655],[0.675,0.765],[0.785,0.87],[0.885,0.985]];
@@ -501,7 +510,7 @@ function fOne(){
   return o;
 }
 function fHex(){
-  var pts=[],R=Math.min(W,H)*.052,cx=W/2,cy=H*.46,rng=mulberry(9);
+  var pts=[],R=Math.min(W,H)*.052,cx=(W>=960)?W*.63:W/2,cy=H*.46,rng=mulberry(9);
   var centers=[[0,0]];
   for(var ring=1;ring<=2;ring++){
     for(var s6=0;s6<6;s6++){ for(var k=0;k<ring;k++){
@@ -560,13 +569,15 @@ function frame(t){
   if(!visible && Math.abs(targetF-f)<0.0005 && energy<0.01){ rafOn=false; return; }
   if(t-born<2600) {} /* intro running, stay awake */
   requestAnimationFrame(frame);
-  f+=(targetF-f)*0.085;
+  var gap=Math.abs(targetF-f);
+  f+=(targetF-f)*(0.085+0.11*Math.min(1,gap*6));
   var intro=Math.min(1,(t-born)/2400);
   var fE=Math.max(f, intro*intro*(3-2*intro)*0.055);
 
   /* text beats */
   for(var b=0;b<beats.length;b++){
     var a=(b===0)?(fE>=BW[0][1]?0:Math.min(1,(BW[0][1]-fE)/0.025)):beatAlpha(fE,BW[b]);
+    a*=Math.max(0,1-energy*1.5);
     var lp=(fE-BW[b][0])/(BW[b][1]-BW[b][0]); lp=Math.max(0,Math.min(1,lp));
     var key=a.toFixed(3)+':'+lp.toFixed(3);
     if(lastBeatA[b]!==key){
@@ -587,11 +598,12 @@ function frame(t){
     u=(fE-SEGS[si][2])/(SEGS[si+1][1]-SEGS[si][2]); u=Math.max(0,Math.min(1,u)); }
   var trans=4*u*(1-u); /* extra wander mid-flight */
   energy*=0.94;
-  var amp=(0.7+trans*4)*(1+energy*2.2);
+  var amp=(0.45+trans*3)*(1+energy*1.0);
   var RR=120,RR2=RR*RR;
 
   ctx.globalCompositeOperation='source-over';
-  ctx.fillStyle='rgba(5,7,16,0.34)';
+  var fade=0.62-Math.min(0.2,energy*0.2);
+  ctx.fillStyle='rgba(5,7,16,'+fade.toFixed(2)+')';
   ctx.fillRect(0,0,W,H);
   ctx.globalCompositeOperation='lighter';
   var tt=t*0.001;
@@ -608,7 +620,12 @@ function frame(t){
       x+=dx/dd*push; y+=dy/dd*push; }
     var bright=rand2[i]>0.82;
     var s=(bright?3.4+depth[i]*4.2:1.4+depth[i]*2.6)*(0.8+trans*.5);
-    ctx.globalAlpha=bright?(0.75+depth[i]*0.25):(0.22+depth[i]*0.22);
+    var al=bright?(0.75+depth[i]*0.25):(0.22+depth[i]*0.22);
+    if(fE<0.16){
+      for(var e=0;e<exRects.length;e++){ var R2=exRects[e];
+        if(x>R2[0]&&x<R2[2]&&y>R2[1]&&y<R2[3]){ al*=0.12; break; } }
+    }
+    ctx.globalAlpha=al;
     ctx.drawImage(spr,x-s/2,y-s/2,s,s);
   }
   ctx.globalAlpha=1; ctx.globalCompositeOperation='source-over';
@@ -624,8 +641,8 @@ function onResize(){
 }
 addEventListener('resize',onResize,{passive:true});
 
-alloc(); buildForms(); measure(); wake();
-if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ buildForms(); });
+alloc(); buildForms(); measureEx(); measure(); wake();
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ buildForms(); measureEx(); });
 })();
 </script>
 </body>
