@@ -47,7 +47,7 @@ nav a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-off
 @media(max-width:600px){nav .links{gap:16px}nav .links a.hide-sm{display:none}}
 
 /* ---------- the film ---------- */
-.film{position:relative;height:880vh;height:880svh}
+.film{position:relative;height:820vh;height:820svh}
 .screen{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
   background:radial-gradient(130% 100% at 50% -20%, #0c1728 0%, #070d1a 45%, var(--night) 80%)}
 .screen canvas{position:absolute;inset:0;width:100%;height:100%}
@@ -63,9 +63,9 @@ nav a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-off
 .beat .metric{color:var(--glow);font-weight:700}
 .beat h2,.beat p,.beat .tag,.beat0 .kicker,.beat0 .sub{
   text-shadow:0 1px 4px rgba(5,7,16,.9)}
-.beat::before{content:"";position:absolute;left:50%;top:50%;width:min(880px,96vw);height:62vh;
+.beat::before{content:"";position:absolute;left:50%;top:50%;width:min(960px,98vw);height:70vh;
   transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;z-index:-1;
-  background:radial-gradient(closest-side,rgba(5,7,16,.78),rgba(5,7,16,.45) 55%,rgba(5,7,16,0))}
+  background:radial-gradient(closest-side,rgba(5,7,16,.88),rgba(5,7,16,.55) 58%,rgba(5,7,16,0))}
 @media(min-width:960px){
   .beat.left::before{left:31%}
   .beat.right::before{left:69%}
@@ -110,67 +110,73 @@ html:not(.js) .hint,html.rm .hint,html:not(.js) .marks,html.rm .marks{display:no
 .static-hero h1{font-weight:900;letter-spacing:-.03em;font-size:clamp(46px,10vw,120px);color:#fff}
 .static-hero svg{width:100%;height:220px;margin-top:30px}
 
-/* ---------- editorial ---------- */
-main{display:block;background:var(--paper);color:var(--ink)}
-section.ed{padding:clamp(90px,13vh,160px) var(--pad)}
+/* ---------- editorial: the dark world continues ---------- */
+main{display:block;background:var(--night);color:var(--snow);position:relative}
+main::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 40% at 20% 0%,rgba(102,184,255,.05),transparent 70%),
+    radial-gradient(50% 35% at 85% 30%,rgba(102,184,255,.03),transparent 70%)}
+section.ed{padding:clamp(90px,13vh,160px) var(--pad);position:relative}
 .wrap{max-width:1080px;margin:0 auto}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;
-  color:var(--blue-deep);margin-bottom:14px}
+  color:var(--glow);margin-bottom:14px}
 .dh{font-family:var(--serif);font-weight:560;font-size:clamp(30px,4.4vw,52px);
-  letter-spacing:-.012em;line-height:1.12;margin-bottom:26px;text-wrap:balance}
-.greyband{background:var(--paper-2)}
+  letter-spacing:-.012em;line-height:1.12;margin-bottom:26px;text-wrap:balance;color:#fff}
 
 .about .wrap{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:clamp(32px,6vw,84px);
   grid-template-areas:"head photo" "body photo";align-items:start}
 .about .abhead{grid-area:head}
 .about .abbody{grid-area:body}
-.about .photo{grid-area:photo;align-self:center}
+.about .photo{grid-area:photo;align-self:center;position:relative}
 @media(max-width:840px){
   .about .wrap{grid-template-columns:1fr;grid-template-areas:"head" "photo" "body"}
   .about .photo{max-width:340px;margin:0 auto}
   .about .photo img{max-height:44vh;object-fit:cover;object-position:50% 20%}
 }
-.about p{font-size:clamp(16px,1.9vw,19px);line-height:1.7;color:#3a3a3c;margin-bottom:18px;max-width:58ch}
-.about .photo img{border-radius:10px}
-.about .photo figcaption{margin-top:10px;font-size:11.5px;letter-spacing:1.4px;
-  text-transform:uppercase;color:#8a8a90;text-align:left}
+.about p{font-size:clamp(16px,1.9vw,19px);line-height:1.7;color:var(--dim);margin-bottom:18px;max-width:58ch}
+.about .photo img{border-radius:14px;border:1px solid rgba(255,255,255,.12);
+  filter:saturate(.92) contrast(1.04)}
+.about .photo::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;
+  background:linear-gradient(200deg,rgba(102,184,255,.10),transparent 45%,rgba(5,7,16,.42) 96%)}
+.about .photo figcaption{margin-top:10px;font-size:11px;letter-spacing:1.6px;
+  text-transform:uppercase;color:#6b7a91;text-align:left}
 
-.career .lead{color:var(--muted);font-size:clamp(15px,1.8vw,18px);margin-bottom:56px;max-width:58ch;line-height:1.6}
+.career .lead{color:var(--dim);font-size:clamp(15px,1.8vw,18px);margin-bottom:56px;max-width:58ch;line-height:1.6}
 .job{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(18px,4vw,56px);
-  padding:36px 0;border-top:1px solid #e3e3e8}
-.job:last-of-type{border-bottom:1px solid #e3e3e8}
+  padding:36px 0;border-top:1px solid rgba(255,255,255,.09)}
+.job:last-of-type{border-bottom:1px solid rgba(255,255,255,.09)}
 @media(max-width:640px){.job{grid-template-columns:1fr;gap:6px}}
-.job .when{font-size:14px;font-weight:600;color:var(--muted);padding-top:5px}
-.job h3{font-size:clamp(19px,2.4vw,24px);font-weight:700;letter-spacing:-.012em}
-.job .org{font-size:15px;color:var(--blue-deep);font-weight:600;margin-top:3px}
-.job p{margin-top:12px;font-size:15.5px;line-height:1.66;color:#4b4b4f;max-width:62ch}
-.job .clients{margin-top:10px;font-size:13.5px;color:var(--muted)}
+.job .when{font-size:14px;font-weight:600;color:#6b7a91;padding-top:5px}
+.job h3{font-size:clamp(19px,2.4vw,24px);font-weight:700;letter-spacing:-.012em;color:#fff}
+.job .org{font-size:15px;color:var(--glow);font-weight:600;margin-top:3px}
+.job p{margin-top:12px;font-size:15.5px;line-height:1.66;color:var(--dim);max-width:62ch}
+.job .clients{margin-top:10px;font-size:13.5px;color:#6b7a91}
 
 .chips{display:flex;flex-wrap:wrap;gap:10px;max-width:900px}
 .chip{font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:999px;
-  border:1px solid #d9d9de;color:#3a3a3c;background:#fff}
-.chip.hot{background:var(--ink);color:#fff;border-color:var(--ink)}
+  border:1px solid rgba(255,255,255,.14);color:var(--dim);background:rgba(255,255,255,.03)}
+.chip.hot{background:rgba(102,184,255,.14);color:var(--glow);border-color:rgba(102,184,255,.4)}
 
-.writing{background:linear-gradient(180deg,#0b1220 0%,var(--night) 100%);color:var(--snow)}
-.writing .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  border-radius:26px;padding:clamp(28px,4.5vw,54px);max-width:760px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.writing .card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;padding:clamp(28px,4.5vw,54px);max-width:760px;
+  box-shadow:0 30px 80px rgba(0,0,0,.4)}
 .writing .tag{font-size:12px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:var(--glow)}
-.writing h3{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.015em;margin:14px 0 16px;line-height:1.25}
+.writing h3{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.015em;margin:14px 0 16px;line-height:1.25;color:#fff}
 .writing p{color:var(--dim);font-size:16px;line-height:1.7;max-width:58ch}
-.writing .dh{color:#fff}
-.writing .eyebrow{color:var(--glow)}
 
 .contact{text-align:center}
-.contact h2{font-weight:800;letter-spacing:-.028em;font-size:clamp(34px,5.6vw,62px)}
-.contact p{margin-top:16px;color:var(--muted);font-size:clamp(16px,2vw,19px)}
+.contact h2{font-family:var(--serif);font-weight:560;letter-spacing:-.02em;
+  font-size:clamp(38px,6vw,70px);color:#fff}
+.contact p{margin-top:16px;color:var(--dim);font-size:clamp(16px,2vw,19px)}
 .contact .row{margin-top:42px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .btn{display:inline-block;text-decoration:none;font-size:16px;font-weight:600;
   padding:14px 30px;border-radius:999px;transition:transform .18s, box-shadow .18s}
-.btn.primary{background:var(--blue-deep);color:#fff}
-.btn.ghost{border:1.5px solid #c8c8cd;color:var(--ink)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.14)}
+.btn.primary{background:var(--blue-deep);color:#fff;box-shadow:0 0 34px rgba(47,129,247,.35)}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.25);color:var(--snow)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(47,129,247,.35)}
 
-footer{padding:34px var(--pad);text-align:center;font-size:13px;color:#5c5c62;background:var(--paper-2)}
+footer{padding:34px var(--pad);text-align:center;font-size:13px;color:#6b7a91;
+  background:var(--night);border-top:1px solid rgba(255,255,255,.07)}
 
 html.js .reveal{opacity:0;transform:translateY(24px);
   transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
@@ -273,7 +279,7 @@ html.js .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
-<section class="ed career greyband" id="career">
+<section class="ed career" id="career">
   <div class="wrap">
     <div class="reveal">
       <div class="eyebrow">Career</div>
@@ -304,7 +310,7 @@ html.js .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
-<section class="ed light">
+<section class="ed">
   <div class="wrap reveal">
     <div class="eyebrow">Toolkit</div>
     <h2 class="dh" style="margin-bottom:30px">Tools I reach for.</h2>
@@ -334,7 +340,7 @@ html.js .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
-<section class="ed contact light" id="contact">
+<section class="ed contact" id="contact">
   <div class="wrap reveal">
     <h2>Say hello.</h2>
     <p>Milwaukee, Wisconsin. Open to good conversations about frontend, observability and platforms.</p>
@@ -378,9 +384,9 @@ var cv=document.getElementById('stage'), ctx=cv.getContext('2d');
 var W=0,H=0,DPR=1,N=0;
 var px,py,rand1,rand2,depth;         /* particle state */
 var FORMS={};
-var SEGS=[['scatter',0,0],['name',0.055,0.15],['code',0.20,0.265],
-  ['graph',0.315,0.385],['tail',0.44,0.525],['grid',0.575,0.64],
-  ['one',0.69,0.75],['hex',0.80,0.855],['pct',0.90,0.965],['lift',1.02,1.2]];
+var SEGS=[['scatter',0,0],['name',0.045,0.105],['code',0.155,0.225],
+  ['graph',0.275,0.345],['tail',0.40,0.49],['grid',0.545,0.615],
+  ['one',0.665,0.73],['hex',0.78,0.845],['pct',0.895,0.965],['lift',1.02,1.2]];
 var beats=[].slice.call(document.querySelectorAll('[data-b]'));
 var exRects=[];
 function measureEx(){
@@ -393,7 +399,7 @@ function measureEx(){
 }
 var marks=document.getElementById('marks');
 /* text beat windows on film progress f */
-var BW=[[0.00,0.14],[0.185,0.29],[0.30,0.41],[0.425,0.545],[0.56,0.655],[0.675,0.765],[0.785,0.87],[0.885,0.985]];
+var BW=[[0.00,0.10],[0.14,0.245],[0.26,0.365],[0.385,0.505],[0.53,0.635],[0.65,0.745],[0.765,0.86],[0.88,0.985]];
 
 /* glow sprite variants, alpha baked in */
 function makeSpr(alpha){
@@ -464,8 +470,8 @@ function fName(){
   var lines=(W<640)?['ADITYA','REDDY']:['ADITYA REDDY'];
   return pack(textPoints(lines,W*.86,H*.42,W/2,H*.44));
 }
-function fCode(){ var cx=(W>=960)?W*.66:W/2; return pack(textPoints(['</>'],W*.42,H*.5,cx,H*.46)); }
-function fPct(){ return pack(textPoints(['37%'],W*.6,H*.5,W/2,H*.46)); }
+function fCode(){ var cx=(W>=960)?W*.68:W/2; return pack(textPoints(['</>'],W*.38,H*.46,cx,H*.46)); }
+function fPct(){ return pack(textPoints(['37%'],W*.56,H*.42,W/2,H*.38)); }
 function fGraph(){
   var rng=mulberry(77),pts=[],tiers=4,nodes=[];
   for(var t=0;t<tiers;t++){ var count=t===0?1:(t===1?4:(t===2?8:11));
@@ -489,7 +495,7 @@ function fGraph(){
   return pack(pts);
 }
 function fTail(){
-  var o=new Float32Array(2*N), base=H*.82, span=H*.5;
+  var o=new Float32Array(2*N), base=H*.86, span=H*.42;
   var rng=mulberry(4242);
   function nrm(){ var a=rng()||1e-9,b=rng();
     return Math.sqrt(-2*Math.log(a))*Math.cos(6.283*b); }
@@ -511,7 +517,7 @@ function fGrid(){
   var cols=(W<640)?15:25, rows=Math.ceil(300/cols);
   var gw=(W>=960)?Math.min(W*.5,780):Math.min(W*.82,900);
   var ch=gw/cols, gh=rows*ch;
-  var ox=(W>=960)?(W*.62-gw/2):(W-gw)/2;
+  var ox=(W>=960)?(W*.65-gw/2):(W-gw)/2;
   var oy=H*.5-gh/2+H*.04, o=new Float32Array(2*N);
   for(var i=0;i<N;i++){
     var cell=(i*2654435761>>>0)%300;
@@ -521,7 +527,7 @@ function fGrid(){
   return o;
 }
 function fOne(){
-  var o=new Float32Array(2*N),cx=(W>=960)?W*.27:W/2,cy=(W>=960)?H*.45:H*.32;
+  var o=new Float32Array(2*N),cx=(W>=960)?W*.24:W/2,cy=(W>=960)?H*.45:H*.30;
   for(var i=0;i<N;i++){
     var an=rand2[i]*6.283;
     var r=(rand1[i]<.86)? Math.sqrt(rand1[i]/.86)*22 : 46+(rand1[i]-.86)*90;
@@ -530,7 +536,7 @@ function fOne(){
   return o;
 }
 function fHex(){
-  var pts=[],R=Math.min(W,H)*.052,cx=(W>=960)?W*.63:W/2,cy=H*.46,rng=mulberry(9);
+  var pts=[],R=Math.min(W,H)*.05,cx=(W>=960)?W*.66:W/2,cy=H*.44,rng=mulberry(9);
   var centers=[[0,0]];
   for(var ring=1;ring<=2;ring++){
     for(var s6=0;s6<6;s6++){ for(var k=0;k<ring;k++){
@@ -597,7 +603,7 @@ function frame(t){
   var gap=Math.abs(targetF-f);
   f+=(targetF-f)*(0.13+0.14*Math.min(1,gap*6));
   var intro=Math.min(1,(t-born)/2400);
-  var fE=Math.max(f, intro*intro*(3-2*intro)*0.055);
+  var fE=Math.max(f, intro*intro*(3-2*intro)*0.045);
 
   /* text beats */
   for(var b=0;b<beats.length;b++){
@@ -612,7 +618,7 @@ function frame(t){
       lastBeatA[b]=key;
     }
   }
-  var ma=(fE>0.42&&fE<0.55)?beatAlpha(fE,[0.435,0.54]):0;
+  var ma=(fE>0.385&&fE<0.51)?beatAlpha(fE,[0.395,0.50]):0;
   ma=Math.round(ma*50)/50;
   if(marks.__o!==ma){ marks.style.opacity=ma; marks.__o=ma; }
 
