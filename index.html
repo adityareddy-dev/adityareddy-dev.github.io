@@ -4,144 +4,193 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aditya Reddy</title>
-<meta name="description" content="Senior software engineer. Observability, platform engineering and Kubernetes for systems where downtime has a dollar sign attached to it.">
+<meta name="description" content="Senior software engineer. Frontend first, then the platform under it. Observability, Kubernetes, and systems where downtime has a dollar sign attached to it.">
 <meta property="og:title" content="Aditya Reddy">
-<meta property="og:description" content="Senior software engineer. Observability, platform engineering, Kubernetes.">
+<meta property="og:description" content="Senior software engineer. Frontend, platform, Kubernetes.">
 <meta property="og:image" content="https://adityareddy-dev.github.io/assets/aditya.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1117'/%3E%3Cpath d='M8 46 C16 46 20 34 26 26 C31 19 34 17 38 17 C42 17 44 20 47 25 C51 32 55 38 60 41' fill='none' stroke='%2358a6ff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050710'/%3E%3Cpath d='M8 46 C16 46 20 34 26 26 C31 19 34 17 38 17 C42 17 44 20 47 25 C51 32 55 38 60 41' fill='none' stroke='%2366b8ff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=Fraunces:opsz,wght@9..144,560&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#1d1d1f; --paper:#ffffff; --paper-2:#f5f5f7; --muted:#6e6e73;
-  --night:#0d1117; --night-2:#111823; --snow:#f5f5f7; --dim:#8b98a5;
-  --blue:#58a6ff; --blue-deep:#2f81f7;
+  --night:#050710; --snow:#f5f5f7; --dim:#a8b4c6;
+  --blue:#66b8ff; --blue-deep:#1a5fd0; --glow:#8fd0ff;
   --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --serif:'Fraunces',Georgia,serif;
   --pad:clamp(20px,5vw,72px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);color:var(--ink);background:var(--paper);
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
-img{max-width:100%;display:block}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);color:var(--snow);background:var(--night);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-section{padding:clamp(80px,12vh,150px) var(--pad)}
-.wrap{max-width:1080px;margin:0 auto}
-.dark{background:linear-gradient(160deg,var(--night) 0%,var(--night-2) 100%);color:var(--snow)}
-.grey{background:var(--paper-2)}
+.skip{position:fixed;top:-60px;left:16px;z-index:200;background:#fff;color:#000;
+  padding:10px 18px;border-radius:10px;font-weight:600;transition:top .2s}
+.skip:focus{top:12px}
 
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 var(--pad);
-  backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
-  background:rgba(13,17,23,.72);color:var(--snow);
-  font-size:13px;letter-spacing:.2px}
-nav .logo{font-weight:700;font-size:15px;text-decoration:none}
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:90;height:52px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);
+  color:var(--snow);font-size:13px;background:transparent;transition:background .35s, box-shadow .35s}
+nav.scrolled{backdrop-filter:saturate(160%) blur(18px);-webkit-backdrop-filter:saturate(160%) blur(18px);
+  background:rgba(5,7,16,.82);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+nav .logo{font-weight:700;font-size:15px;text-decoration:none;letter-spacing:-.01em}
 nav .links{display:flex;gap:26px}
-nav .links a{text-decoration:none;color:#c9d1d9;transition:color .2s}
+nav .links a{text-decoration:none;color:#c2cbd8;transition:color .2s}
 nav .links a:hover{color:#fff}
+nav a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
 @media(max-width:600px){nav .links{gap:16px}nav .links a.hide-sm{display:none}}
 
-/* hero */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  align-items:center;text-align:center;position:relative;
-  background:linear-gradient(180deg,#0d1117 0%,#0d1117 55%,#101a28 100%);color:var(--snow);
-  padding-top:52px}
-.hero .kicker{font-size:clamp(14px,1.6vw,17px);font-weight:600;letter-spacing:3px;
-  text-transform:uppercase;color:var(--blue);margin-bottom:22px}
-.hero h1{font-size:clamp(52px,11vw,132px);font-weight:800;letter-spacing:-.03em;line-height:.98}
-.hero .sub{margin-top:26px;font-size:clamp(17px,2.4vw,24px);color:var(--dim);
-  max-width:620px;line-height:1.5}
-.hero .curve{position:absolute;left:0;right:0;bottom:0;width:100%;height:34vh;pointer-events:none}
-.hero .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
-  color:var(--dim);font-size:12px;letter-spacing:2px;text-transform:uppercase;
-  animation:bob 2.4s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+/* ---------- the film ---------- */
+.film{position:relative;height:820vh;height:820svh}
+.screen{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+  background:radial-gradient(130% 100% at 50% -20%, #0c1728 0%, #070d1a 45%, var(--night) 80%)}
+.screen canvas{position:absolute;inset:0;width:100%;height:100%}
 
-/* statement band */
-.statement{min-height:78vh;display:flex;align-items:center}
-.statement h2{font-family:var(--serif);font-size:clamp(34px,6.4vw,76px);font-weight:600;
-  line-height:1.12;letter-spacing:-.01em;max-width:15ch}
-.statement .note{margin-top:28px;font-size:clamp(16px,2vw,20px);color:var(--muted);
-  max-width:560px;line-height:1.65}
+/* text beats over the canvas */
+.beat{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;padding:0 var(--pad);opacity:0;pointer-events:none;
+  will-change:opacity,transform;transform:translateZ(0)}
+.beat h2{font-family:var(--serif);font-weight:560;letter-spacing:-.01em;line-height:1.08;
+  font-size:clamp(32px,5.6vw,68px);max-width:20ch;text-wrap:balance}
+.beat p{margin-top:18px;font-size:clamp(15px,1.9vw,19px);color:var(--dim);line-height:1.6;max-width:520px}
+.beat .tag{margin-top:14px;font-size:13px;font-weight:600;letter-spacing:2px;color:var(--glow);text-transform:uppercase}
+.beat .metric{color:var(--glow);font-weight:700}
+.beat h2,.beat p,.beat .tag,.beat0 .kicker,.beat0 .sub{
+  text-shadow:0 1px 4px rgba(5,7,16,.9)}
+.beat::before{content:"";position:absolute;left:50%;top:50%;width:min(960px,98vw);height:70vh;
+  transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;z-index:-1;
+  background:radial-gradient(closest-side,rgba(5,7,16,.88),rgba(5,7,16,.55) 58%,rgba(5,7,16,0))}
+@media(min-width:960px){
+  .beat.left::before{left:31%}
+  .beat.right::before{left:69%}
+  .beat.low::before{top:72%}
+}
+.beat.low{justify-content:flex-end;padding-bottom:14vh;padding-bottom:14svh}
+.beat.big h2{font-family:var(--sans);font-weight:800;letter-spacing:-.03em;font-size:clamp(38px,7vw,86px)}
+@media(min-width:960px){
+  .beat.left{align-items:flex-start;text-align:left;padding-left:max(8vw,var(--pad))}
+  .beat.left p{margin-left:0}
+  .beat.right{align-items:flex-end;text-align:right;padding-right:max(8vw,var(--pad))}
+}
+/* beat 0 = hero chrome around the particle name */
+.beat0{position:absolute;inset:0;pointer-events:none;opacity:0;will-change:opacity;transform:translateZ(0)}
+.beat0 .kicker{position:absolute;top:20vh;top:20svh;left:0;right:0;text-align:center;
+  font-size:clamp(12px,1.4vw,15px);font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--glow)}
+.beat0 .sub{position:absolute;bottom:24vh;bottom:24svh;left:50%;transform:translateX(-50%);
+  width:min(620px,86vw);text-align:center;font-size:clamp(16px,2.1vw,21px);color:var(--dim);line-height:1.55}
+.hint{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#7d8ca3;
+  font-size:16px;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0);opacity:.9}50%{transform:translate(-50%,8px);opacity:.35}}
 
-/* about */
-.about .wrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:clamp(32px,6vw,80px);align-items:start}
-@media(max-width:820px){.about .wrap{grid-template-columns:1fr}.about .photo{order:-1;max-width:340px}}
-.about h3,.h3{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.02em;margin-bottom:26px}
-.about p{font-size:clamp(16px,1.9vw,19px);line-height:1.7;color:#3a3a3c;margin-bottom:18px;max-width:60ch}
-.about .photo img{border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.16)}
-.about .photo figcaption{margin-top:12px;font-size:13px;color:var(--muted);text-align:center}
+/* p95/p99 markers for the tail beat */
+.marks{position:absolute;inset:0;pointer-events:none;opacity:0;will-change:opacity}
+.marks span{position:absolute;bottom:12vh;font-size:13px;font-weight:600;color:#8fa2bd;
+  border-left:1px dashed rgba(143,162,189,.5);padding:0 0 26vh 8px}
+.marks .m95{left:63%}
+.marks .m99{left:82%}
 
-/* numbers */
-.numbers .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:44px}
-.numcard{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
-  border-radius:20px;padding:30px 26px}
-.numcard .big{font-size:clamp(38px,5.4vw,58px);font-weight:800;letter-spacing:-.03em;color:#fff}
-.numcard .big em{font-style:normal;color:var(--blue)}
-.numcard .lbl{margin-top:8px;font-size:14.5px;line-height:1.5;color:var(--dim)}
-.numbers .h3{color:#fff}
-.numbers .lead{color:var(--dim);font-size:clamp(16px,2vw,19px);line-height:1.65;max-width:62ch}
+/* ---------- static fallback (no-JS / reduced motion) ---------- */
+.static-hero{display:none}
+html:not(.js) .film,html.rm .film{height:auto}
+html:not(.js) .screen,html.rm .screen{position:static;height:auto;background:var(--night)}
+html:not(.js) .screen canvas,html.rm .screen canvas{display:none}
+html:not(.js) .beat,html.rm .beat,
+html:not(.js) .beat0,html.rm .beat0{position:static;opacity:1;pointer-events:auto;
+  padding:90px var(--pad);display:flex;flex-direction:column;align-items:center;text-align:center}
+html:not(.js) .beat0 .kicker,html.rm .beat0 .kicker{position:static;margin-bottom:16px}
+html:not(.js) .beat0 .sub,html.rm .beat0 .sub{position:static;transform:none;margin-top:18px}
+html:not(.js) .static-hero,html.rm .static-hero{display:block;text-align:center;padding-top:120px}
+html:not(.js) .hint,html.rm .hint,html:not(.js) .marks,html.rm .marks{display:none}
+.static-hero h1{font-weight:900;letter-spacing:-.03em;font-size:clamp(46px,10vw,120px);color:#fff}
+.static-hero svg{width:100%;height:220px;margin-top:30px}
 
-/* career */
-.career .h3{margin-bottom:10px}
-.career .lead{color:var(--muted);font-size:clamp(15px,1.8vw,18px);margin-bottom:52px;max-width:60ch;line-height:1.6}
+/* ---------- editorial: the dark world continues ---------- */
+main{display:block;background:var(--night);color:var(--snow);position:relative}
+main::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 40% at 20% 0%,rgba(102,184,255,.05),transparent 70%),
+    radial-gradient(50% 35% at 85% 30%,rgba(102,184,255,.03),transparent 70%)}
+section.ed{padding:clamp(90px,13vh,160px) var(--pad);position:relative}
+.wrap{max-width:1080px;margin:0 auto}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;
+  color:var(--glow);margin-bottom:14px}
+.dh{font-family:var(--serif);font-weight:560;font-size:clamp(30px,4.4vw,52px);
+  letter-spacing:-.012em;line-height:1.12;margin-bottom:26px;text-wrap:balance;color:#fff}
+
+.about .wrap{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:clamp(32px,6vw,84px);
+  grid-template-areas:"head photo" "body photo";align-items:start}
+.about .abhead{grid-area:head}
+.about .abbody{grid-area:body}
+.about .photo{grid-area:photo;align-self:center;position:relative}
+@media(max-width:840px){
+  .about .wrap{grid-template-columns:1fr;grid-template-areas:"head" "photo" "body"}
+  .about .photo{max-width:340px;margin:0 auto}
+  .about .photo img{max-height:44vh;object-fit:cover;object-position:50% 20%}
+}
+.about p{font-size:clamp(16px,1.9vw,19px);line-height:1.7;color:var(--dim);margin-bottom:18px;max-width:58ch}
+.about .photo img{border-radius:14px;border:1px solid rgba(255,255,255,.12);
+  filter:saturate(.92) contrast(1.04)}
+.about .photo::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;
+  background:linear-gradient(200deg,rgba(102,184,255,.10),transparent 45%,rgba(5,7,16,.42) 96%)}
+.about .photo figcaption{margin-top:10px;font-size:11px;letter-spacing:1.6px;
+  text-transform:uppercase;color:#6b7a91;text-align:left}
+
+.career .lead{color:var(--dim);font-size:clamp(15px,1.8vw,18px);margin-bottom:56px;max-width:58ch;line-height:1.6}
 .job{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(18px,4vw,56px);
-  padding:34px 0;border-top:1px solid #e2e2e6}
-.job:last-of-type{border-bottom:1px solid #e2e2e6}
+  padding:36px 0;border-top:1px solid rgba(255,255,255,.09)}
+.job:last-of-type{border-bottom:1px solid rgba(255,255,255,.09)}
 @media(max-width:640px){.job{grid-template-columns:1fr;gap:6px}}
-.job .when{font-size:14px;font-weight:600;color:var(--muted);padding-top:5px;letter-spacing:.3px}
-.job h4{font-size:clamp(19px,2.4vw,24px);font-weight:700;letter-spacing:-.01em}
-.job .org{font-size:15px;color:var(--blue-deep);font-weight:600;margin-top:3px}
-.job p{margin-top:12px;font-size:15.5px;line-height:1.65;color:#4b4b4f;max-width:62ch}
-.job .clients{margin-top:10px;font-size:13.5px;color:var(--muted)}
+.job .when{font-size:14px;font-weight:600;color:#6b7a91;padding-top:5px}
+.job h3{font-size:clamp(19px,2.4vw,24px);font-weight:700;letter-spacing:-.012em;color:#fff}
+.job .org{font-size:15px;color:var(--glow);font-weight:600;margin-top:3px}
+.job p{margin-top:12px;font-size:15.5px;line-height:1.66;color:var(--dim);max-width:62ch}
+.job .clients{margin-top:10px;font-size:13.5px;color:#6b7a91}
 
-/* skills marquee-ish */
-.skills{padding-top:0}
 .chips{display:flex;flex-wrap:wrap;gap:10px;max-width:900px}
 .chip{font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:999px;
-  border:1px solid #d9d9de;color:#3a3a3c;background:#fff}
-.chip.hot{background:var(--ink);color:#fff;border-color:var(--ink)}
+  border:1px solid rgba(255,255,255,.14);color:var(--dim);background:rgba(255,255,255,.03)}
+.chip.hot{background:rgba(102,184,255,.14);color:var(--glow);border-color:rgba(102,184,255,.4)}
 
-/* writing */
-.writing .card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
-  border-radius:24px;padding:clamp(28px,4.5vw,52px);max-width:760px}
-.writing .tag{font-size:12px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--blue)}
-.writing h4{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.015em;
-  margin:14px 0 16px;color:#fff;line-height:1.25}
+.writing .card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;padding:clamp(28px,4.5vw,54px);max-width:760px;
+  box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.writing .tag{font-size:12px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:var(--glow)}
+.writing h3{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.015em;margin:14px 0 16px;line-height:1.25;color:#fff}
 .writing p{color:var(--dim);font-size:16px;line-height:1.7;max-width:58ch}
-.writing .h3{color:#fff}
 
-/* contact */
 .contact{text-align:center}
-.contact h3{font-size:clamp(32px,5.4vw,58px);font-weight:800;letter-spacing:-.025em}
-.contact p{margin-top:16px;color:var(--muted);font-size:clamp(16px,2vw,19px)}
-.contact .row{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.contact h2{font-family:var(--serif);font-weight:560;letter-spacing:-.02em;
+  font-size:clamp(38px,6vw,70px);color:#fff}
+.contact p{margin-top:16px;color:var(--dim);font-size:clamp(16px,2vw,19px)}
+.contact .row{margin-top:42px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .btn{display:inline-block;text-decoration:none;font-size:16px;font-weight:600;
-  padding:14px 30px;border-radius:999px;transition:transform .18s,box-shadow .18s}
-.btn.primary{background:var(--blue-deep);color:#fff}
-.btn.ghost{border:1.5px solid #c8c8cd;color:var(--ink)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.14)}
+  padding:14px 30px;border-radius:999px;transition:transform .18s, box-shadow .18s}
+.btn.primary{background:var(--blue-deep);color:#fff;box-shadow:0 0 34px rgba(47,129,247,.35)}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.25);color:var(--snow)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(47,129,247,.35)}
 
-footer{padding:34px var(--pad);text-align:center;font-size:13px;color:var(--muted);background:var(--paper-2)}
+footer{padding:34px var(--pad);text-align:center;font-size:13px;color:#6b7a91;
+  background:var(--night);border-top:1px solid rgba(255,255,255,.07)}
 
-/* reveal */
-html.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+html.js .reveal{opacity:0;transform:translateY(24px);
+  transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
 html.js .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .hero .scroll-hint{animation:none}
-  html{scroll-behavior:auto}
+  html.js .reveal{opacity:1;transform:none;transition:none}
+  .hint{animation:none}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#about">Skip intro</a>
 
-<nav>
+<nav id="nav">
   <a class="logo" href="#top">Aditya Reddy</a>
   <div class="links">
     <a href="#about">About</a>
@@ -151,122 +200,124 @@ html.js .reveal.in{opacity:1;transform:none}
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="kicker">Observability · Platform · Kubernetes</div>
-  <h1>Aditya Reddy</h1>
-  <p class="sub">Senior software engineer. I build and run production systems for companies where downtime has a dollar sign attached to it.</p>
-  <svg class="curve" viewBox="0 0 1584 340" preserveAspectRatio="none" aria-hidden="true">
-    <defs><linearGradient id="g" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="#58a6ff" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#58a6ff" stop-opacity="0"/></linearGradient></defs>
-    <path d="M0,340 C110,340 165,296 225,244 C285,191 330,166 390,166 C450,166 490,194 535,236 C600,296 690,320 830,330 C1010,337 1250,339 1584,339 L1584,340 Z" fill="url(#g)"/>
-    <path d="M0,340 C110,340 165,296 225,244 C285,191 330,166 390,166 C450,166 490,194 535,236 C600,296 690,320 830,330 C1010,337 1250,339 1584,339" fill="none" stroke="#58a6ff" stroke-width="2" stroke-opacity="0.8"/>
-    <g stroke="#8b98a5" stroke-dasharray="3 5" stroke-opacity="0.5">
-      <line x1="830" y1="212" x2="830" y2="340"/><line x1="1150" y1="248" x2="1150" y2="340"/></g>
-    <g fill="#8b98a5" font-family="Inter,sans-serif" font-size="13" font-weight="600">
-      <text x="842" y="228">p95</text><text x="1162" y="264">p99</text></g>
-  </svg>
-  <div class="scroll-hint">scroll</div>
-</header>
+<!-- ============ THE FILM ============ -->
+<div class="film" id="film">
+  <div class="screen" id="top">
+    <canvas id="stage" aria-hidden="true"></canvas>
 
-<section class="statement grey">
-  <div class="wrap reveal">
-    <h2>Averages hide the users who are waiting.</h2>
-    <p class="note">Most monitoring tells you the system is fine on average. The users who left were never average. I measure the tail, at the boundary, where the experience actually happens.</p>
+    <div class="static-hero">
+      <h1>Aditya Reddy</h1>
+      <svg viewBox="0 0 1584 420" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0.0,357.2 L52.8,329.0 L105.6,295.8 L158.4,259.8 L211.2,224.1 L264.0,192.7 L316.8,170.0 L369.6,160.7 L422.4,166.9 L475.2,186.6 L528.0,214.7 L580.8,245.7 L633.6,275.1 L686.4,300.4 L739.2,320.7 L792.0,336.5 L844.8,348.5 L897.6,357.9 L950.4,365.5 L1003.2,372.1 L1056.0,377.8 L1108.8,383.1 L1161.6,387.9 L1214.4,392.3 L1267.2,396.3 L1320.0,399.9 L1372.8,403.1 L1425.6,405.9 L1478.4,408.4 L1531.2,410.5 L1584.0,412.3"
+          fill="none" stroke="#66b8ff" stroke-width="2.5" stroke-opacity="0.85"/>
+      </svg>
+    </div>
+
+    <div class="beat0" data-b="0">
+      <div class="kicker">Frontend · Platform · Kubernetes</div>
+      <p class="sub">Senior software engineer. I build and run production systems for companies where downtime has a dollar sign attached to it.</p>
+    </div>
+
+    <div class="beat left" data-b="1">
+      <h2>Started in the pixels.</h2>
+      <p>Ten years of shipping interfaces people actually touch. The label that stuck at work is frontend guru, though these days the pixels are only half the job.</p>
+    </div>
+
+    <div class="beat right" data-b="2">
+      <h2>Then the stack underneath.</h2>
+      <p>Backend, cloud, pipelines, security. Each layer cause the one above it kept breaking on something I couldn't see yet.</p>
+    </div>
+
+    <div class="beat" data-b="3">
+      <h2>Averages hide the users who are waiting.</h2>
+      <p>The distribution has a tail, and the tail is where the experience actually happens. <span class="metric">p95</span> says someone is hurting. <span class="metric">p99</span> says who.</p>
+    </div>
+
+    <div class="beat big left" data-b="4">
+      <h2>One keystroke. 300 re&#8209;renders.</h2>
+      <p>A form-heavy enterprise app cloned its whole state tree on every keystroke. Every point of light is a component doing pointless work.</p>
+    </div>
+
+    <div class="beat big right" data-b="5">
+      <h2>Rewrite the state layer and it's one.</h2>
+      <p>Instrumented numbers, not an estimate.</p>
+      <div class="tag">INP 426ms &#8594; 268ms</div>
+    </div>
+
+    <div class="beat left" data-b="6">
+      <h2>Now the platform under all of it.</h2>
+      <p>Kubernetes, Vault, Terraform, the release trains. I run what I build, and I carry the pager for it.</p>
+    </div>
+
+    <div class="beat big low" data-b="7">
+      <h2>Faster in the field.</h2>
+      <p>A controlled experiment proved which change did it. Making it fast is half the job. Proving why is the half people skip.</p>
+    </div>
+
+    <div class="marks" id="marks"><span class="m95">p95</span><span class="m99">p99</span></div>
+    <div class="hint" aria-hidden="true">&#9662;</div>
   </div>
-</section>
+</div>
 
-<section class="about" id="about">
+<!-- ============ EDITORIAL ============ -->
+<main>
+<section class="ed about" id="about">
   <div class="wrap">
-    <div class="reveal">
-      <h3>The seam between the code and the platform.</h3>
-      <p>Right now I lead observability for a major application rebuild at a Fortune 100 financial services company. The legacy and rebuilt stacks run side by side, and the monitoring has to referee between them fairly or the comparison is worthless. I defined the SLI framework the stakeholders signed off on, and moved measurement to the gateway instead of trusting what each application reports about itself.</p>
-      <p>Before that I was a core engineer on straight-through processing of insurance applications: 16 Node microservices, 3 React apps, an event-driven architecture on AWS. I took the team's DevSecOps role cause someone had to, and it turned out I liked the pipelines as much as the product.</p>
-      <p>Nine years in software, seven of them building and operating production web systems in the US, across financial services, healthcare and retail supply chain.</p>
+    <div class="abhead reveal">
+      <div class="eyebrow">About</div>
+      <h2 class="dh">The seam between the code and the platform.</h2>
     </div>
     <figure class="photo reveal">
-      <img src="assets/aditya.jpg" srcset="assets/aditya-sm.jpg 640w, assets/aditya.jpg 1200w" sizes="(max-width:820px) 340px, 340px" alt="Aditya Reddy on the Brooklyn Bridge" width="1200" height="1200" loading="lazy">
+      <img src="assets/aditya.jpg" srcset="assets/aditya-sm.jpg 640w, assets/aditya.jpg 1200w" sizes="350px" alt="Aditya Reddy on the Brooklyn Bridge" width="1200" height="1200" loading="lazy">
       <figcaption>Brooklyn Bridge, New York</figcaption>
     </figure>
+    <div class="abbody reveal">
+      <p>Right now I lead observability for a major application rebuild at Northwestern Mutual. The legacy and rebuilt stacks run side by side, and the monitoring has to referee between them fairly or the comparison is worthless. I defined the SLI framework the stakeholders signed off on, and moved measurement to the gateway instead of trusting what each application reports about itself.</p>
+      <p>Before that I was a core engineer on straight-through processing of insurance applications: 16 Node microservices, 3 React apps, an event-driven architecture on AWS. I took the team's DevSecOps role cause someone had to, and it turned out I liked the pipelines as much as the product. PagerDuty on-call too. You should carry the pager for what you build though.</p>
+      <p>Nine years in software, seven of them building and operating production web systems in the US, across financial services, healthcare and retail supply chain.</p>
+    </div>
   </div>
 </section>
 
-<section class="numbers dark">
+<section class="ed career" id="career">
   <div class="wrap">
     <div class="reveal">
-      <h3 class="h3">The work, in numbers.</h3>
-      <p class="lead">Real measurements from real systems. The kind you can put in front of a stakeholder and defend.</p>
+      <div class="eyebrow">Career</div>
+      <h2 class="dh">Where the label came from.</h2>
+      <p class="lead">Started in Hyderabad, ended up in Milwaukee via a masters in Fort Collins. Front end work at first, and these days mostly the platform everything else runs on.</p>
     </div>
-    <div class="grid">
-      <div class="numcard reveal"><div class="big">37<em>%</em></div><div class="lbl">INP improvement in the field, proven to come from the frontend state layer, not the API everyone blamed</div></div>
-      <div class="numcard reveal"><div class="big">p99</div><div class="lbl">replaced success-only monitoring with tail latency reporting, cause averages are where slow users disappear</div></div>
-      <div class="numcard reveal"><div class="big">16<em>+</em>3</div><div class="lbl">Node microservices and React apps behind straight-through processing of insurance applications</div></div>
-      <div class="numcard reveal"><div class="big">300<em>→</em>1</div><div class="lbl">component re-renders per keystroke, before and after the state rewrite. Instrumented, not estimated</div></div>
-    </div>
+    <div class="job reveal"><div class="when">2022 · now</div><div>
+      <h3>Senior Software Engineer</h3><div class="org">Northwestern Mutual · Milwaukee</div>
+      <p>Observability lead for an enterprise application rebuild spanning 4 backend services, 16 user interfaces and 2 databases. SLI design, gateway-level measurement, distributed tracing, release trains, and the CI/CD and security scanning the team ships through.</p>
+    </div></div>
+    <div class="job reveal"><div class="when">2021 · 2022</div><div>
+      <h3>Software Engineer</h3><div class="org">Northwestern Mutual · Milwaukee</div>
+      <p>Core engineer on straight-through processing of underwriting applications. Converted the platform to a multi-case, event-driven design on AWS SQS and SNS, provisioned the messaging infrastructure in Terraform, and shipped reverse approval and decline handling end to end.</p>
+    </div></div>
+    <div class="job reveal"><div class="when">2019 · 2021</div><div>
+      <h3>Software Developer</h3><div class="org">Egen Solutions · Chicago</div>
+      <p>Consulting engineer with enterprise clients in healthcare distribution and retail supply chain. React, Redux and Java Spring Boot on an enterprise reporting platform, D3 dashboard visualizations, and a home delivery scheduling platform.</p>
+      <div class="clients">Clients: McKesson · Sears, Innovel Solutions</div>
+    </div></div>
+    <div class="job reveal"><div class="when">2017 · 2019</div><div>
+      <h3>MS, Computer Information Systems</h3><div class="org">Colorado State University · Fort Collins</div>
+      <p>Graduate teaching assistant for Data Visualizations along the way, teaching Tableau, Power BI, SAP Lumira and Excel to graduate students.</p>
+    </div></div>
+    <div class="job reveal"><div class="when">2014 · 2016</div><div>
+      <h3>Software Developer</h3><div class="org">Metier Software Solutions · Hyderabad</div>
+      <p>Front end on customer-facing web applications, then across the stack: Node.js REST endpoints against SQL Server, and early container work with Docker, Ansible and Kubernetes when that was still a strange thing for a Hyderabad product team to be doing.</p>
+    </div></div>
   </div>
 </section>
 
-<section class="career" id="career">
-  <div class="wrap">
-    <div class="reveal">
-      <h3 class="h3">Career</h3>
-      <p class="lead">Hyderabad to Fort Collins to Milwaukee. Front end first, then the whole stack, then the platform under it.</p>
-    </div>
-
-    <div class="job reveal">
-      <div class="when">2022 · now</div>
-      <div>
-        <h4>Senior Software Engineer</h4>
-        <div class="org">Northwestern Mutual · Milwaukee</div>
-        <p>Observability lead for an enterprise application rebuild spanning 4 backend services, 16 user interfaces and 2 databases. SLI design, gateway-level measurement, distributed tracing, release trains, and the CI/CD and security scanning the team ships through. PagerDuty on-call, cause you should carry the pager for what you build.</p>
-      </div>
-    </div>
-
-    <div class="job reveal">
-      <div class="when">2021 · 2022</div>
-      <div>
-        <h4>Software Engineer</h4>
-        <div class="org">Northwestern Mutual · Milwaukee</div>
-        <p>Core engineer on straight-through processing of underwriting applications. Converted the platform to a multi-case, event-driven design on AWS SQS and SNS, provisioned the messaging infrastructure in Terraform, and shipped reverse approval and decline handling end to end.</p>
-      </div>
-    </div>
-
-    <div class="job reveal">
-      <div class="when">2019 · 2021</div>
-      <div>
-        <h4>Software Developer</h4>
-        <div class="org">Egen Solutions · Chicago</div>
-        <p>Consulting engineer with enterprise clients in healthcare distribution and retail supply chain. React, Redux and Java Spring Boot on an enterprise reporting platform, D3 dashboard visualisations, and a home delivery scheduling platform.</p>
-        <div class="clients">Clients: McKesson · Sears, Innovel Solutions</div>
-      </div>
-    </div>
-
-    <div class="job reveal">
-      <div class="when">2017 · 2019</div>
-      <div>
-        <h4>MS, Computer Information Systems</h4>
-        <div class="org">Colorado State University · Fort Collins</div>
-        <p>Graduate teaching assistant for Data Visualizations along the way, teaching Tableau, Power BI, SAP Lumira and Excel to graduate students.</p>
-      </div>
-    </div>
-
-    <div class="job reveal">
-      <div class="when">2014 · 2016</div>
-      <div>
-        <h4>Software Developer</h4>
-        <div class="org">Metier Software Solutions · Hyderabad</div>
-        <p>Front end on customer-facing web applications, then across the stack: Node.js REST endpoints against SQL Server, and early container work with Docker, Ansible and Kubernetes when that was still a strange thing for a Hyderabad product team to be doing.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="skills grey">
+<section class="ed">
   <div class="wrap reveal">
-    <h3 class="h3" style="margin-bottom:30px">Tools I reach for</h3>
+    <div class="eyebrow">Toolkit</div>
+    <h2 class="dh" style="margin-bottom:30px">Tools I reach for.</h2>
     <div class="chips">
-      <span class="chip hot">Kubernetes</span><span class="chip hot">Observability</span><span class="chip hot">Web performance</span>
-      <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Node.js</span>
+      <span class="chip hot">React</span><span class="chip hot">Kubernetes</span><span class="chip hot">Observability</span>
+      <span class="chip hot">Web performance</span>
+      <span class="chip">TypeScript</span><span class="chip">Node.js</span>
       <span class="chip">Java · Spring Boot</span><span class="chip">Terraform</span><span class="chip">Docker</span>
       <span class="chip">AWS</span><span class="chip">Vault</span><span class="chip">GitLab CI/CD</span>
       <span class="chip">Dynatrace</span><span class="chip">OpenSearch</span><span class="chip">Playwright</span>
@@ -275,23 +326,24 @@ html.js .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
-<section class="writing dark" id="writing">
+<section class="ed writing" id="writing">
   <div class="wrap">
     <div class="reveal">
-      <h3 class="h3" style="margin-bottom:34px">Writing</h3>
+      <div class="eyebrow">Writing</div>
+      <h2 class="dh" style="margin-bottom:34px">Proof over opinion.</h2>
     </div>
     <div class="card reveal">
       <div class="tag">In the works</div>
-      <h4>Working out which change actually fixed our INP</h4>
-      <p>Two teams shipped in the same window and both claimed the win. A lab sweep of injected latency from 0 to 1800ms, plus field data segmented by the element each interaction landed on, settled it. The method generalises to any argument where two teams claim the same improvement.</p>
+      <h3>Working out which change actually fixed our INP</h3>
+      <p>Two teams shipped in the same window and both claimed the win. A lab sweep of injected latency from 0 to 1800ms, plus field data segmented by the element each interaction landed on, settled it. Draft is in progress.</p>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="ed contact" id="contact">
   <div class="wrap reveal">
-    <h3>Say hello.</h3>
-    <p>Milwaukee, Wisconsin. Open to good conversations about observability, performance and platforms.</p>
+    <h2>Say hello.</h2>
+    <p>Milwaukee, Wisconsin. Open to good conversations about frontend, observability and platforms.</p>
     <div class="row">
       <a class="btn primary" href="mailto:adityareddy.dev@gmail.com">Email me</a>
       <a class="btn ghost" href="https://github.com/adityareddy-dev">GitHub</a>
@@ -299,16 +351,340 @@ html.js .reveal.in{opacity:1;transform:none}
     </div>
   </div>
 </section>
+</main>
 
 <footer>© <span id="yr">2026</span> Aditya Reddy · Milwaukee, WI</footer>
 
 <script>
-document.documentElement.classList.add('js');
-document.getElementById('yr').textContent = new Date().getFullYear();
-const io = new IntersectionObserver((es)=>{
-  for (const e of es) if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-},{threshold:0.14});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+(function(){
+'use strict';
+var doc=document.documentElement;
+doc.classList.add('js');
+var mq=matchMedia('(prefers-reduced-motion: reduce)');
+if(mq.matches) doc.classList.add('rm');
+mq.addEventListener && mq.addEventListener('change',function(){ location.reload(); });
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* nav state */
+var nav=document.getElementById('nav');
+function navState(){ nav.classList.toggle('scrolled', scrollY>40); }
+addEventListener('scroll',navState,{passive:true}); navState();
+
+/* editorial reveals */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+if(mq.matches) return;  /* film disabled: static stacked fallback via CSS */
+
+/* =================== THE PARTICLE FILM =================== */
+var film=document.getElementById('film');
+var cv=document.getElementById('stage'), ctx=cv.getContext('2d');
+var W=0,H=0,DPR=1,N=0;
+var px,py,rand1,rand2,depth;         /* particle state */
+var FORMS={};
+var SEGS=[['scatter',0,0],['name',0.045,0.105],['code',0.155,0.225],
+  ['graph',0.275,0.345],['tail',0.40,0.49],['grid',0.545,0.615],
+  ['one',0.665,0.73],['hex',0.78,0.845],['pct',0.895,0.965],['lift',1.02,1.2]];
+var beats=[].slice.call(document.querySelectorAll('[data-b]'));
+var exRects=[];
+function measureEx(){
+  exRects=[];
+  ['.beat0 .kicker','.beat0 .sub'].forEach(function(sel){
+    var el=document.querySelector(sel); if(!el) return;
+    var r=el.getBoundingClientRect(),k=W/cv.clientWidth;
+    exRects.push([(r.left-14)*k,(r.top-10)*k,(r.right+14)*k,(r.bottom+10)*k]);
+  });
+}
+var marks=document.getElementById('marks');
+/* text beat windows on film progress f */
+var BW=[[0.00,0.10],[0.14,0.245],[0.26,0.365],[0.385,0.505],[0.53,0.635],[0.65,0.745],[0.765,0.86],[0.88,0.985]];
+
+/* glow sprite variants, alpha baked in */
+function makeSpr(alpha){
+  var c=document.createElement('canvas'); c.width=c.height=32;
+  var g=c.getContext('2d'),grd=g.createRadialGradient(16,16,0,16,16,16);
+  grd.addColorStop(0,'rgba(255,255,255,'+alpha+')');
+  grd.addColorStop(.25,'rgba(160,215,255,'+(alpha*.9)+')');
+  grd.addColorStop(.6,'rgba(102,184,255,'+(alpha*.35)+')');
+  grd.addColorStop(1,'rgba(102,184,255,0)');
+  g.fillStyle=grd; g.fillRect(0,0,32,32); return c;
+}
+var sprBright=makeSpr(1),sprMid=makeSpr(0.62),sprDim=makeSpr(0.12);
+
+function mulberry(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; var t=Math.imul(a^a>>>15,1|a);
+  t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+
+function alloc(){
+  var cw=cv.clientWidth,chh=cv.clientHeight;
+  /* fixed internal resolution: raster cost independent of viewport/DPR */
+  var RS=Math.min(1,1150/cw);
+  W=Math.round(cw*RS); H=Math.round(chh*RS);
+  cv.width=W; cv.height=H; ctx.setTransform(1,0,0,1,0,0);
+  DPR=1;
+  N=Math.max(1200,Math.min(2800,Math.floor(W*H/320)));
+  px=new Float32Array(N); py=new Float32Array(N);
+  rand1=new Float32Array(N); rand2=new Float32Array(N); depth=new Float32Array(N);
+  var rng=mulberry(1234);
+  for(var i=0;i<N;i++){ rand1[i]=rng(); rand2[i]=rng(); depth[i]=.5+rng()*.9;
+    px[i]=rng()*W; py[i]=rng()*H; }
+}
+
+/* -------- formation builders: each returns Float32Array(2N) -------- */
+function pack(pts){ /* pts = array of [x,y], resampled to N with jitter */
+  var out=new Float32Array(2*N), M=pts.length;
+  for(var i=0;i<N;i++){
+    var p=pts[(i*2654435761>>>0)%M];
+    out[2*i]=p[0]+(rand1[i]-.5)*3; out[2*i+1]=p[1]+(rand2[i]-.5)*3;
+  }
+  return out;
+}
+function textPoints(lines,boxW,boxH,cx,cy,weight){
+  var off=document.createElement('canvas'),g=off.getContext('2d');
+  off.width=1600; off.height=200*lines.length+120;
+  g.fillStyle='#fff'; g.textAlign='center'; g.textBaseline='middle';
+  var fs=170;
+  g.font=(weight||900)+' '+fs+'px Inter, sans-serif';
+  var widest=0; lines.forEach(function(L){ widest=Math.max(widest,g.measureText(L).width); });
+  var scale=Math.min(1,1500/widest); fs=Math.floor(fs*scale);
+  g.font=(weight||900)+' '+fs+'px Inter, sans-serif';
+  lines.forEach(function(L,li){ g.fillText(L,800,90+ (li+0.5)*fs*1.14); });
+  var used=fs*1.14*lines.length+40;
+  var img=g.getImageData(0,0,1600,Math.min(off.height,Math.ceil(used)+80)).data;
+  var pts=[],step=4;
+  for(var y=0;y<Math.min(off.height,used+80);y+=step)
+    for(var x=0;x<1600;x+=step)
+      if(img[(y*1600+x)*4+3]>128) pts.push([x,y]);
+  /* fit into box centered at cx,cy */
+  var minx=1e9,maxx=-1e9,miny=1e9,maxy=-1e9;
+  pts.forEach(function(p){ if(p[0]<minx)minx=p[0]; if(p[0]>maxx)maxx=p[0];
+    if(p[1]<miny)miny=p[1]; if(p[1]>maxy)maxy=p[1]; });
+  var s=Math.min(boxW/(maxx-minx+1),boxH/(maxy-miny+1));
+  var ox=cx-(maxx+minx)/2*s, oy=cy-(maxy+miny)/2*s;
+  return pts.map(function(p){ return [p[0]*s+ox,p[1]*s+oy]; });
+}
+function fScatter(){ var o=new Float32Array(2*N);
+  for(var i=0;i<N;i++){ o[2*i]=rand1[i]*W; o[2*i+1]=rand2[i]*H*1.2-H*.1; } return o; }
+function fName(){
+  var lines=(W<640)?['ADITYA','REDDY']:['ADITYA REDDY'];
+  return pack(textPoints(lines,W*.86,H*.42,W/2,H*.44));
+}
+function fCode(){ var cx=(W>=960)?W*.68:W/2; return pack(textPoints(['</>'],W*.38,H*.46,cx,H*.46)); }
+function fPct(){ return pack(textPoints(['37%'],W*.56,H*.42,W/2,H*.38)); }
+function fGraph(){
+  var rng=mulberry(77),pts=[],tiers=4,nodes=[];
+  for(var t=0;t<tiers;t++){ var count=t===0?1:(t===1?4:(t===2?8:11));
+    for(var k=0;k<count;k++){
+      nodes.push([W*((W>=960?0.38:0.5)+(k-(count-1)/2)*(0.6/Math.max(count-1,1))*(count>1?1:0)),
+                  H*(0.2+t*0.19)]); } }
+  /* edges parent -> child by proximity tiers */
+  var byTier=[[0],[1,2,3,4],[5,6,7,8,9,10,11,12],[]];
+  for(var n=13;n<nodes.length;n++) byTier[3].push(n);
+  for(var t2=1;t2<tiers;t2++){
+    byTier[t2].forEach(function(ci){
+      var parents=byTier[t2-1];
+      var pi=parents[Math.floor(rng()*parents.length)];
+      var a=nodes[pi],b=nodes[ci];
+      for(var s=0;s<14;s++){ var u=s/13;
+        pts.push([a[0]+(b[0]-a[0])*u+(rng()-.5)*4,a[1]+(b[1]-a[1])*u+(rng()-.5)*4]); }
+    });
+  }
+  nodes.forEach(function(nd){ for(var s=0;s<26;s++){ var an=rng()*6.283,r=rng()*9;
+    pts.push([nd[0]+Math.cos(an)*r,nd[1]+Math.sin(an)*r]); } });
+  return pack(pts);
+}
+function fTail(){
+  var o=new Float32Array(2*N), base=H*.86, span=H*.42;
+  var rng=mulberry(4242);
+  function nrm(){ var a=rng()||1e-9,b=rng();
+    return Math.sqrt(-2*Math.log(a))*Math.cos(6.283*b); }
+  for(var i=0;i<N;i++){
+    var x;
+    if(rng()<0.72){ x=0.2+nrm()*0.13; }
+    else { x=0.24+Math.abs(nrm())*0.42; }
+    x=Math.max(0.005,Math.min(0.985,x));
+    var m=0.2,sg=0.13;
+    var g=Math.exp(-Math.pow(x-m,2)/(2*sg*sg));
+    var gate=1/(1+Math.exp(-(x-m)/0.05));
+    var hgt=(g+0.5*Math.exp(-Math.pow((x-m)/0.5,2))*gate)/1.5*span;
+    hgt=Math.max(hgt,H*0.035); /* the far tail stays visible: that is the point */
+    o[2*i]=x*W; o[2*i+1]=base-rng()*hgt;
+  }
+  return o;
+}
+function fGrid(){
+  var cols=(W<640)?15:25, rows=Math.ceil(300/cols);
+  var gw=(W>=960)?Math.min(W*.5,780):Math.min(W*.82,900);
+  var ch=gw/cols, gh=rows*ch;
+  var ox=(W>=960)?(W*.65-gw/2):(W-gw)/2;
+  var oy=H*.5-gh/2+H*.04, o=new Float32Array(2*N);
+  for(var i=0;i<N;i++){
+    var cell=(i*2654435761>>>0)%300;
+    var cxp=ox+(cell%cols+.5)*ch, cyp=oy+(Math.floor(cell/cols)+.5)*ch;
+    o[2*i]=cxp+(rand1[i]-.5)*ch*.5; o[2*i+1]=cyp+(rand2[i]-.5)*ch*.5;
+  }
+  return o;
+}
+function fOne(){
+  var o=new Float32Array(2*N),cx=(W>=960)?W*.24:W/2,cy=(W>=960)?H*.45:H*.30;
+  for(var i=0;i<N;i++){
+    var an=rand2[i]*6.283;
+    var r=(rand1[i]<.86)? Math.sqrt(rand1[i]/.86)*22 : 46+(rand1[i]-.86)*90;
+    o[2*i]=cx+Math.cos(an)*r; o[2*i+1]=cy+Math.sin(an)*r;
+  }
+  return o;
+}
+function fHex(){
+  var pts=[],R=Math.min(W,H)*.05,cx=(W>=960)?W*.66:W/2,cy=H*.44,rng=mulberry(9);
+  var centers=[[0,0]];
+  for(var ring=1;ring<=2;ring++){
+    for(var s6=0;s6<6;s6++){ for(var k=0;k<ring;k++){
+      var an=Math.PI/3*s6, an2=Math.PI/3*(s6+2);
+      centers.push([ (Math.cos(an)*ring+ (Math.cos(an2))*k)*R*2.1,
+                     (Math.sin(an)*ring+ (Math.sin(an2))*k)*R*2.1 ]); } } }
+  centers.forEach(function(c){
+    for(var e=0;e<6;e++){ var a1=Math.PI/3*e+Math.PI/6,a2=Math.PI/3*(e+1)+Math.PI/6;
+      for(var s=0;s<7;s++){ var u=s/6;
+        pts.push([cx+c[0]+Math.cos(a1)*R+(Math.cos(a2)*R-Math.cos(a1)*R)*u,
+                  cy+c[1]+Math.sin(a1)*R+(Math.sin(a2)*R-Math.sin(a1)*R)*u]); } }
+    pts.push([cx+c[0],cy+c[1]]);
+  });
+  return pack(pts);
+}
+function fLift(){ var o=new Float32Array(2*N);
+  for(var i=0;i<N;i++){ o[2*i]=rand1[i]*W; o[2*i+1]=-H*(0.1+rand2[i]*.5); } return o; }
+
+function buildForms(){
+  FORMS.scatter=fScatter(); FORMS.name=fName(); FORMS.code=fCode();
+  FORMS.graph=fGraph(); FORMS.tail=fTail(); FORMS.grid=fGrid();
+  FORMS.one=fOne(); FORMS.hex=fHex(); FORMS.pct=fPct(); FORMS.lift=fLift();
+}
+
+/* -------- scroll -> film progress with inertia -------- */
+var targetF=0,f=0,mx=0,my=0,visible=true,rafOn=false;
+var born=performance.now();
+var lastSY=0,energy=0,pmx=-1e4,pmy=-1e4;
+var filmTotal=1;
+function cacheFilm(){ filmTotal=Math.max(1,film.offsetHeight-innerHeight); }
+function measure(){ targetF=Math.max(0,Math.min(1,scrollY/filmTotal)); }
+addEventListener('scroll',function(){
+  var sy=scrollY; energy=Math.min(1,energy+Math.abs(sy-lastSY)/900); lastSY=sy;
+  measure(); wake();
+},{passive:true});
+addEventListener('mousemove',function(e){
+  var k=W/cv.clientWidth;
+  mx=(e.clientX*k/W-.5)*14; my=(e.clientY*k/H-.5)*10;
+  pmx=e.clientX*k; pmy=e.clientY*k; wake(); },{passive:true});
+new IntersectionObserver(function(es){
+  visible=es[es.length-1].isIntersecting; if(visible) wake();
+},{threshold:0}).observe(film);
+document.addEventListener('visibilitychange',function(){ if(!document.hidden) wake(); });
+
+function ease(u){ return u*u*(3-2*u); }
+function beatAlpha(fv,w){
+  var inn=0.02,out=0.025;
+  if(fv<w[0]||fv>w[1]) return 0;
+  var a=Math.min(1,(fv-w[0])/inn), b=Math.min(1,(w[1]-fv)/out);
+  return Math.min(a,b);
+}
+
+var lastBeatA=[];
+beats.forEach(function(bb){ bb.style.opacity=0.002; }); /* pre-raster all layers */
+var NOENG=location.search.indexOf('noeng')>-1;
+var fcount=0;
+function frame(t){
+  if(NOENG){ requestAnimationFrame(frame); return; }
+  if(!visible && Math.abs(targetF-f)<0.0005 && energy<0.01){ rafOn=false; return; }
+  requestAnimationFrame(frame);
+  fcount++;
+  var idle=Math.abs(targetF-f)<0.0004 && energy<0.02 && (t-born)>2600;
+  if(idle && (fcount&1)) return;
+  var gap=Math.abs(targetF-f);
+  f+=(targetF-f)*(0.13+0.14*Math.min(1,gap*6));
+  var intro=Math.min(1,(t-born)/2400);
+  var fE=Math.max(f, intro*intro*(3-2*intro)*0.045);
+
+  /* text beats */
+  for(var b=0;b<beats.length;b++){
+    var a=(b===0)?(fE>=BW[0][1]?0:Math.min(1,(BW[0][1]-fE)/0.025)):beatAlpha(fE,BW[b]);
+    a*=Math.max(0,1-energy*1.5);
+    var lp=(fE-BW[b][0])/(BW[b][1]-BW[b][0]); lp=Math.max(0,Math.min(1,lp));
+    var aq=Math.max(0.002,Math.round(a*50)/50), yq=Math.round((0.5-lp)*40*2)/2;
+    var key=aq+':'+yq;
+    if(lastBeatA[b]!==key){
+      beats[b].style.opacity=aq;
+      beats[b].style.transform=(b===0)?'translateZ(0)':'translateY('+yq+'px) translateZ(0)';
+      lastBeatA[b]=key;
+    }
+  }
+  var ma=(fE>0.385&&fE<0.51)?beatAlpha(fE,[0.395,0.50]):0;
+  ma=Math.round(ma*50)/50;
+  if(marks.__o!==ma){ marks.style.opacity=ma; marks.__o=ma; }
+
+  /* segment with holds */
+  var si=0;
+  while(si<SEGS.length-1 && fE>=SEGS[si+1][1]) si++;
+  var A,B,u;
+  if(fE<=SEGS[si][2]||si===SEGS.length-1){ A=FORMS[SEGS[si][0]]; B=A; u=1; }
+  else { A=FORMS[SEGS[si][0]]; B=FORMS[SEGS[si+1][0]];
+    u=(fE-SEGS[si][2])/(SEGS[si+1][1]-SEGS[si][2]); u=Math.max(0,Math.min(1,u)); }
+  var trans=4*u*(1-u); /* extra wander mid-flight */
+  energy*=0.94;
+  var amp=(0.45+trans*3)*(1+energy*1.0);
+  var RR=120,RR2=RR*RR;
+
+  ctx.globalCompositeOperation='source-over';
+  var fade=0.62-Math.min(0.2,energy*0.2);
+  ctx.fillStyle='rgba(5,7,16,'+fade.toFixed(2)+')';
+  ctx.fillRect(0,0,W,H);
+  ctx.globalCompositeOperation='lighter';
+  var tt=t*0.001;
+  for(var i=0;i<N;i++){
+    var st=rand1[i]*0.3;
+    var uu=ease(Math.max(0,Math.min(1,(u-st)/(1-st))));
+    var x=A[2*i]+(B[2*i]-A[2*i])*uu;
+    var y=A[2*i+1]+(B[2*i+1]-A[2*i+1])*uu;
+    x+=Math.sin(tt*1.4+i)*amp*depth[i];
+    y+=Math.cos(tt*1.1+i*1.7)*amp*depth[i];
+    x+=mx*depth[i]; y+=my*depth[i];
+    var dx=x-pmx,dy=y-pmy,d2=dx*dx+dy*dy;
+    if(d2<RR2&&d2>0.01){ var dd=Math.sqrt(d2),push=(1-dd/RR)*26*depth[i];
+      x+=dx/dd*push; y+=dy/dd*push; }
+    var bright=rand2[i]>0.74;
+    var s=(bright?3.4+depth[i]*4.2:1.4+depth[i]*2.6)*(0.8+trans*.5);
+    var img=bright?sprBright:sprMid;
+    if(fE<0.16){
+      for(var e=0;e<exRects.length;e++){ var R2=exRects[e];
+        if(x>R2[0]&&x<R2[2]&&y>R2[1]&&y<R2[3]){ img=sprDim; break; } }
+    }
+    ctx.drawImage(img,x-s/2,y-s/2,s,s);
+  }
+  ctx.globalCompositeOperation='source-over';
+}
+function wake(){ if(!rafOn){ rafOn=true; requestAnimationFrame(frame); } }
+
+var lastW=0,lastH=0,rsT;
+function onResize(){
+  if(cv.clientWidth===lastW&&cv.clientHeight===lastH) return;
+  clearTimeout(rsT);
+  rsT=setTimeout(function(){ lastW=cv.clientWidth; lastH=cv.clientHeight;
+    alloc(); buildForms(); measureEx(); cacheFilm(); wake(); },160);
+}
+addEventListener('resize',onResize,{passive:true});
+
+alloc(); buildForms(); measureEx(); cacheFilm(); measure(); wake();
+if(location.search.indexOf('fps')>-1){
+  var fpsEl=document.createElement('div');
+  fpsEl.style.cssText='position:fixed;left:10px;bottom:10px;z-index:999;color:#0f0;font:12px monospace';
+  document.body.appendChild(fpsEl);
+  var last=performance.now(),frames=0;
+  (function tick(){ requestAnimationFrame(tick); frames++;
+    var now=performance.now();
+    if(now-last>1000){ fpsEl.textContent=frames+' fps · N='+N+' · dpr='+DPR; frames=0; last=now; } })();
+}
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ buildForms(); measureEx(); });
+})();
 </script>
 </body>
 </html>
