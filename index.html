@@ -593,6 +593,7 @@ var lastBeatA=[];
 beats.forEach(function(bb){ bb.style.opacity=0.002; }); /* pre-raster all layers */
 var NOENG=location.search.indexOf('noeng')>-1;
 var fcount=0;
+var prevT=0;   /* timestamp of the last rendered frame */
 function frame(t){
   if(NOENG){ requestAnimationFrame(frame); return; }
   if(!visible && Math.abs(targetF-f)<0.0005 && energy<0.01){ rafOn=false; return; }
@@ -600,8 +601,15 @@ function frame(t){
   fcount++;
   var idle=Math.abs(targetF-f)<0.0004 && energy<0.02 && (t-born)>2600;
   if(idle && (fcount&1)) return;
+  /* elapsed ms since the last rendered frame. Clamped so the first frame, a wake
+     from sleep or a backgrounded tab (stale prevT) cannot jump the easing. Skipped
+     idle frames leave prevT alone, so dt simply doubles and the feel is unchanged. */
+  var dt=(prevT>0)?Math.min(50,t-prevT):50; prevT=t;
   var gap=Math.abs(targetF-f);
-  f+=(targetF-f)*(0.13+0.14*Math.min(1,gap*6));
+  /* exponential smoothing: tau 120ms at rest, 60ms when the gap is large.
+     Matches the old per-frame 0.13/0.27 factors at 60Hz, identical at any refresh rate. */
+  var tau=120-60*Math.min(1,gap*6);
+  f+=(targetF-f)*(1-Math.exp(-dt/tau));
   var intro=Math.min(1,(t-born)/2400);
   var fE=Math.max(f, intro*intro*(3-2*intro)*0.045);
 
@@ -630,7 +638,7 @@ function frame(t){
   else { A=FORMS[SEGS[si][0]]; B=FORMS[SEGS[si+1][0]];
     u=(fE-SEGS[si][2])/(SEGS[si+1][1]-SEGS[si][2]); u=Math.max(0,Math.min(1,u)); }
   var trans=4*u*(1-u); /* extra wander mid-flight */
-  energy*=0.94;
+  energy*=Math.exp(-dt/270);   /* was 0.94 per frame at 60Hz; same 270ms tau, any refresh rate */
   var amp=(0.45+trans*3)*(1+energy*1.0);
   var RR=120,RR2=RR*RR;
 
