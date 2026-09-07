@@ -382,7 +382,7 @@ if(mq.matches) return;  /* film disabled: static stacked fallback via CSS */
 var film=document.getElementById('film');
 var cv=document.getElementById('stage'), ctx=cv.getContext('2d');
 var W=0,H=0,DPR=1,N=0;
-var px,py,rand1,rand2,depth;         /* particle state */
+var px,py,rand1,rand2,depth,bkt;     /* particle state; bkt = depth bucket */
 var FORMS={};
 var SEGS=[['scatter',0,0],['name',0.045,0.105],['code',0.155,0.225],
   ['graph',0.275,0.345],['tail',0.40,0.49],['grid',0.545,0.615],
@@ -401,17 +401,38 @@ var marks=document.getElementById('marks');
 /* text beat windows on film progress f */
 var BW=[[0.00,0.10],[0.14,0.245],[0.26,0.365],[0.385,0.505],[0.53,0.635],[0.65,0.745],[0.765,0.86],[0.88,0.985]];
 
-/* glow sprite variants, alpha baked in */
-function makeSpr(alpha){
-  var c=document.createElement('canvas'); c.width=c.height=32;
-  var g=c.getContext('2d'),grd=g.createRadialGradient(16,16,0,16,16,16);
-  grd.addColorStop(0,'rgba(255,255,255,'+alpha+')');
-  grd.addColorStop(.25,'rgba(160,215,255,'+(alpha*.9)+')');
-  grd.addColorStop(.6,'rgba(102,184,255,'+(alpha*.35)+')');
-  grd.addColorStop(1,'rgba(102,184,255,0)');
-  g.fillStyle=grd; g.fillRect(0,0,32,32); return c;
-}
-var sprBright=makeSpr(1),sprMid=makeSpr(0.62),sprDim=makeSpr(0.12);
+/* glow sprites, pre-rendered at integer pixel sizes so nothing is scaled at draw
+   time. Every cell is painted from the same radial gradient at its own size, so
+   the glow profile is unchanged. Ladder = 4 combos x DB depth buckets x TSTEPS
+   transition steps, packed into ONE atlas canvas so the draw loop never swaps its
+   source image; sizes depend on depth only, so this is built once and is not
+   rebuilt on resize. Combo 0 bright, 1 mid, 2 dim at bright size, 3 dim at mid size. */
+var DB=4,TSTEPS=4,NSPR=4*DB*TSTEPS,PITCH=16;   /* PITCH > largest ladder size */
+var atlas=document.createElement('canvas');
+var AX=new Uint16Array(NSPR),ASZ=new Uint8Array(NSPR),AHS=new Float32Array(NSPR);
+(function buildSprites(){
+  atlas.width=PITCH*NSPR; atlas.height=PITCH;
+  var g=atlas.getContext('2d'),combos=[[1,1],[0.62,0],[0.12,1],[0.12,0]];  /* [alpha, isBrightSize] */
+  for(var c=0;c<combos.length;c++){
+    var alpha=combos[c][0],big=combos[c][1];
+    for(var d=0;d<DB;d++){
+      var dep=0.5+(d+0.5)*0.9/DB;                  /* mid depth of the bucket */
+      var base=big?(3.4+dep*4.2):(1.4+dep*2.6);
+      for(var k=0;k<TSTEPS;k++){
+        /* the old per-draw (0.8+trans*0.5) growth, baked into the ladder */
+        var sz=Math.max(2,Math.round(base*(0.8+k/(TSTEPS-1)*0.5)));
+        var ix=(c*DB+d)*TSTEPS+k,ox=ix*PITCH,h=sz/2;
+        var grd=g.createRadialGradient(ox+h,h,0,ox+h,h,h);
+        grd.addColorStop(0,'rgba(255,255,255,'+alpha+')');
+        grd.addColorStop(.25,'rgba(160,215,255,'+(alpha*.9)+')');
+        grd.addColorStop(.6,'rgba(102,184,255,'+(alpha*.35)+')');
+        grd.addColorStop(1,'rgba(102,184,255,0)');
+        g.fillStyle=grd; g.fillRect(ox,0,sz,sz);
+        AX[ix]=ox; ASZ[ix]=sz; AHS[ix]=h;
+      }
+    }
+  }
+})();
 
 function mulberry(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; var t=Math.imul(a^a>>>15,1|a);
   t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
@@ -426,8 +447,10 @@ function alloc(){
   N=Math.max(1200,Math.min(2800,Math.floor(W*H/320)));
   px=new Float32Array(N); py=new Float32Array(N);
   rand1=new Float32Array(N); rand2=new Float32Array(N); depth=new Float32Array(N);
+  bkt=new Uint8Array(N);
   var rng=mulberry(1234);
   for(var i=0;i<N;i++){ rand1[i]=rng(); rand2[i]=rng(); depth[i]=.5+rng()*.9;
+    bkt[i]=Math.min(DB-1,((depth[i]-0.5)/0.9*DB)|0);   /* depth in [0.5,1.4) */
     px[i]=rng()*W; py[i]=rng()*H; }
 }
 
@@ -640,6 +663,7 @@ function frame(t){
   var trans=4*u*(1-u); /* extra wander mid-flight */
   energy*=Math.exp(-dt/270);   /* was 0.94 per frame at 60Hz; same 270ms tau, any refresh rate */
   var amp=(0.45+trans*3)*(1+energy*1.0);
+  var tstep=Math.round(trans*(TSTEPS-1));   /* which pre-rendered size step */
   var RR=120,RR2=RR*RR;
 
   ctx.globalCompositeOperation='source-over';
@@ -660,13 +684,13 @@ function frame(t){
     if(d2<RR2&&d2>0.01){ var dd=Math.sqrt(d2),push=(1-dd/RR)*26*depth[i];
       x+=dx/dd*push; y+=dy/dd*push; }
     var bright=rand2[i]>0.74;
-    var s=(bright?3.4+depth[i]*4.2:1.4+depth[i]*2.6)*(0.8+trans*.5);
-    var img=bright?sprBright:sprMid;
+    var ci=bright?0:1;
     if(fE<0.16){
       for(var e=0;e<exRects.length;e++){ var R2=exRects[e];
-        if(x>R2[0]&&x<R2[2]&&y>R2[1]&&y<R2[3]){ img=sprDim; break; } }
+        if(x>R2[0]&&x<R2[2]&&y>R2[1]&&y<R2[3]){ ci=bright?2:3; break; } }
     }
-    ctx.drawImage(img,x-s/2,y-s/2,s,s);
+    var sp=(ci*DB+bkt[i])*TSTEPS+tstep,z=ASZ[sp],hs=AHS[sp];
+    ctx.drawImage(atlas,AX[sp],0,z,z,x-hs,y-hs,z,z);
   }
   ctx.globalCompositeOperation='source-over';
 }
