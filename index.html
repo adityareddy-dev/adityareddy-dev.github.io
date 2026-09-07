@@ -21,6 +21,7 @@
   --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --serif:'Fraunces',Georgia,serif;
   --pad:clamp(20px,5vw,72px);
+  --film-h:820svh;          /* film scroll length; the beat timeline range derives from it */
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -47,7 +48,7 @@ nav a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-off
 @media(max-width:600px){nav .links{gap:16px}nav .links a.hide-sm{display:none}}
 
 /* ---------- the film ---------- */
-.film{position:relative;height:820vh;height:820svh}
+.film{position:relative;height:820vh;height:var(--film-h)}
 .screen{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
   background:radial-gradient(130% 100% at 50% -20%, #0c1728 0%, #070d1a 45%, var(--night) 80%)}
 .screen canvas{position:absolute;inset:0;width:100%;height:100%}
@@ -87,6 +88,34 @@ nav a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-off
 .hint{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#7d8ca3;
   font-size:16px;animation:bob 2.6s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0);opacity:.9}50%{transform:translate(-50%,8px);opacity:.35}}
+
+/* Scroll-driven text beats. html.sda is set by JS only where scroll timelines are
+   supported and reduced motion is off; otherwise the JS path drives these inline.
+   The range is the film's own scroll distance, so keyframe percentages are film
+   progress, the same 0..1 the JS calls f. Percentages and translateY values are
+   generated from the BW table, so the two paths show the same windows. */
+@supports (animation-timeline: scroll()){
+  html.sda .beat,html.sda .beat0{
+    animation-timeline:scroll(root block);
+    animation-range:0 calc(var(--film-h) - 100svh);
+    animation-duration:auto;animation-fill-mode:both;animation-timing-function:linear}
+  html.sda [data-b="0"]{animation-name:bt0}
+  html.sda [data-b="1"]{animation-name:bt1}
+  html.sda [data-b="2"]{animation-name:bt2}
+  html.sda [data-b="3"]{animation-name:bt3}
+  html.sda [data-b="4"]{animation-name:bt4}
+  html.sda [data-b="5"]{animation-name:bt5}
+  html.sda [data-b="6"]{animation-name:bt6}
+  html.sda [data-b="7"]{animation-name:bt7}
+}
+@keyframes bt0{0%,7.5%{opacity:1}10%,100%{opacity:0}}
+@keyframes bt1{0%,14%{opacity:0;transform:translateY(20px) translateZ(0)}16%{opacity:1;transform:translateY(12.38px) translateZ(0)}22%{opacity:1;transform:translateY(-10.48px) translateZ(0)}24.5%,100%{opacity:0;transform:translateY(-20px) translateZ(0)}}
+@keyframes bt2{0%,26%{opacity:0;transform:translateY(20px) translateZ(0)}28%{opacity:1;transform:translateY(12.38px) translateZ(0)}34%{opacity:1;transform:translateY(-10.48px) translateZ(0)}36.5%,100%{opacity:0;transform:translateY(-20px) translateZ(0)}}
+@keyframes bt3{0%,38.5%{opacity:0;transform:translateY(20px) translateZ(0)}40.5%{opacity:1;transform:translateY(13.33px) translateZ(0)}48%{opacity:1;transform:translateY(-11.67px) translateZ(0)}50.5%,100%{opacity:0;transform:translateY(-20px) translateZ(0)}}
+@keyframes bt4{0%,53%{opacity:0;transform:translateY(20px) translateZ(0)}55%{opacity:1;transform:translateY(12.38px) translateZ(0)}61%{opacity:1;transform:translateY(-10.48px) translateZ(0)}63.5%,100%{opacity:0;transform:translateY(-20px) translateZ(0)}}
+@keyframes bt5{0%,65%{opacity:0;transform:translateY(20px) translateZ(0)}67%{opacity:1;transform:translateY(11.58px) translateZ(0)}72%{opacity:1;transform:translateY(-9.47px) translateZ(0)}74.5%,100%{opacity:0;transform:translateY(-20px) translateZ(0)}}
+@keyframes bt6{0%,76.5%{opacity:0;transform:translateY(20px) translateZ(0)}78.5%{opacity:1;transform:translateY(11.58px) translateZ(0)}83.5%{opacity:1;transform:translateY(-9.47px) translateZ(0)}86%,100%{opacity:0;transform:translateY(-20px) translateZ(0)}}
+@keyframes bt7{0%,88%{opacity:0;transform:translateY(20px) translateZ(0)}90%{opacity:1;transform:translateY(12.38px) translateZ(0)}96%{opacity:1;transform:translateY(-10.48px) translateZ(0)}98.5%,100%{opacity:0;transform:translateY(-20px) translateZ(0)}}
 
 /* p95/p99 markers for the tail beat */
 .marks{position:absolute;inset:0;pointer-events:none;opacity:0;will-change:opacity}
@@ -616,8 +645,14 @@ function beatAlpha(fv,w){
   return Math.min(a,b);
 }
 
+/* Where scroll timelines exist, CSS owns the eight beats and JS never touches their
+   style. The class gates the @supports block; reduced motion returns before this, so
+   it is never set there and the static stacked layout is unaffected. */
+var SDA=CSS.supports('animation-timeline: scroll()');
+if(SDA) doc.classList.add('sda');
+
 var lastBeatA=[];
-beats.forEach(function(bb){ bb.style.opacity=0.002; }); /* pre-raster all layers */
+if(!SDA) beats.forEach(function(bb){ bb.style.opacity=0.002; }); /* pre-raster all layers */
 var NOENG=location.search.indexOf('noeng')>-1;
 var fcount=0;
 var prevT=0;   /* timestamp of the last rendered frame */
@@ -640,8 +675,9 @@ function frame(t){
   var intro=Math.min(1,(t-born)/2400);
   var fE=Math.max(f, intro*intro*(3-2*intro)*0.045);
 
-  /* text beats */
-  for(var b=0;b<beats.length;b++){
+  /* text beats. Skipped entirely on the CSS path; the energy dimming below has no
+     CSS equivalent and is dropped there. */
+  if(!SDA) for(var b=0;b<beats.length;b++){
     var a=(b===0)?(fE>=BW[0][1]?0:Math.min(1,(BW[0][1]-fE)/0.025)):beatAlpha(fE,BW[b]);
     a*=Math.max(0,1-energy*1.5);
     var lp=(fE-BW[b][0])/(BW[b][1]-BW[b][0]); lp=Math.max(0,Math.min(1,lp));
