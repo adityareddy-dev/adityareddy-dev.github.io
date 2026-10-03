@@ -1,0 +1,399 @@
+/* Base page, layers and shared tokens. Modules bring their own CSS for what they mount. */
+
+:root {
+  --night: #1b1a22;
+  --night-2: #26242f;
+  --ink: #1d1d1f;
+  --paper: #fbf7f0;
+  --paper-2: #f1eadf;
+  --muted: #6e6a75;
+  --snow: #f5f5f7;
+  --dim: #b9b4c4;
+  --line: rgba(29, 29, 31, 0.12);
+  --line-light: rgba(245, 245, 247, 0.16);
+
+  --accent: #66b8ff;
+  --accent-deep: #1a5fd0;
+  --warm: #ffb463;
+  --good: #3fb37f;
+  --warn: #f2b33d;
+  --bad: #e5484d;
+
+  --energy: #f2b33d;
+  --focus: #66b8ff;
+  --irritation: #e5484d;
+
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.25);
+
+  --z-hud: 10;
+  --z-round: 20;
+  --z-loading: 30;
+  --z-phone: 40;
+  --z-card: 50;
+  --z-toast: 60;
+  --z-fatal: 70;
+  --z-skip: 80;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+#game-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(10, 8, 16, 0.34) 100%);
+}
+
+/* The edges warm up when he's had enough, and pulse while the page is open. */
+#vignette::before,
+#vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#vignette::before {
+  background: radial-gradient(ellipse at center, transparent 52%, rgba(214, 96, 52, 0.26) 100%);
+}
+
+#vignette::after {
+  background: radial-gradient(ellipse at center, transparent 48%, rgba(229, 72, 77, 0.4) 100%);
+}
+
+#vignette.is-hot::before { opacity: 1; }
+
+#vignette.is-urgent::after {
+  opacity: 1;
+  animation: vignette-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes vignette-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+/* A layer never catches clicks itself. Whatever a module mounts turns pointer-events back on. */
+.layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+#hud-layer { z-index: var(--z-hud); }
+#round-layer { z-index: var(--z-round); }
+#phone-layer { z-index: var(--z-phone); }
+#card-layer { z-index: var(--z-card); }
+#toast-layer { z-index: var(--z-toast); }
+
+#round-layer:not([hidden]) {
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(16, 14, 22, 0.74);
+  overflow: auto;
+}
+
+/* Default frame for a round. A game can restyle inside .round-<id>. */
+.round {
+  width: min(760px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.round:focus {
+  outline: none;
+}
+
+.round-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.round .round-title {
+  flex: 1;
+  margin: 0;
+}
+
+.round-timer {
+  height: 6px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.round-timer i {
+  display: block;
+  height: 100%;
+  background: var(--accent-deep);
+  transform-origin: left center;
+}
+
+.round-timer.low i {
+  background: var(--bad);
+}
+
+.round-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.panel {
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.panel h2,
+.round h2 {
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: 26px;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn:focus-visible,
+#skip-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: var(--accent-deep);
+  color: #fff;
+}
+
+.btn.quiet {
+  border-color: transparent;
+  background: transparent;
+}
+
+.kbd {
+  display: inline-block;
+  min-width: 1.7em;
+  padding: 1px 6px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 0.85em;
+  line-height: 1.4;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+#loading {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loading);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(ellipse at 50% 40%, var(--night-2), var(--night) 70%);
+  transition: opacity 0.5s ease;
+}
+
+#loading.done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-box {
+  width: min(460px, 100%);
+  text-align: center;
+}
+
+#loading-title {
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: clamp(30px, 6vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+#loading-sub {
+  margin-top: 10px;
+  color: var(--dim);
+}
+
+.loading-track {
+  height: 6px;
+  margin: 28px auto 12px;
+  border-radius: 999px;
+  background: var(--line-light);
+  overflow: hidden;
+}
+
+#loading-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--warm), var(--accent));
+  transition: width 0.25s ease;
+}
+
+#loading-text {
+  min-height: 1.5em;
+  color: var(--dim);
+  font-size: 14px;
+}
+
+#fatal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-fatal);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--night);
+}
+
+#fatal .panel,
+.noscript.panel {
+  width: min(440px, 100%);
+}
+
+#fatal p,
+.noscript p {
+  margin-top: 10px;
+}
+
+.noscript {
+  position: fixed;
+  z-index: var(--z-fatal);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Bottom left corner belongs to this link. Keep the HUD out of it. */
+#skip-link {
+  position: fixed;
+  left: max(12px, env(safe-area-inset-left));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: var(--z-skip);
+  padding: 7px 13px;
+  border: 1px solid var(--line-light);
+  border-radius: 999px;
+  background: rgba(27, 26, 34, 0.72);
+  color: var(--snow);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+}
+
+#skip-link:hover {
+  background: rgba(27, 26, 34, 0.95);
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  #vignette.is-urgent::after { animation: none; }
+}

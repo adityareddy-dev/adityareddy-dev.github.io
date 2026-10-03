@@ -1,0 +1,1065 @@
+{
+  "meta": {
+    "version": 1,
+    "meterScale": "energy, focus and irritation run 0 to 100. Deltas in onDone are added and clamped.",
+    "placeholders": "Text can hold {shipped} {reviewed} {coffees} {dismissed} {sleep} {score} {streak} {energy} {irritation} {shop}. Fill them at render time.",
+    "edges": "Whiteboard edges are undirected pairs of piece ids.",
+    "bugLine": "Review bugLine is a zero-based index into that diff's lines array."
+  },
+
+  "title": "A Day in the Life of Adi",
+  "subtitle": "One working day at home. The pager came too.",
+
+  "intro": {
+    "loading": [
+      "Brewing coffee",
+      "Charging the pager, sadly",
+      "Turning the builds green",
+      "Hiding the snooze button",
+      "Dusting the whiteboard",
+      "Locking the back office",
+      "Asking the plant how it's doing",
+      "Measuring the slow click"
+    ],
+    "tips": [
+      "The phone is the menu. Press P or Tab whenever you like.",
+      "Here for the resume? It's in the phone. One tap, no game required.",
+      "WASD or arrows to walk. Or click the floor, I'll figure out the route.",
+      "Low energy makes everything harder. Same as real life.",
+      "Do not disturb is in the phone. It won't stop a page though."
+    ],
+    "firstMinute": [
+      "07:00. The phone's been awake longer than I have.",
+      "Fourteen notifications. I've been conscious for nine seconds.",
+      "None of these are important. I can tell cause none of them are from the pager.",
+      "Okay. Coffee first, then opinions."
+    ],
+    "skipLabel": "Skip the game",
+    "phoneHint": "Phone (P)",
+    "coach": {
+      "move": "WASD or the arrow keys to walk. Clicking the floor works too.",
+      "moveTouch": "Tap the floor to walk there.",
+      "phone": "Swipe a notification away, or hit its X. P opens the phone, and the phone is the menu.",
+      "phoneTouch": "Swipe a notification away. The phone in the corner is the menu.",
+      "use": "Walk up to something and press E. Or just click it.",
+      "useTouch": "Tap a thing and I'll walk over and use it."
+    }
+  },
+
+  "clock": {
+    "start": "07:00",
+    "end": "23:00",
+    "secondsPerGameHour": 26,
+    "pauseInRounds": true,
+    "pauseInPhone": true,
+    "note": "16 game hours at 26 seconds each is just under 7 minutes of walking around. Rounds sit on top of that."
+  },
+
+  "meters": {
+    "energy": { "start": 55, "cap": 100, "drainPerGameHour": 5, "lowAt": 30, "lowEffect": "Rounds run 20 percent faster and hit windows shrink by a quarter." },
+    "focus": { "start": 60, "cap": 100, "drainPerGameHour": 2, "lowAt": 30, "lowEffect": "Clues and hints take longer to show up." },
+    "irritation": { "start": 10, "cap": 100, "coolPerGameHour": 4, "highAt": 70, "highEffect": "Focus drains twice as fast and the music gets tense." }
+  },
+
+  "beats": [
+    {
+      "id": "wake",
+      "time": "07:00",
+      "room": "bedroom",
+      "objective": "Get out of bed",
+      "prompt": "Get up",
+      "trigger": { "type": "start" },
+      "onDone": { "next": "phoneJunk", "score": 10, "focus": 5 },
+      "dialogue": [
+        "Five more minutes. That's what I said forty minutes ago.",
+        "The bed has a strong case. The calendar has a stronger one.",
+        "Up. We're up."
+      ],
+      "music": "chill",
+      "emote": "zzz"
+    },
+    {
+      "id": "phoneJunk",
+      "time": "07:05",
+      "room": "bedroom",
+      "objective": "Open the phone. Clear the junk.",
+      "trigger": { "type": "beatDone", "beat": "wake" },
+      "task": { "type": "dismissNotifications", "count": 5, "kinds": ["junk", "social"] },
+      "onDone": { "next": "coffee", "score": 20, "irritation": 8 },
+      "dialogue": [
+        "A flash sale on patio furniture. It's 7am and I don't have a patio.",
+        "My build is green. Nice. I didn't push anything though.",
+        "Swipe, swipe. This is my cardio."
+      ],
+      "music": "chill",
+      "emote": "scribble"
+    },
+    {
+      "id": "coffee",
+      "time": "07:20",
+      "room": "kitchen",
+      "objective": "Make coffee",
+      "trigger": { "type": "interact", "object": "coffeeMachine" },
+      "round": "coffee",
+      "onDone": { "next": "gym", "score": 0, "focus": 10 },
+      "dialogue": [
+        "Nobody talk to me until this is done. Nobody's here, but still.",
+        "The machine has one button and I've still got opinions about how to press it.",
+        "Stop the pour in the good part of the cup. That's the whole job."
+      ],
+      "music": "chill",
+      "emote": "coffee"
+    },
+    {
+      "id": "gym",
+      "time": "07:45",
+      "room": "basement",
+      "objective": "Basement gym (optional)",
+      "trigger": { "type": "interact", "object": "gymBench" },
+      "optional": true,
+      "skipAt": "08:50",
+      "round": "gym",
+      "onDone": { "next": "standup", "score": 0 },
+      "onSkip": { "next": "standup", "dialogue": ["Skipped the gym. The weights will tell the others."] },
+      "dialogue": [
+        "The basement. Where the weights live and the excuses come to die.",
+        "A few sets. More energy later, less dignity now.",
+        "That door back there isn't part of the workout."
+      ],
+      "music": "chill",
+      "emote": "sweat"
+    },
+    {
+      "id": "standup",
+      "time": "09:00",
+      "room": "workspace",
+      "objective": "Stand-up. Sit down for it.",
+      "prompt": "Join stand-up",
+      "trigger": { "type": "interact", "object": "desk" },
+      "choice": {
+        "heading": "Stand-up",
+        "prompt": "What did you do yesterday?",
+        "options": [
+          { "text": "Same as today.", "reply": "Honest. Nobody wrote it down.", "score": 15 },
+          { "text": "Made the slow thing less slow.", "reply": "Someone asks how much. I have a number. They weren't ready for a number.", "score": 25, "focus": 5 },
+          { "text": "You're on mute.", "reply": "I was on mute. Said the whole thing again, worse.", "score": 10, "irritation": 5 }
+        ]
+      },
+      "onDone": { "next": "whiteboard", "score": 10 },
+      "dialogue": [
+        "Stand-up. Fifteen minutes, they said, in a calendar invite that's thirty.",
+        "No blockers. I say that every day and it's never once been true.",
+        "Someone's dog has joined the call. Best update so far."
+      ],
+      "music": "chill",
+      "emote": "exclaim"
+    },
+    {
+      "id": "whiteboard",
+      "time": "09:30",
+      "room": "workspace",
+      "objective": "Design it on the whiteboard",
+      "prompt": "Draw the system",
+      "trigger": { "type": "interact", "object": "whiteboard" },
+      "round": "whiteboard",
+      "onDone": { "next": "review", "score": 0, "focus": 5, "counts": { "shipped": 1 } },
+      "dialogue": [
+        "Boxes and arrows. Ten years in and it's still boxes and arrows.",
+        "Every design works on a whiteboard. Then people show up.",
+        "Let's see what falls over."
+      ],
+      "music": "chill",
+      "emote": "exclaim"
+    },
+    {
+      "id": "review",
+      "time": "11:00",
+      "room": "workspace",
+      "objective": "Review the diff. Find the bug.",
+      "prompt": "Review the diff",
+      "trigger": { "type": "interact", "object": "monitor" },
+      "round": "review",
+      "onDone": { "next": "lunch", "score": 0, "counts": { "shipped": 1 } },
+      "dialogue": [
+        "Somebody wants a quick review. It's 400 lines. Quick is a feeling, not a size.",
+        "There's one real bug in here. The rest is just style I disagree with quietly.",
+        "Looks good to me is a sentence, not a review."
+      ],
+      "music": "chill",
+      "emote": "exclaim"
+    },
+    {
+      "id": "lunch",
+      "time": "12:30",
+      "room": "kitchen",
+      "objective": "Eat something",
+      "prompt": "Find lunch",
+      "trigger": { "type": "interact", "object": "fridge" },
+      "variants": [
+        {
+          "when": { "meter": "energy", "below": 35 },
+          "objective": "Second coffee. No judgement.",
+          "prompt": "Make the second coffee",
+          "trigger": { "type": "interact", "object": "coffeeMachine" },
+          "round": "coffee",
+          "dialogue": [
+            "Running on fumes. Coffee number two, the one that actually does the work.",
+            "Lunch can be a liquid if you believe in yourself."
+          ],
+          "emote": "coffee"
+        }
+      ],
+      "onDone": { "next": "storm", "score": 15, "energy": 20, "irritation": -10 },
+      "dialogue": [
+        "Leftovers. Yesterday's me was looking out for today's me, for once.",
+        "Ate at the counter, standing up, reading a changelog. Living the dream.",
+        "Twenty minutes without a screen. Felt illegal."
+      ],
+      "music": "chill",
+      "emote": "heart"
+    },
+    {
+      "id": "storm",
+      "time": "14:00",
+      "room": "workspace",
+      "objective": "Survive the notifications",
+      "lead": "Back to work. One thing, start to finish.",
+      "trigger": { "type": "time", "at": "14:00" },
+      "task": { "type": "storm" },
+      "onDone": { "next": "page", "score": 0 },
+      "dialogue": [
+        "I had one thing to do today. The phone has other plans.",
+        "Fine. Swipe them, or turn on do not disturb and enjoy the quiet.",
+        "Nine apps want my attention and none of them are getting a raise for it."
+      ],
+      "music": "irritated",
+      "emote": "scribble"
+    },
+    {
+      "id": "page",
+      "time": "14:40",
+      "room": "workspace",
+      "objective": "That one's real. Acknowledge the page.",
+      "trigger": { "type": "beatDone", "beat": "storm" },
+      "task": { "type": "acknowledgePage", "notification": "page-checkout" },
+      "onDone": { "next": "hunt", "score": 30, "focus": 10, "irritation": -15 },
+      "dialogue": [
+        "Do not disturb is on. That sound gets through anyway. It's supposed to.",
+        "Checkout is slow at a cheese curd shop. Somewhere, a person is waiting on a button.",
+        "You build it, you carry the pager for it. Going in."
+      ],
+      "music": "urgent",
+      "emote": "exclaim"
+    },
+    {
+      "id": "hunt",
+      "time": "14:45",
+      "room": "workspace",
+      "objective": "Find what made the click slow",
+      "prompt": "Open the slow checkout",
+      "trigger": { "type": "interact", "object": "monitor" },
+      "round": "hunt",
+      "onDone": { "next": "fix", "score": 0 },
+      "dialogue": [
+        "The average looks fine. The average always looks fine.",
+        "Seven components touched that click. One of them is lying.",
+        "Don't guess. Measure, then be smug."
+      ],
+      "music": "urgent",
+      "emote": "sweat"
+    },
+    {
+      "id": "fix",
+      "time": "16:30",
+      "room": "workspace",
+      "objective": "Ship the fix",
+      "prompt": "Ship the fix",
+      "trigger": { "type": "interact", "object": "desk" },
+      "task": {
+        "type": "hold",
+        "seconds": 3,
+        "label": "Hold to deploy",
+        "shipped": "Shipped",
+        "title": "Ship the fix",
+        "file": "CurdConfetti.jsx",
+        "diff": [
+          "  async function onPlaceOrder(cart) {",
+          "-   celebrate({ curds: 4000 });",
+          "-   await sendOrder(cart);",
+          "+   await sendOrder(cart);",
+          "+   afterNextPaint(() => celebrate({ curds: 40 }));",
+          "  }"
+        ],
+        "steps": ["Lint", "Tests", "Build", "Deploy"],
+        "letGo": "Let go too early. The pipeline noticed.",
+        "doneButton": "Close the laptop"
+      },
+      "onDone": { "next": "evening", "score": 100, "irritation": -20, "focus": 10, "counts": { "shipped": 1 } },
+      "dialogue": [
+        "Send the order first, celebrate after. A two line change and a long afternoon.",
+        "Pipeline's running. This is the part where I stare at a progress bar like it owes me money.",
+        "Green. A real green this time, one I actually caused."
+      ],
+      "music": "win",
+      "emote": "heart"
+    },
+    {
+      "id": "evening",
+      "time": "17:30",
+      "room": "kitchen",
+      "objective": "Evening's yours. Side quests, or nothing at all.",
+      "trigger": { "type": "beatDone", "beat": "fix" },
+      "task": {
+        "type": "freeRoam",
+        "until": "21:30",
+        "exit": "desk",
+        "exitPrompt": "Write it up",
+        "hint": "When I'm done wandering, the write-up's waiting at the desk."
+      },
+      "onDone": { "next": "writeup", "score": 0, "irritation": -10 },
+      "dialogue": [
+        "Laptop's closed. It's still looking at me though.",
+        "There's a docs PR open on the monitor if I feel like being useful for free.",
+        "The plant has been very patient today."
+      ],
+      "music": "chill",
+      "emote": "heart"
+    },
+    {
+      "id": "writeup",
+      "time": "21:30",
+      "room": "workspace",
+      "objective": "Write it up",
+      "prompt": "Write it up",
+      "trigger": { "type": "interact", "object": "desk" },
+      "task": { "type": "writeup" },
+      "onDone": { "next": "lightsOut", "score": 50 },
+      "dialogue": [
+        "If it isn't written down, it didn't happen. And it'll happen again.",
+        "What broke and why, then what we changed. Nobody gets blamed, apart from one confetti cannon.",
+        "Making it fast is half the job. Proving why is the half people skip."
+      ],
+      "music": "night",
+      "emote": "exclaim"
+    },
+    {
+      "id": "lightsOut",
+      "time": "22:45",
+      "room": "bedroom",
+      "objective": "Lights out",
+      "prompt": "Lights out",
+      "trigger": { "type": "interact", "object": "bed" },
+      "task": { "type": "endDay" },
+      "onDone": { "next": null, "score": 20 },
+      "dialogue": [
+        "Phone goes on the charger, face down, like it's in trouble.",
+        "Tomorrow's the same day with different bugs.",
+        "Good night. The pager's still on. It's always on."
+      ],
+      "music": "night",
+      "emote": "zzz"
+    }
+  ],
+
+  "sideQuests": [
+    {
+      "id": "docsPr",
+      "title": "The docs PR",
+      "room": "workspace",
+      "object": "monitor",
+      "objective": "Review a docs PR on the monitor",
+      "prompt": "Read the docs PR",
+      "later": "Not now",
+      "availableFrom": "10:00",
+      "availableUntil": "22:30",
+      "intro": [
+        "An open source project I use has a docs PR waiting. Somebody fixed an example that never ran.",
+        "Nobody gets promoted for reading docs PRs. I read them anyway."
+      ],
+      "choice": {
+        "prompt": "The example in the PR calls a function the library removed two versions ago. What do you do?",
+        "options": [
+          { "text": "Approve it, the wording's nicer.", "correct": false, "reply": "Nicer wording, same broken example. That one's on me." },
+          { "text": "Run the example first, then comment with the fix.", "correct": true, "reply": "Ran it, it threw, left the working version in a comment. Ten minutes well spent." },
+          { "text": "Close the tab and feel bad later.", "correct": false, "reply": "Closed the tab. The tab knows what I did." }
+        ]
+      },
+      "reward": { "score": 50, "focus": 10 },
+      "emote": "heart"
+    },
+    {
+      "id": "maintainer",
+      "title": "Answer the maintainer",
+      "room": "workspace",
+      "object": "monitor",
+      "objective": "A maintainer replied. Answer them.",
+      "prompt": "Answer the maintainer",
+      "later": "Not now",
+      "availableFrom": "13:00",
+      "availableUntil": "22:30",
+      "intro": [
+        "A maintainer left a comment on my pull request. Four words: can you add a test.",
+        "They're right. They're usually right, it's very annoying."
+      ],
+      "choice": {
+        "prompt": "How do you reply?",
+        "options": [
+          { "text": "Add the test, push, say thanks.", "correct": true, "reply": "Test added. It failed first, which is how I know it's a real one." },
+          { "text": "Explain at length why it doesn't need one.", "correct": false, "reply": "Six paragraphs. They replied with a thumbs up and the same request." },
+          { "text": "Works on my machine.", "correct": false, "reply": "They don't have my machine. Fair point, well made." }
+        ]
+      },
+      "reward": { "score": 50, "focus": 5, "irritation": -5 },
+      "emote": "exclaim"
+    },
+    {
+      "id": "plant",
+      "title": "Water the plant",
+      "room": "kitchen",
+      "object": "plant",
+      "objective": "Water the plant",
+      "prompt": "Water the plant",
+      "availableFrom": "07:00",
+      "availableUntil": "23:00",
+      "intro": [
+        "The plant. Longest running thing in this house with zero monitoring.",
+        "It droops, I water it. That's the whole alerting setup."
+      ],
+      "done": [
+        "Watered. It doesn't say thanks. It also never pages me.",
+        "Best uptime in the building."
+      ],
+      "reward": { "score": 50, "irritation": -10 },
+      "emote": "heart"
+    }
+  ],
+
+  "notifications": [
+    { "id": "n01", "app": "Calendar", "title": "Sync about the sync", "body": "Starts in 10 minutes. No agenda. Bring thoughts.", "kind": "junk" },
+    { "id": "n02", "app": "Calendar", "title": "Hold: possible meeting", "body": "Someone booked an hour in case they think of a reason.", "kind": "junk" },
+    { "id": "n03", "app": "Calendar", "title": "Quick chat?", "body": "Moved to 4:55pm on Friday. You've been marked as excited.", "kind": "junk" },
+    { "id": "n04", "app": "Calendar", "title": "Pre-meeting for the meeting", "body": "So we're all aligned before we align.", "kind": "junk" },
+    { "id": "n05", "app": "Lakefront Savings", "title": "You're pre-approved!", "body": "A loan you didn't ask for, at a rate we'd rather not say out loud.", "kind": "junk" },
+    { "id": "n06", "app": "Lakefront Savings", "title": "Did you just buy coffee?", "body": "It was $4. We noticed. We're always noticing.", "kind": "junk" },
+    { "id": "n07", "app": "Pipeline", "title": "Your build is green", "body": "Build 4411 passed. You didn't push anything. Enjoy it anyway.", "kind": "work" },
+    { "id": "n08", "app": "Pipeline", "title": "Your build is green", "body": "Build 4412 passed. Same commit. We ran it again to be sure.", "kind": "work" },
+    { "id": "n09", "app": "Pipeline", "title": "Your build is green", "body": "Build 4413 passed. Okay, we'll stop.", "kind": "work" },
+    { "id": "n10", "app": "Messages", "title": "Vik", "body": "sent a picture of a raccoon holding a keyboard. No caption.", "kind": "social" },
+    { "id": "n11", "app": "Messages", "title": "Vik", "body": "its you. the raccoon is you", "kind": "social" },
+    { "id": "n12", "app": "Messages", "title": "Mom", "body": "Did you eat? Reply so I know the phone works.", "kind": "social" },
+    { "id": "n13", "app": "Messages", "title": "Group: Trivia Thursday", "body": "47 new messages. They're arguing about the team name again.", "kind": "social" },
+    { "id": "n14", "app": "System", "title": "Update available", "body": "Version 12.4.1 fixes things and moves every button you like.", "kind": "junk" },
+    { "id": "n15", "app": "System", "title": "Update tonight?", "body": "We asked yesterday. We'll ask tomorrow. We have nothing but time.", "kind": "junk" },
+    { "id": "n16", "app": "Flashlight Pro", "title": "We've updated our terms", "body": "It's a flashlight. There are now 31 pages.", "kind": "junk" },
+    { "id": "n17", "app": "Weatherish", "title": "Rate us!", "body": "You opened the app once, in March. How are we doing?", "kind": "junk" },
+    { "id": "n18", "app": "Mail", "title": "The Synergy Digest", "body": "10 habits of people who have 10 habits. You never subscribed to this.", "kind": "junk" },
+    { "id": "n19", "app": "Mail", "title": "The Synergy Digest", "body": "We noticed you didn't open the last one. Here it is again, louder.", "kind": "junk" },
+    { "id": "n20", "app": "Mail", "title": "Re: Re: Re: Fwd: thoughts?", "body": "Adding you for visibility. No action needed. Please respond.", "kind": "work" },
+    { "id": "n21", "app": "Bright Smile Dental", "title": "It's been a while", "body": "Your six month cleaning is fourteen months overdue. We're not mad.", "kind": "junk" },
+    { "id": "n22", "app": "Bright Smile Dental", "title": "Still here", "body": "Reply YES to book, or just floss and think about what you've done.", "kind": "junk" },
+    { "id": "n23", "app": "StepBuddy", "title": "You've walked 212 steps", "body": "Most of them to the coffee machine. We're counting those.", "kind": "junk" },
+    { "id": "n24", "app": "StepBuddy", "title": "Time to stand!", "body": "You're standing. We can't tell. Stand harder.", "kind": "junk" },
+    { "id": "n25", "app": "Patio Barn", "title": "FLASH SALE", "body": "40% off wicker. You looked at one chair in 2023 and we've never let it go.", "kind": "junk" },
+    { "id": "n26", "app": "Noodle Dash", "title": "Hungry?", "body": "Your usual is one tap away. We know it's your usual. That should worry you.", "kind": "junk" },
+    { "id": "n27", "app": "Chat", "title": "#general", "body": "@here does anyone know who owns the thing? No, the other thing.", "kind": "work" },
+    { "id": "n28", "app": "Chat", "title": "#random", "body": "Someone posted a 14 minute video with the caption 'worth it'.", "kind": "work" },
+    { "id": "n29", "app": "Chat", "title": "Direct message", "body": "hey", "kind": "work" },
+    { "id": "n30", "app": "Chat", "title": "Direct message", "body": "nvm figured it out", "kind": "work" },
+    { "id": "n31", "app": "Tickets", "title": "Ticket moved", "body": "CURD-212 went from To Do to Also To Do.", "kind": "work" },
+    { "id": "n32", "app": "Tickets", "title": "You were mentioned", "body": "In a ticket from two years ago. Someone wants to know if it's still relevant.", "kind": "work" },
+    { "id": "n33", "app": "Cloud Photos", "title": "Storage almost full", "body": "It's 900 screenshots of error messages. Upgrade to keep them forever.", "kind": "junk" },
+    { "id": "n34", "app": "Phone", "title": "Unknown caller", "body": "We've been trying to reach you about your car's extended warranty.", "kind": "junk" },
+    { "id": "n35", "app": "Parcel Pal", "title": "Your package is on its way", "body": "It's been on its way since Tuesday. It's finding itself.", "kind": "junk" },
+    { "id": "n36", "app": "Sleepwell", "title": "Bedtime in 9 hours", "body": "Just planting the seed.", "kind": "junk" },
+    { "id": "n37", "app": "LingoBird", "title": "You missed your lesson", "body": "The bird isn't angry. The bird is disappointed. That's worse.", "kind": "junk" },
+    { "id": "n38", "app": "Gym Buddy", "title": "We miss you", "body": "Your basement is right there. We checked.", "kind": "junk" },
+    {
+      "id": "page-checkout",
+      "app": "Pager",
+      "title": "PAGE: checkout is slow",
+      "body": "Squeaky Curd Outfitters. Place order takes over a second to respond. Customers are clicking it twice. Acknowledge?",
+      "kind": "page",
+      "bypassesDnd": true,
+      "actions": { "acknowledge": "On it", "snooze": "Snooze (it won't let you)", "refused": "Told you" }
+    }
+  ],
+
+  "storm": {
+    "durationSec": 40,
+    "count": 26,
+    "spawnEveryMs": [1600, 450],
+    "spawnNote": "Interval eases from the first value down to the second across the storm.",
+    "irritationPerArrival": 3,
+    "irritationPerSwipe": -1,
+    "pointsPerSwipe": 5,
+    "streakEvery": 5,
+    "streakBonus": 15,
+    "dnd": {
+      "label": "Do not disturb",
+      "unlockAfter": 8,
+      "hint": "There's a moon icon in the phone. Just saying.",
+      "onEnable": ["Quiet. Actual quiet. I can hear the fridge."],
+      "bonus": 60,
+      "irritation": -25
+    },
+    "pageDelayAfterDndMs": 4000,
+    "pageDelayNoDndMs": 0,
+    "copy": {
+      "start": "Here they come.",
+      "survived": "Inbox zero. It'll last about a minute.",
+      "overwhelmed": "Too many. I've stopped reading them and started resenting them."
+    }
+  },
+
+  "rounds": {
+    "coffee": {
+      "title": "Coffee",
+      "how": "Press space or click to stop the pour inside the line. Three pours.",
+      "pours": 3,
+      "timeLimitSec": 30,
+      "barSpeed": [1.0, 1.35, 1.7],
+      "sweetZone": [0.22, 0.16, 0.11],
+      "perfectZone": 0.04,
+      "lowEnergySpeedMult": 1.2,
+      "results": {
+        "perfect": { "points": 35, "energy": 15, "text": "That's the one. Right on the line." },
+        "good": { "points": 20, "energy": 10, "text": "Drinkable. I've had worse from better machines." },
+        "over": { "points": 5, "energy": 4, "text": "It's on the counter now. The counter doesn't need caffeine." },
+        "under": { "points": 5, "energy": 4, "text": "Half a cup. An espresso, if anyone asks." }
+      },
+      "streak": { "allPerfectBonus": 40, "text": "Three for three. Barista's on shift." },
+      "done": [
+        "Coffee's in. I'm a person again.",
+        "Okay. Now I can have opinions."
+      ],
+      "counts": { "coffees": 1 }
+    },
+    "gym": {
+      "title": "Basement gym",
+      "how": "Hit the key when the plate reaches the bar. A, S, D or the arrow keys.",
+      "bpm": 96,
+      "beats": 24,
+      "lanes": ["A", "S", "D"],
+      "timeLimitSec": 35,
+      "hitWindowMs": { "perfect": 70, "good": 150 },
+      "lowEnergyWindowMult": 0.75,
+      "points": { "perfect": 6, "good": 3, "miss": 0 },
+      "streak": { "every": 8, "bonus": 15 },
+      "energyCost": 8,
+      "energyCapBonus": { "bronze": 5, "silver": 10, "gold": 20 },
+      "tiers": { "bronze": 0.4, "silver": 0.65, "gold": 0.85 },
+      "tierNote": "Tier is the share of beats hit.",
+      "results": {
+        "gold": "Clean sets. I'll be insufferable about this until lunch.",
+        "silver": "Solid. Nothing pulled, nothing dropped.",
+        "bronze": "I showed up. That's most of it.",
+        "none": "That wasn't a workout, that was a visit."
+      },
+      "callouts": {
+        "perfect": ["Clean", "There it is", "Easy"],
+        "good": ["Fine", "Counts"],
+        "miss": ["Nope", "That was a rest"]
+      }
+    },
+    "whiteboard": {
+      "title": "Whiteboard",
+      "how": "Drag the boxes on. Drag from one box to another to connect them. Then send traffic.",
+      "puzzlesPerRound": 1,
+      "pick": "rotate",
+      "timeLimitSec": 60,
+      "points": { "survive": 200, "secondTry": 120, "fail": 30, "secondsLeftBonus": 2 },
+      "runButton": "Send traffic",
+      "pieces": {
+        "browser": { "label": "Browser", "hint": "Where the people are." },
+        "cdn": { "label": "CDN", "hint": "Serves the files that don't change, from somewhere close." },
+        "loadBalancer": { "label": "Load balancer", "hint": "Spreads requests so no one box takes all of it." },
+        "app": { "label": "App", "hint": "The code. Yours, unfortunately." },
+        "app2": { "label": "App (second copy)", "hint": "Same code, for when the first one's busy or dead." },
+        "cache": { "label": "Cache", "hint": "Remembers answers so the database doesn't have to." },
+        "queue": { "label": "Queue", "hint": "Holds work for later so the request doesn't wait on it." },
+        "worker": { "label": "Worker", "hint": "Does the slow jobs off to the side." },
+        "database": { "label": "Database", "hint": "The one thing you can't lose." }
+      },
+      "puzzles": [
+        {
+          "id": "wb-basic",
+          "title": "Get the page to the person",
+          "brief": "A small shop goes online. 200 people show up at once. Don't let the browser near the database.",
+          "pieces": ["browser", "cdn", "app", "database"],
+          "required": [["browser", "cdn"], ["cdn", "app"], ["app", "database"]],
+          "optional": [["browser", "app"]],
+          "forbidden": [
+            { "edge": ["browser", "database"], "text": "The browser is talking straight to the database. Someone typed a quote mark into the search box and now there's no products table." },
+            { "edge": ["cdn", "database"], "text": "The CDN cached the database. All of it. Everyone's seeing one customer's order from last Tuesday." }
+          ],
+          "missing": [
+            { "edge": ["browser", "cdn"], "text": "No CDN in front. Every image came from one box in a closet. It lasted nine seconds." },
+            { "edge": ["cdn", "app"], "text": "The CDN has nothing behind it. Very fast delivery of a blank page." },
+            { "edge": ["app", "database"], "text": "The app can't reach the database. It's serving the shop from memory, and its memory is bad." }
+          ],
+          "traffic": { "label": "200 visitors", "rps": 200, "durationSec": 5 },
+          "success": "Held. Boring, which is the highest praise a system can get."
+        },
+        {
+          "id": "wb-sale",
+          "title": "Sale day",
+          "brief": "Everything's 30% off and the email just went out. 5,000 people, same product page. One app box isn't going to make it.",
+          "pieces": ["browser", "cdn", "loadBalancer", "app", "app2", "cache", "database"],
+          "required": [
+            ["browser", "cdn"], ["cdn", "loadBalancer"],
+            ["loadBalancer", "app"], ["loadBalancer", "app2"],
+            ["app", "cache"], ["app2", "cache"],
+            ["app", "database"], ["app2", "database"]
+          ],
+          "optional": [],
+          "forbidden": [
+            { "edge": ["browser", "database"], "text": "Browser straight to the database again. We've talked about this." },
+            { "edge": ["cdn", "app"], "text": "The CDN skips the load balancer and sends everything to one app. That app has left the building." },
+            { "edge": ["cache", "database"], "text": "The cache is wired to the database with nobody in charge of what goes in it. It's now confidently serving last week's prices." }
+          ],
+          "missing": [
+            { "edge": ["loadBalancer", "app2"], "text": "The second app's just sitting there with no traffic. The first one took all 5,000 and fell over politely." },
+            { "edge": ["loadBalancer", "app"], "text": "The second app's doing everything while the first one watches. It didn't hold." },
+            { "edge": ["app", "cache"], "text": "No cache on the first app. It asked the database for the same product page 5,000 times and the database stopped answering." },
+            { "edge": ["app2", "cache"], "text": "The second app has no cache. Half the requests are fast and the other half are killing the database." },
+            { "edge": ["app", "database"], "text": "The first app can't reach the database. Cache misses turn into error pages." },
+            { "edge": ["app2", "database"], "text": "The second app can't reach the database. Every other refresh is an error. Customers think it's a game." },
+            { "edge": ["cdn", "loadBalancer"], "text": "Nothing connects the front door to the apps. Great looking page, no shop behind it." },
+            { "edge": ["browser", "cdn"], "text": "No CDN. The apps spent the whole sale serving the logo." }
+          ],
+          "traffic": { "label": "5,000 visitors", "rps": 5000, "durationSec": 6 },
+          "success": "It held, and the database barely noticed. That's the cache doing its one job."
+        },
+        {
+          "id": "wb-queue",
+          "title": "The email that took checkout down",
+          "brief": "Checkout sends a receipt email before it answers. The email service is slow today. Keep checkout fast anyway.",
+          "pieces": ["browser", "loadBalancer", "app", "queue", "worker", "cache", "database"],
+          "required": [
+            ["browser", "loadBalancer"], ["loadBalancer", "app"],
+            ["app", "database"], ["app", "queue"],
+            ["queue", "worker"]
+          ],
+          "optional": [["app", "cache"], ["worker", "database"]],
+          "forbidden": [
+            { "edge": ["app", "worker"], "text": "The app calls the worker directly and waits. Checkout is now exactly as fast as the email service, which is not fast." },
+            { "edge": ["browser", "queue"], "text": "The browser's writing to the queue. Someone queued 40,000 receipts for an order that doesn't exist." },
+            { "edge": ["browser", "database"], "text": "Browser to database. Every time. Why is it always this one." }
+          ],
+          "missing": [
+            { "edge": ["app", "queue"], "text": "Nothing goes on the queue. Orders work, nobody gets a receipt, support gets all of it." },
+            { "edge": ["queue", "worker"], "text": "The queue fills up and nobody's reading it. 12,000 emails, waiting, forever." },
+            { "edge": ["app", "database"], "text": "The app took the order and didn't write it down anywhere. Fast though." },
+            { "edge": ["loadBalancer", "app"], "text": "The load balancer has nothing to balance." },
+            { "edge": ["browser", "loadBalancer"], "text": "Nobody can get in. Zero errors. Zero orders too." }
+          ],
+          "traffic": { "label": "800 checkouts, slow email service", "rps": 800, "durationSec": 6 },
+          "success": "Checkout answered right away and the emails went out when they went out. Nobody waits on a receipt."
+        }
+      ],
+      "defaultFailure": "It fell over. Not sure where yet, which is its own problem.",
+      "extraEdgeText": "That line isn't hurting anything. It isn't doing anything either.",
+      "timeout": "Out of time. The meeting room's booked and the next people are at the door."
+    },
+    "review": {
+      "title": "Code review",
+      "how": "One line in each diff has a real bug. Click it before the timer runs out.",
+      "diffsPerRound": 3,
+      "pick": "shuffle",
+      "secondsPerDiff": 18,
+      "lowEnergySecondsPerDiff": 14,
+      "points": { "correct": 100, "secondsLeftBonus": 3, "wrong": -20, "timeout": 0 },
+      "streak": { "allCorrectBonus": 75, "text": "Three for three. Requesting changes with confidence." },
+      "copy": {
+        "correct": ["Found it.", "That's the one.", "Requesting changes."],
+        "wrong": ["That line's ugly, but it works.", "Not that one. That's just style."],
+        "timeout": "Approved by timeout. That's how they get in."
+      },
+      "diffs": [
+        {
+          "id": "rv-stale-closure",
+          "file": "Timer.jsx",
+          "title": "Add a seconds counter",
+          "kind": "stale closure",
+          "lines": [
+            "function Timer() {",
+            "  const [count, setCount] = useState(0);",
+            "  useEffect(() => {",
+            "    const id = setInterval(() => {",
+            "      setCount(count + 1);",
+            "    }, 1000);",
+            "    return () => clearInterval(id);",
+            "  }, []);",
+            "  return <p>{count}s</p>;",
+            "}"
+          ],
+          "bugLine": 4,
+          "explanation": "The interval keeps the count from the first render, so it sets 1 forever. Use setCount(c => c + 1).",
+          "fix": "      setCount((c) => c + 1);"
+        },
+        {
+          "id": "rv-missing-dep",
+          "file": "Profile.jsx",
+          "title": "Load the user for the profile card",
+          "kind": "missing dependency",
+          "lines": [
+            "function Profile({ userId }) {",
+            "  const [user, setUser] = useState(null);",
+            "  useEffect(() => {",
+            "    let live = true;",
+            "    fetchUser(userId).then((u) => {",
+            "      if (live) setUser(u);",
+            "    });",
+            "    return () => { live = false; };",
+            "  }, []);",
+            "  return <Card user={user} />;",
+            "}"
+          ],
+          "bugLine": 8,
+          "explanation": "The effect reads userId but never re-runs when it changes, so the card keeps showing the first user.",
+          "fix": "  }, [userId]);"
+        },
+        {
+          "id": "rv-index-key",
+          "file": "TicketQueue.jsx",
+          "title": "Sort tickets by priority",
+          "kind": "index as key on a reordered list",
+          "lines": [
+            "function TicketQueue({ tickets }) {",
+            "  const sorted = [...tickets].sort(byPriority);",
+            "  return (",
+            "    <ul>",
+            "      {sorted.map((ticket, i) => (",
+            "        <TicketRow key={i} ticket={ticket} />",
+            "      ))}",
+            "    </ul>",
+            "  );",
+            "}"
+          ],
+          "bugLine": 5,
+          "explanation": "The list gets reordered, so an index key hands each row's typed draft to whichever ticket lands in that slot. Key on ticket.id.",
+          "fix": "        <TicketRow key={ticket.id} ticket={ticket} />"
+        },
+        {
+          "id": "rv-unawaited",
+          "file": "saveOrder.js",
+          "title": "Show a toast when the order saves",
+          "kind": "unawaited promise",
+          "lines": [
+            "async function saveOrder(order) {",
+            "  try {",
+            "    validate(order);",
+            "    api.post('/orders', order);",
+            "    toast('Saved');",
+            "  } catch (err) {",
+            "    toast('Could not save');",
+            "  }",
+            "}"
+          ],
+          "bugLine": 3,
+          "explanation": "The post isn't awaited, so it says Saved before the request finishes and the catch never sees a failure.",
+          "fix": "    await api.post('/orders', order);"
+        },
+        {
+          "id": "rv-off-by-one",
+          "file": "visibleRows.js",
+          "title": "Paginate the orders table",
+          "kind": "off by one",
+          "lines": [
+            "function visibleRows(rows, page, pageSize) {",
+            "  const start = page * pageSize;",
+            "  const end = Math.min(start + pageSize, rows.length);",
+            "  const out = [];",
+            "  for (let i = start; i <= end; i++) {",
+            "    out.push(rows[i]);",
+            "  }",
+            "  return out;",
+            "}"
+          ],
+          "bugLine": 4,
+          "explanation": "The loop includes end, so every page has one row too many and the last page ends in undefined. It should be i < end.",
+          "fix": "  for (let i = start; i < end; i++) {"
+        },
+        {
+          "id": "rv-mutation",
+          "file": "Leaderboard.jsx",
+          "title": "Add a sort button to the leaderboard",
+          "kind": "mutation of state",
+          "lines": [
+            "function Leaderboard({ scores }) {",
+            "  const [rows, setRows] = useState(scores);",
+            "  function sortByScore() {",
+            "    setRows(rows.sort((a, b) => b.score - a.score));",
+            "  }",
+            "  return (",
+            "    <>",
+            "      <button onClick={sortByScore}>Sort</button>",
+            "      <Table rows={rows} />",
+            "    </>",
+            "  );",
+            "}"
+          ],
+          "bugLine": 3,
+          "explanation": "sort changes the array in place and returns the same one, so React sees no change and the parent's data got reordered too. Copy it first.",
+          "fix": "    setRows([...rows].sort((a, b) => b.score - a.score));"
+        }
+      ]
+    },
+    "hunt": {
+      "title": "The hunt",
+      "how": "Read the clue, rule out suspects, then name the one that made the click slow. A wrong accusation costs time.",
+      "shop": {
+        "name": "Squeaky Curd Outfitters",
+        "tagline": "Cheese curds, shipped cold, to people who can't wait.",
+        "note": "Made up. Any resemblance to a real cheese shop is a coincidence and a compliment."
+      },
+      "incident": {
+        "title": "Checkout is slow",
+        "summary": "Customers click Place order and nothing happens for over a second. Then they click it again.",
+        "interaction": "click on button.place-order"
+      },
+      "timeLimitSec": 60,
+      "wrongGuessPenaltySec": 8,
+      "lowFocusClueDelayMs": 1500,
+      "points": { "solve": 300, "secondsLeftBonus": 3, "wrongGuess": -40, "timeout": 60, "earlyCall": 60 },
+      "suspects": [
+        { "id": "CurdCarousel", "label": "<CurdCarousel>", "desc": "Spins product photos up top. Very proud of itself.", "alibi": "It's above the fold and wasn't touched by the click." },
+        { "id": "ChatBubble", "label": "<ChatBubble>", "desc": "A support widget that says hi every 30 seconds.", "alibi": "It runs on a timer. The click barely waited before its handler started." },
+        { "id": "CouponField", "label": "<CouponField>", "desc": "Checks codes like SQUEAK10.", "alibi": "It only does work when you type in it. Nobody typed." },
+        { "id": "ShippingEstimator", "label": "<ShippingEstimator>", "desc": "Guesses how long cold cheese takes to cross the country.", "alibi": "It did its work on the address step. It was idle during the click." },
+        { "id": "CartSummary", "label": "<CartSummary>", "desc": "Adds up the curds.", "alibi": "It re-rendered once, in 6 ms. That's allowed." },
+        { "id": "PlaceOrderButton", "label": "<PlaceOrderButton>", "desc": "The button everyone's clicking twice.", "alibi": "It's where the click landed, not where the time went. It just passes the click along." },
+        { "id": "CurdConfetti", "label": "<CurdConfetti>", "desc": "Throws tiny cheese curds across the screen when you order. Added last week.", "alibi": null }
+      ],
+      "culprit": "CurdConfetti",
+      "clues": [
+        {
+          "id": "clue-input",
+          "text": "Input delay was 38 ms. The page wasn't busy when the click arrived.",
+          "meaning": "So nothing running in the background held the click up.",
+          "clears": ["ChatBubble", "CurdCarousel"]
+        },
+        {
+          "id": "clue-processing",
+          "text": "Processing took 1,012 ms. Nearly all the time went into the click's own handlers.",
+          "meaning": "So it's something that runs because of this click, not something that ran earlier.",
+          "clears": ["CouponField", "ShippingEstimator"]
+        },
+        {
+          "id": "clue-render",
+          "text": "During that click one component mounted 4,000 children. Another re-rendered once, in 6 ms.",
+          "meaning": "Adding up a cart doesn't take 4,000 anything.",
+          "clears": ["CartSummary", "PlaceOrderButton"]
+        }
+      ],
+      "wrongGuess": [
+        "Not that one. It's got an alibi, read it.",
+        "Guessing is how two teams end up both claiming the fix.",
+        "Nope. The numbers don't point there."
+      ],
+      "readout": {
+        "header": "slow interaction found",
+        "lines": [
+          "interaction    click on button.place-order",
+          "total          1,284 ms   (poor)",
+          "input delay       38 ms",
+          "processing     1,012 ms",
+          "presentation     234 ms",
+          "",
+          "blame          <CurdConfetti>   91% of processing",
+          "where          onPlaceOrder > celebrate()   CurdConfetti.jsx:42",
+          "what           mounted 4,000 confetti curds before sending the order",
+          "",
+          "note           The order had not been sent yet. It celebrated first."
+        ],
+        "numbers": { "totalMs": 1284, "inputDelayMs": 38, "processingMs": 1012, "presentationMs": 234, "blameShare": 0.91 },
+        "verdict": "It's <CurdConfetti>. Somebody throws a party on the main thread before the order even leaves the building.",
+        "fixHint": "Send the order first. Then confetti, a lot less of it, after the next paint."
+      },
+      "after": {
+        "label": "After the fix",
+        "lines": [
+          "interaction    click on button.place-order",
+          "total             96 ms   (good)",
+          "input delay       31 ms",
+          "processing        41 ms",
+          "presentation      24 ms"
+        ],
+        "numbers": { "totalMs": 96, "inputDelayMs": 31, "processingMs": 41, "presentationMs": 24 }
+      },
+      "timeout": "Out of time. The readout names it anyway, the tool's faster than I am today.",
+      "solved": [
+        "Confetti. A second of everyone's life, per order, for confetti.",
+        "Nobody's in trouble. The confetti's in trouble."
+      ]
+    }
+  },
+
+  "emotes": [
+    { "id": "zzz", "glyph": "zzz", "when": "Energy under 25, in bed, or standing still for 20 seconds at night.", "triggers": [{ "meter": "energy", "below": 25 }, { "beat": "wake" }, { "beat": "lightsOut" }] },
+    { "id": "sweat", "glyph": "sweat drop", "when": "During the gym round, the hunt, or any round with under 10 seconds left.", "triggers": [{ "round": "gym" }, { "round": "hunt" }, { "roundSecondsLeft": 10 }] },
+    { "id": "exclaim", "glyph": "!", "when": "A new objective, the page arriving, or standing next to something you can use.", "triggers": [{ "event": "objective" }, { "event": "page" }, { "event": "nearInteractable" }] },
+    { "id": "coffee", "glyph": "coffee cup", "when": "After a coffee round, or near the machine with energy under 40.", "triggers": [{ "roundDone": "coffee" }, { "meter": "energy", "below": 40, "near": "coffeeMachine" }] },
+    { "id": "heart", "glyph": "heart", "when": "A round won, a side quest done, the fix shipped, the plant watered.", "triggers": [{ "event": "roundWon" }, { "event": "sideQuestDone" }, { "beatDone": "fix" }] },
+    { "id": "scribble", "glyph": "angry scribble", "when": "Irritation over 70, a wrong answer, or five notifications sitting unread.", "triggers": [{ "meter": "irritation", "above": 70 }, { "event": "wrongAnswer" }, { "unreadNotifications": 5 }] }
+  ],
+
+  "scoring": {
+    "points": {
+      "beatDone": "Each beat's onDone.score.",
+      "coffee": "Up to 35 a pour, plus 40 for three perfect pours.",
+      "gym": "6 for a perfect beat, 3 for a good one, plus 15 every 8 in a row.",
+      "whiteboard": "200 if it survives first try, 120 on the second, 30 if it falls over. 2 a second left.",
+      "review": "100 a bug found, 3 a second left, minus 20 for a wrong line. 75 extra for all three.",
+      "storm": "5 a swipe, 15 extra every 5 in a row, 60 for finding do not disturb.",
+      "hunt": "300 for the right culprit, 3 a second left, minus 40 a wrong guess.",
+      "sideQuest": 50
+    },
+    "streaks": {
+      "roundsWon": { "label": "Rounds in a row", "countsAsWin": "Coffee with at least two good pours, gym at silver or better, whiteboard survived, review with at least two found, hunt solved.", "bonusPerStep": 25, "maxSteps": 5, "resetOn": "A lost or timed out round. Skipping the gym doesn't reset it." },
+      "names": ["", "", "Warm", "On a roll", "In the zone", "Don't talk to him"]
+    },
+    "energyBonus": { "perPointLeftAtEnd": 1 },
+    "irritationPenalty": { "perPointOver": 70, "points": -2 },
+    "sleepHours": { "base": 8, "freeCoffees": 2, "minusPerExtraCoffee": 1, "minusIfIrritationOver70": 1, "min": 4 },
+    "titles": [
+      { "min": 0, "title": "Showed Up", "line": "You were present. Attendance counts for something." },
+      { "min": 350, "title": "Works On My Machine", "line": "Things happened. Some of them on purpose." },
+      { "min": 700, "title": "Pager Carrier", "line": "A real day's work. The pager agrees." },
+      { "min": 1050, "title": "Frontend Guru", "line": "That's the label that stuck. Today it was earned." },
+      { "min": 1350, "title": "The Tail Whisperer", "line": "Measured first, got smug second. That's the right order." }
+    ],
+    "summaryLines": [
+      "Shipped {shipped}, slept {sleep} hours.",
+      "{coffees} coffees and {dismissed} notifications dismissed. One of them mattered.",
+      "Found the slow click. It was confetti. It's always something like confetti.",
+      "Carried the pager. The pager did not carry me.",
+      "Reviewed {reviewed} diffs and had opinions about all of them.",
+      "Inbox zero for about a minute. Worth it.",
+      "Drew boxes on a whiteboard. Traffic had notes.",
+      "No blockers, said the man with several blockers.",
+      "The plant's alive. Best metric of the day.",
+      "Do not disturb was on. Got disturbed anyway. That's the job.",
+      "Checkout's fast again at {shop}. Somebody out there is getting their curds.",
+      "Same day tomorrow, different bugs."
+    ],
+    "writeupCard": {
+      "heading": "Write-up",
+      "fields": {
+        "what": "Checkout at {shop} took over a second to respond to a click.",
+        "why": "A confetti component did all its work in the click handler, before the order was sent.",
+        "fix": "Send the order first. Confetti after the next paint, and far less of it.",
+        "proof": "1,284 ms before, 96 ms after. Measured, not guessed."
+      },
+      "fileButton": "File it",
+      "dayHeading": "End of day",
+      "scoreLabel": "Score",
+      "streakLabel": "Best streak",
+      "shippedLabel": "Shipped",
+      "sleepLabel": "Hours of sleep",
+      "shareButton": "Share",
+      "shareText": "I played a day in Adi's life and scored {score}. The slow click was confetti. https://adityareddy.dev/game/",
+      "replayButton": "Play another day",
+      "resumeButton": "Okay, show me the resume"
+    }
+  },
+
+  "door": {
+    "label": "Staff only",
+    "sign": "BACK OFFICE. STAFF ONLY.",
+    "tryLines": [
+      "403, not 401. The door knows exactly who you are.",
+      "403 again. Trying it harder doesn't change your role.",
+      "Still 403. It's not a 404, the room's definitely there.",
+      "You've tried this door four times. That's in the logs now.",
+      "Nothing in there for visitors. It's mostly cables and one very serious spreadsheet.",
+      "The door appreciates the persistence. The answer's the same."
+    ],
+    "adiThought": "My own back office, and the door still asks who I am. Good door.",
+    "options": {
+      "leave": { "label": "Fair enough" },
+      "imAdi": { "label": "I'm Adi", "url": "https://adityareddy.dev/tracker/", "confirm": "Then you know the real lock's on the other side. Opening it." }
+    }
+  },
+
+  "objects": {
+    "sofa": {
+      "lines": ["Sat down for one minute. It's never one minute.", "The sofa wins this round."],
+      "irritation": -5
+    },
+    "tv": {
+      "lines": [
+        "Nothing on. There's a lot of it, though.",
+        "Forty channels of people renovating kitchens.",
+        "Turned it off again. The remote feels used."
+      ]
+    },
+    "treadmill": {
+      "lines": ["Ran in place. Got nowhere, quickly.", "The only thing in this house with a worse commute than mine."],
+      "energy": -3
+    },
+    "fridge": {
+      "prompt": "Open the fridge",
+      "lines": ["Opened the fridge. Same fridge as ten minutes ago.", "There's mustard and an idea. That's not a meal."]
+    },
+    "frontDoor": {
+      "lines": ["Outside. I've heard good things.", "Not today. There's a pager in here that'd miss me."]
+    },
+    "coffeeMachine": {
+      "limit": 4,
+      "full": "That's enough coffee. My hands are already in a different meeting.",
+      "donePrompt": "Stare at the machine"
+    },
+    "gymBench": { "donePrompt": "Think about another set", "again": "Did my sets already. Twice would be showing off." },
+    "whiteboard": { "prompt": "Look at the board", "again": "Still boxes and arrows. I'm leaving it up so it looks like work." },
+    "bed": {
+      "title": "Call it a day already?",
+      "line": "It's {time}. The day isn't done, but nobody's checking.",
+      "stay": "Not yet",
+      "sleep": "Lights out",
+      "after": "Read the write-up again"
+    },
+    "notYet": "Not yet. One thing at a time, and it's not this thing's turn.",
+    "nothing": "Nothing to do here right now.",
+    "sideQuest": "Side quest"
+  },
+
+  "skips": {
+    "label": "Skip",
+    "title": "Skip this part of the day (K)",
+    "generic": [
+      "Skipped that. The day kept going without it.",
+      "Let that one go. Nobody's keeping score, apart from the score."
+    ],
+    "wake": "Up. We're up.",
+    "phoneJunk": "Left them unread. They'll keep.",
+    "storm": "Stopped looking at the phone. It kept going without me.",
+    "page": "The pager acknowledged itself. That's called escalation.",
+    "gaveUp": "Walked away from that one. It'll still be there tomorrow."
+  },
+
+  "end": {
+    "clock": "23:00. Fell asleep where I stood. It counts.",
+    "early": "Called it early. The pager didn't get a vote.",
+    "after": "Day's done. The phone's still the menu.",
+    "stormBlocked": "Do not disturb's been on since this morning. I can feel them piling up anyway."
+  },
+
+  "idle": [
+    "I came in here for something.",
+    "Is the build still green? I should check. I shouldn't check.",
+    "p95 says someone's hurting. p99 says who. Nobody asked, I just like saying it.",
+    "The fridge is humming in a key. I don't know which one.",
+    "I could refactor this whole room.",
+    "Standing still. Technically this is a long task.",
+    "Somewhere there's a meeting I'm not in. Lovely.",
+    "The whiteboard still has last week on it. Nobody erase that. Nobody read it either.",
+    "I should stretch. I'm going to think about stretching instead.",
+    "One day I'll close a browser tab. Not today.",
+    "The phone's quiet. I don't trust it.",
+    "Milwaukee in winter builds character. I've got plenty now, thanks.",
+    "If I stand here long enough, does it count as a break or a bug?",
+    "Averages hide the people who are waiting. Anyway. Snack?",
+    "There's a door in the basement I'm not going to talk about."
+  ]
+}

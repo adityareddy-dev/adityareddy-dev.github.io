@@ -1,0 +1,532 @@
+/* Whiteboard round. Everything sits under .round-whiteboard. */
+
+.round-whiteboard {
+  width: min(1000px, 100%);
+}
+
+.round-whiteboard .wb {
+  --wb-blue: #2456c9;
+  --wb-red: #d23b3b;
+  --wb-green: #1c8a57;
+  --wb-black: #2b2e36;
+  --wb-hand: 'Patrick Hand', 'Segoe Print', 'Bradley Hand', 'Chalkboard SE', 'Comic Sans MS', cursive;
+}
+
+.round-whiteboard .wb-brief {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.round-whiteboard .wb-brief-text {
+  max-width: 64ch;
+}
+
+.round-whiteboard .wb-chips {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  max-width: 46%;
+}
+
+.round-whiteboard .wb-chip {
+  padding: 3px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.round-whiteboard .wb-chip-tired {
+  border-color: rgba(242, 179, 61, 0.7);
+  background: #fff1d6;
+}
+
+/* The aluminium rim. */
+.round-whiteboard .wb-frame {
+  padding: 10px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #eceef2, #b9bdc7 55%, #d8dbe1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 8px 20px rgba(29, 29, 31, 0.18);
+}
+
+.round-whiteboard .wb-narrow .wb-frame {
+  padding: 6px;
+  border-radius: 9px;
+}
+
+.round-whiteboard .wb-board {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background:
+    radial-gradient(ellipse 34% 26% at 72% 34%, rgba(110, 122, 150, 0.07), transparent 70%),
+    radial-gradient(ellipse 26% 30% at 22% 62%, rgba(110, 122, 150, 0.06), transparent 70%),
+    linear-gradient(175deg, #ffffff, #f7f8f6);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.16), inset 0 2px 9px rgba(0, 0, 0, 0.07);
+  font-family: var(--wb-hand);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.round-whiteboard .wb-board text {
+  pointer-events: none;
+}
+
+.round-whiteboard .wb-title {
+  fill: var(--wb-black);
+  font-size: 25px;
+}
+
+.round-whiteboard .wb-narrow .wb-title {
+  font-size: 19px;
+}
+
+.round-whiteboard .wb-scrawl {
+  fill: none;
+  stroke: var(--wb-black);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.round-whiteboard .wb-count {
+  fill: var(--wb-blue);
+  font-size: 18px;
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.round-whiteboard .wb-narrow .wb-count {
+  font-size: 15px;
+}
+
+.round-whiteboard .wb-count.bad {
+  fill: var(--wb-red);
+}
+
+.round-whiteboard .wb-keep path {
+  fill: none;
+  stroke: var(--wb-red);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  opacity: 0.7;
+}
+
+.round-whiteboard .wb-keep text {
+  fill: var(--wb-red);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  opacity: 0.78;
+}
+
+.round-whiteboard .wb-tray-bg {
+  fill: #e8eaee;
+}
+
+.round-whiteboard .wb-tray-edge {
+  stroke: rgba(0, 0, 0, 0.2);
+  stroke-width: 1;
+}
+
+/* Cards */
+.round-whiteboard .wb-card {
+  cursor: grab;
+  outline: none;
+}
+
+.round-whiteboard .wb-card.placed {
+  cursor: crosshair;
+}
+
+.round-whiteboard .wb-card.lifted {
+  cursor: grabbing;
+}
+
+.round-whiteboard .wb-card.down {
+  pointer-events: none;
+}
+
+.round-whiteboard .wb-card-shadow {
+  fill: rgba(29, 29, 31, 0.17);
+  transition: transform 0.12s ease;
+}
+
+.round-whiteboard .wb-card.lifted .wb-card-shadow {
+  transform: translate(3px, 6px);
+  fill: rgba(29, 29, 31, 0.13);
+}
+
+.round-whiteboard .wb-card-paper {
+  fill: #fffdf6;
+  stroke: rgba(29, 29, 31, 0.12);
+  stroke-width: 1;
+}
+
+.round-whiteboard .wb-card.target .wb-card-paper {
+  fill: #eaf2ff;
+}
+
+.round-whiteboard .wb-card-line {
+  fill: none;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.round-whiteboard .wb-card-icon {
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.round-whiteboard .wb-label {
+  fill: var(--wb-black);
+}
+
+.round-whiteboard .wb-card-halo {
+  fill: none;
+  stroke: var(--wb-blue);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.round-whiteboard .wb-card.selected .wb-card-halo,
+.round-whiteboard .wb-card.target .wb-card-halo,
+.round-whiteboard .wb-card:focus-visible .wb-card-halo {
+  opacity: 0.9;
+}
+
+.round-whiteboard .wb-grip {
+  cursor: move;
+}
+
+.round-whiteboard .wb-card:not(.placed) .wb-grip {
+  cursor: grab;
+}
+
+.round-whiteboard .wb-grip-hit {
+  fill: transparent;
+}
+
+.round-whiteboard .wb-grip-dot {
+  stroke: rgba(0, 0, 0, 0.28);
+  stroke-width: 1;
+}
+
+.round-whiteboard .wb-grip-shine {
+  fill: rgba(255, 255, 255, 0.75);
+  pointer-events: none;
+}
+
+/* Marker lines */
+.round-whiteboard .wb-ink {
+  fill: none;
+  stroke: var(--wb-blue);
+  stroke-width: 2.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.round-whiteboard .wb-ink-2 {
+  stroke-width: 1.9;
+  opacity: 0.7;
+}
+
+.round-whiteboard .wb-live {
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.round-whiteboard .wb-draw {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+  animation: wb-draw 0.26s ease-out forwards;
+}
+
+.round-whiteboard .wb-ink-2.wb-draw {
+  animation-delay: 0.07s;
+}
+
+.round-whiteboard .wb-head.wb-draw {
+  animation-delay: 0.2s;
+  animation-duration: 0.14s;
+}
+
+@keyframes wb-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.round-whiteboard .wb-edge {
+  cursor: pointer;
+  outline: none;
+}
+
+.round-whiteboard .wb-edge-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 22;
+  pointer-events: stroke;
+}
+
+.round-whiteboard .wb-edge:hover .wb-ink,
+.round-whiteboard .wb-edge:focus-visible .wb-ink {
+  stroke: var(--wb-red);
+  opacity: 0.55;
+}
+
+.round-whiteboard .wb-running .wb-edge,
+.round-whiteboard .wb-running .wb-card {
+  pointer-events: none;
+}
+
+.round-whiteboard .wb-edge.wb-rubbed {
+  opacity: 0;
+  filter: blur(3px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, filter 0.22s ease;
+}
+
+.round-whiteboard .wb-edge.wb-bad .wb-ink {
+  stroke: var(--wb-red);
+}
+
+/* Lines to a box that fell over fade with it. */
+.round-whiteboard .wb-edge.wb-loose {
+  opacity: 0.22;
+  transition: opacity 0.35s ease;
+}
+
+.round-whiteboard .wb-ghost {
+  fill: none;
+  stroke: var(--wb-red);
+  stroke-width: 2.2;
+  stroke-dasharray: 7 8;
+  stroke-linecap: round;
+  animation: wb-blink 1.2s ease-in-out infinite;
+}
+
+.round-whiteboard .wb-ghost-dot {
+  fill: #fff;
+  stroke: var(--wb-red);
+  stroke-width: 2;
+}
+
+.round-whiteboard .wb-ghost-mark {
+  fill: var(--wb-red);
+  font-size: 18px;
+}
+
+@keyframes wb-blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.round-whiteboard .wb-dot {
+  fill: #f08a24;
+  stroke: rgba(29, 29, 31, 0.55);
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.round-whiteboard .wb-dot.bad {
+  fill: var(--wb-red);
+}
+
+.round-whiteboard .wb-dot.ok {
+  fill: var(--wb-green);
+}
+
+.round-whiteboard .wb-cross {
+  fill: none;
+  stroke: var(--wb-red);
+  stroke-width: 4;
+  stroke-linecap: round;
+  animation-duration: 0.3s;
+}
+
+.round-whiteboard .wb-tick {
+  fill: none;
+  stroke: var(--wb-green);
+  stroke-width: 3.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.round-whiteboard .wb-shake {
+  animation: wb-shake 0.42s ease-out;
+}
+
+@keyframes wb-shake {
+  15% { transform: translate(-5px, 2px) rotate(-0.4deg); }
+  35% { transform: translate(5px, -2px) rotate(0.4deg); }
+  55% { transform: translate(-3px, 1px); }
+  75% { transform: translate(2px, 0); }
+}
+
+/* Under the board */
+.round-whiteboard .wb-foot {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 78px;
+  margin-top: 12px;
+}
+
+.round-whiteboard .wb-help,
+.round-whiteboard .wb-note {
+  flex: 1;
+  min-width: 0;
+}
+
+.round-whiteboard .wb-help-main {
+  font-weight: 600;
+}
+
+.round-whiteboard .wb-help-sub {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.round-whiteboard .wb-help[data-tone='nudge'] .wb-help-main {
+  color: var(--accent-deep);
+}
+
+.round-whiteboard .wb-actions {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  align-items: center;
+}
+
+.round-whiteboard .wb-send:disabled,
+.round-whiteboard .wb-wipe:disabled {
+  opacity: 0.5;
+  cursor: default;
+  transform: none;
+}
+
+.round-whiteboard .wb-note {
+  padding: 10px 14px;
+  border-left: 4px solid var(--muted);
+  border-radius: 10px;
+  background: #fff;
+  animation: wb-note-in 0.25s ease-out;
+}
+
+.round-whiteboard .wb-note[data-tone='good'] {
+  border-color: var(--good);
+  background: #ebf7f0;
+}
+
+.round-whiteboard .wb-note[data-tone='bad'] {
+  border-color: var(--bad);
+  background: #fdeeed;
+}
+
+.round-whiteboard .wb-note-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 2px;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 560;
+  line-height: 1.2;
+}
+
+.round-whiteboard .wb-score {
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--good);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.round-whiteboard .wb-note[data-tone='bad'] .wb-score {
+  background: var(--muted);
+}
+
+.round-whiteboard .wb-note-hint {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.round-whiteboard .wb-note-aside {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@keyframes wb-note-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.round-whiteboard .wb-narrow .wb-brief,
+.round-whiteboard .wb-narrow .wb-foot {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.round-whiteboard .wb-narrow .wb-chips {
+  justify-content: flex-start;
+  max-width: none;
+}
+
+.round-whiteboard .wb-narrow .wb-actions {
+  align-self: flex-end;
+}
+
+.round-whiteboard .wb-narrow .wb-help,
+.round-whiteboard .wb-narrow .wb-note {
+  width: 100%;
+}
+
+.round-whiteboard .wb-narrow .wb-help-sub {
+  display: none;
+}
+
+.round-whiteboard .wb-narrow .wb-brief-text,
+.round-whiteboard .wb-narrow .wb-help-main {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+@media (max-width: 620px) {
+  .round-whiteboard {
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .round-whiteboard .wb-ghost {
+    animation: none;
+  }
+}
+
+.round-whiteboard .wb-pen rect,
+.round-whiteboard .wb-rubber rect {
+  stroke: rgba(29, 29, 31, 0.28);
+  stroke-width: 1;
+}

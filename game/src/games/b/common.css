@@ -1,0 +1,99 @@
+/* Bits the coffee, gym and hunt rounds share. */
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-how {
+  margin: 0 0 12px;
+  font-size: 15px;
+  opacity: 0.74;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-how .kbd {
+  margin: 0 1px;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-result {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+  animation: gb-rise 0.28s ease both;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-result h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-result p {
+  margin: 0;
+  color: var(--muted);
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-chip {
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-chip.good {
+  background: #dcf3e8;
+  color: #17603f;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-chip.warm {
+  background: #fdebcf;
+  color: #7a4a06;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-chip.bad {
+  background: #fbdfe0;
+  color: #8f1d22;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .gb-result .round-actions {
+  margin-top: 4px;
+}
+
+:is(.round-coffee, .round-gym, .round-hunt) .btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+  transform: none;
+}
+
+/* The way out waits a beat before it takes a press, without looking switched off. */
+:is(.round-coffee, .round-gym, .round-hunt) .gb-result .round-actions .btn:disabled {
+  opacity: 1;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  :is(.round-coffee, .round-gym, .round-hunt) .gb-keys {
+    display: none;
+  }
+}
+
+@keyframes gb-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

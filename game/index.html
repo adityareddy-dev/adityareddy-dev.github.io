@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Day in the Life of Adi</title>
+<meta name="description" content="A small 3D game about one working day. The resume is in the phone, no playing required.">
+<meta name="theme-color" content="#1b1a22">
+<meta property="og:title" content="A Day in the Life of Adi">
+<meta property="og:description" content="One working day at home. The pager came too.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adityareddy.dev/game/">
+<meta property="og:image" content="https://adityareddy.dev/assets/aditya.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="Aditya Reddy">
+<meta property="og:site_name" content="Aditya Reddy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A Day in the Life of Adi">
+<meta name="twitter:description" content="One working day at home. The pager came too.">
+<meta name="twitter:image" content="https://adityareddy.dev/assets/aditya.jpg">
+<meta name="twitter:image:alt" content="Aditya Reddy">
+<link rel="canonical" href="https://adityareddy.dev/game/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050710'/%3E%3Cpath d='M8 46 C16 46 20 34 26 26 C31 19 34 17 38 17 C42 17 44 20 47 25 C51 32 55 38 60 41' fill='none' stroke='%2366b8ff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Fraunces:opsz,wght@9..144,560&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="ui.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/build/three.module.js",
+    "three/addons/": "./vendor/three/addons/"
+  }
+}
+</script>
+<link rel="modulepreload" href="vendor/three/build/three.module.js">
+<link rel="modulepreload" href="vendor/three/build/three.core.js">
+</head>
+<body>
+<canvas id="game-canvas" tabindex="0" aria-label="The house, seen from above. Walk with WASD or the arrow keys, or click the floor."></canvas>
+<div id="vignette" aria-hidden="true"></div>
+
+<div id="hud-layer" class="layer"></div>
+<div id="round-layer" class="layer" hidden></div>
+
+<div id="loading" role="status" aria-live="polite">
+  <div class="loading-box">
+    <h1 id="loading-title">A Day in the Life of Adi</h1>
+    <p id="loading-sub">One working day at home. The pager came too.</p>
+    <div class="loading-track" aria-hidden="true"><div id="loading-bar"></div></div>
+    <p id="loading-text">Waking up</p>
+  </div>
+</div>
+
+<div id="phone-layer" class="layer"></div>
+<div id="card-layer" class="layer"></div>
+<div id="toast-layer" class="layer" aria-live="polite"></div>
+
+<div id="fatal" role="alert" hidden>
+  <div class="panel">
+    <h2>That didn't start.</h2>
+    <p id="fatal-text">This browser won't draw 3D for me. Everything's on the plain page though.</p>
+    <p><a class="btn primary" href="plain.html">Open the plain page</a></p>
+  </div>
+</div>
+
+<a id="skip-link" href="plain.html">Skip the game</a>
+
+<noscript>
+  <div class="noscript panel">
+    <p>The game needs JavaScript. The plain page doesn't.</p>
+    <p><a class="btn primary" href="plain.html">Open the plain page</a></p>
+  </div>
+</noscript>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

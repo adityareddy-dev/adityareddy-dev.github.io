@@ -1,0 +1,58 @@
+.player-say {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.player-say-box {
+  position: absolute;
+  left: 0;
+  bottom: 14px;
+  width: max-content;
+  max-width: min(260px, 70vw);
+  padding: 9px 13px 10px;
+  border-radius: var(--radius, 14px);
+  background: var(--paper, #fbf7f0);
+  color: var(--ink, #1d1d1f);
+  font: 500 14px/1.35 var(--sans, system-ui, sans-serif);
+  text-align: center;
+  box-shadow: var(--shadow-sm, 0 4px 14px rgba(0, 0, 0, 0.25));
+  opacity: 0;
+  transform: translateX(-50%) translateY(6px) scale(0.85);
+  transform-origin: 50% 100%;
+  transition: opacity 0.16s ease, transform 0.22s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+.player-say-box::after {
+  content: '';
+  position: absolute;
+  left: calc(50% + var(--tail, 0px));
+  bottom: -6px;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 3px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+.player-say-text {
+  position: relative;
+  z-index: 1;
+}
+
+.player-say.in .player-say-box {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player-say-box {
+    transition: opacity 0.16s ease;
+    transform: translateX(-50%);
+  }
+}

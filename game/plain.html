@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aditya Reddy, the plain page</title>
+<meta name="description" content="Resume, projects and open source work on one page. Same content as the game, minus the walking around.">
+<meta name="theme-color" content="#fbf7f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1b1a22" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Aditya Reddy, the plain page">
+<meta property="og:description" content="Resume, projects and open source work on one page.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adityareddy.dev/game/plain.html">
+<meta property="og:image" content="https://adityareddy.dev/assets/aditya.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050710'/%3E%3Cpath d='M8 46 C16 46 20 34 26 26 C31 19 34 17 38 17 C42 17 44 20 47 25 C51 32 55 38 60 41' fill='none' stroke='%2366b8ff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Fraunces:opsz,wght@9..144,560&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="plain.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <a class="bar-back" href="./">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      Play the game instead
+    </a>
+    <button class="button" type="button" id="print">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg>
+      Save as PDF
+    </button>
+  </div>
+</header>
+
+<main class="page" id="page" aria-busy="true">
+  <p class="waiting" id="waiting">One second.</p>
+  <noscript>
+    <p class="waiting">This page fills itself in with JavaScript, and it's off here. The same things are on <a href="https://adityareddy.dev">adityareddy.dev</a>.</p>
+  </noscript>
+</main>
+
+<script>
+(async () => {
+  const page = document.getElementById('page');
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const list = (v) => (Array.isArray(v) ? v : []);
+  const bare = (url) => String(url).replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+  const day = (v) => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(v || ''));
+    return m ? `${months[m[2] - 1]} ${Number(m[3])}, ${m[1]}` : v ? String(v) : '';
+  };
+
+  // h('a.class', { href }, ...children). Strings become text, never markup.
+  function h(spec, props, ...kids) {
+    const [tag, ...classes] = spec.split('.');
+    const node = document.createElement(tag || 'div');
+    if (classes.length) node.className = classes.join(' ');
+    for (const [key, value] of Object.entries(props || {})) {
+      if (value !== null && value !== undefined && value !== false) node.setAttribute(key, value);
+    }
+    node.append(...kids.flat(3).filter((kid) => kid !== null && kid !== undefined && kid !== false));
+    return node;
+  }
+  const out = (href, text, cls = '') => h(`a${cls}`, { href, target: '_blank', rel: 'noopener' }, text);
+  const block = (id, title, kids, print = true) =>
+    h(`section.block${print ? '' : '.no-print'}`, { id, 'aria-labelledby': `${id}-h` }, h('h2', { id: `${id}-h` }, title), h('div.block-body', {}, kids));
+  const empty = (title, text) => h('div.empty', {}, h('strong', {}, title), text);
+
+  document.getElementById('print').addEventListener('click', () => window.print());
+
+  let c;
+  try {
+    const res = await fetch('data/content.json');
+    if (!res.ok) throw new Error(String(res.status));
+    c = await res.json();
+  } catch (err) {
+    document.getElementById('waiting').textContent = "The content didn't load. A refresh usually fixes it.";
+    page.removeAttribute('aria-busy');
+    return;
+  }
+
+  const p = c.person || {};
+  const links = p.links || {};
+  const name = p.name || 'Aditya Reddy';
+  const statNames = {
+    npmVersion: 'On npm',
+    npmReleases: 'Releases',
+    firstPublished: 'First published',
+    githubStars: 'GitHub stars',
+    mergedPullRequests: 'Pull requests merged in the repo',
+    dependencies: 'Dependencies',
+    license: 'License',
+  };
+
+  const hero = h(
+    'header.hero',
+    {},
+    h('img.hero-photo', { src: '../assets/aditya-sm.jpg', alt: name, width: 132, height: 132 }),
+    h('div', {}, h('h1', {}, name), h('p.hero-role', {}, [p.title, p.location].filter(Boolean).join(' · '))),
+    p.tagline ? h('p.hero-tagline', {}, p.tagline) : null,
+    h(
+      'nav.links',
+      { 'aria-label': 'Contact and profiles' },
+      p.email ? h('a', { href: `mailto:${p.email}` }, p.email) : null,
+      ['site', 'github', 'linkedin', 'npm'].filter((key) => links[key]).map((key) => out(links[key], bare(links[key]))),
+    ),
+  );
+  hero.querySelector('img').addEventListener('error', (e) => e.target.remove());
+
+  const about = list(c.about);
+  const career = list(c.career);
+  const skills = list(c.skills);
+  const projects = list(c.projects);
+  const articles = list(c.articles);
+  const judging = list(c.judging);
+  const beats = list(c.story);
+
+  // Pull requests by repo, in the order the data lists the repos.
+  const contrib = c.contributions || {};
+  const repos = new Map();
+  const repo = (key) => repos.get(key) || repos.set(key, { merged: [], open: [] }).get(key);
+  for (const row of list(contrib.byProject)) repo(row.repo);
+  for (const pr of list(contrib.merged)) repo(pr.repo).merged.push(pr);
+  for (const pr of list(contrib.open)) repo(pr.repo).open.push(pr);
+  const groups = [...repos].filter(([, g]) => g.merged.length + g.open.length);
+  const mergedCount = list(contrib.merged).length;
+  const openCount = list(contrib.open).length;
+  const prRow = (pr, state) =>
+    h(
+      'li.pr',
+      {},
+      h(`span.pr-state.${state}`, {}, state === 'merged' ? 'Merged' : 'Open'),
+      pr.url ? out(pr.url, pr.title || pr.url) : h('span', {}, pr.title || ''),
+      h('span.pr-meta', {}, [(/\/pull\/(\d+)/.exec(pr.url || '') || [])[1] ? `#${/\/pull\/(\d+)/.exec(pr.url)[1]}` : '', day(pr.date)].filter(Boolean).join(' · ')),
+    );
+
+  const parts = [
+    hero,
+    h('p.plain-note', {}, 'This is the plain version. Same content as the game, minus the walking around.'),
+
+    about.length ? block('about', 'About', about.map((text) => h('p', {}, text))) : null,
+
+    career.length
+      ? block(
+          'experience',
+          'Experience',
+          career.map((job) =>
+            h(
+              'article.job',
+              {},
+              h('div.job-top', {}, h('h3', {}, job.role || ''), job.period ? h('span.job-when', {}, job.period) : null),
+              h('span.job-where', {}, [job.org, job.place].filter(Boolean).join(', ')),
+              list(job.points).map((point) => h('p', {}, point)),
+            ),
+          ),
+        )
+      : null,
+
+    skills.length
+      ? block(
+          'skills',
+          'Skills',
+          h(
+            'div.skills',
+            {},
+            skills.map((group, i) =>
+              h('div', {}, group.group ? h('h3', {}, group.group) : null, h(`ul.chips${i === 0 ? '.strong' : ''}`, {}, list(group.items).map((item) => h('li', {}, item)))),
+            ),
+          ),
+        )
+      : null,
+
+    block(
+      'projects',
+      'Projects',
+      projects.length
+        ? projects.map((project) => {
+            const facts = Object.entries(project.stats || {}).filter(([, v]) => v !== null && v !== undefined && v !== '');
+            return h(
+              'article.item',
+              {},
+              h('h3', {}, project.name || 'Project'),
+              project.summary ? h('p', {}, project.summary) : null,
+              h('div.item-links', {}, project.demo ? out(project.demo, bare(project.demo)) : null, project.url ? out(project.url, bare(project.url)) : null),
+              facts.length
+                ? h(
+                    'dl.facts',
+                    {},
+                    facts.map(([key, v]) =>
+                      h('div', {}, h('dt', {}, statNames[key] || key), h('dd', {}, key === 'firstPublished' ? day(v) : key === 'npmVersion' ? `v${v}` : String(v))),
+                    ),
+                  )
+                : null,
+              list(project.highlights).length ? h('ul.dots', {}, project.highlights.map((line) => h('li', {}, line))) : null,
+            );
+          })
+        : empty('No projects listed yet.', 'They show up here when there is something to link to.'),
+      projects.length > 0,
+    ),
+
+    block(
+      'open-source',
+      'Open source',
+      groups.length
+        ? [
+            h(
+              'p.counts',
+              {},
+              `Pull requests to other people's projects. ${mergedCount} merged and ${openCount} open, across ${groups.length} ${groups.length === 1 ? 'project' : 'projects'}.`,
+            ),
+            groups.map(([key, g]) =>
+              h(
+                'section.repo',
+                {},
+                h(
+                  'div.repo-top',
+                  {},
+                  h('h3', {}, out(`https://github.com/${key}`, key)),
+                  h('span.repo-count', {}, [g.merged.length ? `${g.merged.length} merged` : '', g.open.length ? `${g.open.length} open` : ''].filter(Boolean).join(', ')),
+                ),
+                h('ul', {}, g.merged.map((pr) => prRow(pr, 'merged')), g.open.map((pr) => prRow(pr, 'open'))),
+              ),
+            ),
+          ]
+        : empty('No public pull requests to list yet.', 'When one goes up, it shows here with a link.'),
+      groups.length > 0,
+    ),
+
+    block(
+      'writing',
+      'Writing',
+      articles.length
+        ? articles.map((a) =>
+            h(
+              'article.item',
+              {},
+              a.status ? h('span.tag', {}, a.status) : null,
+              h('h3', {}, a.title || 'Untitled'),
+              a.summary ? h('p', {}, a.summary) : null,
+              a.url
+                ? h('div.item-links', {}, out(a.url, 'Read it'), a.date ? h('span.quiet', {}, day(a.date)) : null)
+                : h('p.quiet', {}, 'No link yet. It gets one when it is out.'),
+            ),
+          )
+        : empty('Nothing published yet.', 'When something is, it goes here first.'),
+      articles.length > 0,
+    ),
+
+    // Left out until there's something to put in it.
+    judging.length
+      ? block(
+          'judging',
+          'Judging',
+          judging.map((j) =>
+            h(
+              'article.item',
+              {},
+              h('h3', {}, j.title || j.name || j.role || 'Judging'),
+              h('p', {}, [j.org || j.event, j.place, day(j.date || j.year || j.period)].filter(Boolean).join(' · ')),
+              j.summary || j.note ? h('p', {}, j.summary || j.note) : null,
+              j.url ? h('div.item-links', {}, out(j.url, 'See it')) : null,
+            ),
+          ),
+        )
+      : null,
+
+    beats.length
+      ? block('story', 'How I got here', h('ol.beats', {}, beats.map((beat) => h('li', {}, h('h3', {}, beat.heading || ''), h('p', {}, beat.text || '')))), false)
+      : null,
+
+    h(
+      'footer.foot',
+      {},
+      h('span', {}, c.generated ? `Last updated ${day(c.generated)}.` : ''),
+      h('a.to-game', { href: './' }, "There's a game version of this page. It has a pager."),
+    ),
+  ];
+  page.replaceChildren(...parts.filter(Boolean));
+  page.removeAttribute('aria-busy');
+  document.title = `${name}, the plain page`;
+
+  // The phone's "Download as PDF" lands here with ?print=1.
+  if (new URLSearchParams(location.search).has('print')) {
+    try {
+      await Promise.race([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 2500))]);
+      const photo = hero.querySelector('img');
+      if (photo && !photo.complete) await new Promise((resolve) => ['load', 'error'].forEach((type) => photo.addEventListener(type, resolve, { once: true })));
+    } catch (err) {
+      // Print anyway.
+    }
+    window.print();
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+{
+  "person": {
+    "name": "Aditya Reddy",
+    "title": "Senior Software Engineer",
+    "location": "Milwaukee, Wisconsin",
+    "tagline": "Senior software engineer. I build and run production systems for companies where downtime has a dollar sign attached to it.",
+    "email": "adityareddy.dev@gmail.com",
+    "links": {
+      "site": "https://adityareddy.dev",
+      "github": "https://github.com/adityareddy-dev",
+      "linkedin": "https://linkedin.com/in/adityareddy-dev",
+      "npm": "https://www.npmjs.com/package/react-inp-blame"
+    }
+  },
+  "about": [
+    "Right now I lead observability for a major application rebuild at Northwestern Mutual. The legacy and rebuilt stacks run side by side, and the monitoring has to referee between them fairly or the comparison is worthless. I defined the SLI framework the stakeholders signed off on, and moved measurement to the gateway instead of trusting what each application reports about itself.",
+    "Before that I was a core engineer on straight-through processing of insurance applications: 16 Node microservices, 3 React apps, an event-driven architecture on AWS. I took the team's DevSecOps role cause someone had to, and it turned out I liked the pipelines as much as the product. PagerDuty on-call too. You should carry the pager for what you build though.",
+    "Nine years in software, seven of them building and operating production web systems in the US, across financial services, healthcare and retail supply chain."
+  ],
+  "story": [
+    {
+      "heading": "Started in the pixels.",
+      "text": "Years of shipping interfaces people actually touch. The label that stuck at work is frontend guru, though these days the pixels are only half the job."
+    },
+    {
+      "heading": "Then the stack underneath.",
+      "text": "Backend, cloud, pipelines, security. Each layer cause the one above it kept breaking on something I couldn't see yet."
+    },
+    {
+      "heading": "Averages hide the users who are waiting.",
+      "text": "The distribution has a tail, and the tail is where the experience actually happens. p95 says someone is hurting. p99 says who."
+    },
+    {
+      "heading": "One keystroke. 300 re-renders.",
+      "text": "A form-heavy enterprise app cloned its whole state tree on every keystroke. Each of those re-renders is a component doing pointless work."
+    },
+    {
+      "heading": "Rewrite the state layer and it's one.",
+      "text": "Instrumented numbers, not an estimate. INP 426ms → 268ms"
+    },
+    {
+      "heading": "Now the platform under all of it.",
+      "text": "Kubernetes, Vault, Terraform, the release trains. I run what I build, and I carry the pager for it."
+    },
+    {
+      "heading": "Faster in the field.",
+      "text": "A controlled experiment proved which change did it. Making it fast is half the job. Proving why is the half people skip."
+    }
+  ],
+  "career": [
+    {
+      "role": "Senior Software Engineer",
+      "org": "Northwestern Mutual",
+      "place": "Milwaukee",
+      "period": "2022 · now",
+      "points": [
+        "Observability lead for an enterprise application rebuild spanning 4 backend services, 16 user interfaces and 2 databases. SLI design, gateway-level measurement, distributed tracing, release trains, and the CI/CD and security scanning the team ships through."
+      ]
+    },
+    {
+      "role": "Software Engineer",
+      "org": "Northwestern Mutual",
+      "place": "Milwaukee",
+      "period": "2021 · 2022",
+      "points": [
+        "Core engineer on straight-through processing of underwriting applications. Converted the platform to a multi-case, event-driven design on AWS SQS and SNS, provisioned the messaging infrastructure in Terraform, and shipped reverse approval and decline handling end to end."
+      ]
+    },
+    {
+      "role": "Software Developer",
+      "org": "Egen Solutions",
+      "place": "Chicago",
+      "period": "2019 · 2021",
+      "points": [
+        "Consulting engineer with enterprise clients in healthcare distribution and retail supply chain. React, Redux and Java Spring Boot on an enterprise reporting platform, D3 dashboard visualizations, and a home delivery scheduling platform.",
+        "Clients: McKesson · Sears, Innovel Solutions"
+      ]
+    },
+    {
+      "role": "MS, Computer Information Systems",
+      "org": "Colorado State University",
+      "place": "Fort Collins",
+      "period": "2017 · 2019",
+      "points": [
+        "Graduate teaching assistant for Data Visualizations along the way, teaching Tableau, Power BI, SAP Lumira and Excel to graduate students."
+      ]
+    },
+    {
+      "role": "Software Developer",
+      "org": "Metier Software Solutions",
+      "place": "Hyderabad",
+      "period": "2014 · 2016",
+      "points": [
+        "Front end on customer-facing web applications, then across the stack: Node.js REST endpoints against SQL Server, and early container work with Docker, Ansible and Kubernetes when that was still a strange thing for a Hyderabad product team to be doing."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "group": "Focus",
+      "items": [
+        "React",
+        "Kubernetes",
+        "Observability",
+        "Web performance"
+      ]
+    },
+    {
+      "group": "Toolkit",
+      "items": [
+        "TypeScript",
+        "Node.js",
+        "Java · Spring Boot",
+        "Terraform",
+        "Docker",
+        "AWS",
+        "Vault",
+        "GitLab CI/CD",
+        "Dynatrace",
+        "OpenSearch",
+        "Playwright",
+        "SLI · SLO design",
+        "DevSecOps",
+        "Microservices"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "react-inp-blame",
+      "summary": "When a click, tap or key press in your React app is slow, this names the component or the handler behind it and says where the time went.",
+      "url": "https://github.com/adityareddy-dev/react-inp-blame",
+      "demo": "https://adityareddy.dev/react-inp-blame/",
+      "stats": {
+        "npmVersion": "0.22.0",
+        "npmReleases": 15,
+        "firstPublished": "2026-09-17",
+        "githubStars": 3,
+        "mergedPullRequests": 38,
+        "dependencies": 0,
+        "license": "MIT"
+      },
+      "highlights": [
+        "Which React component made this interaction slow. Joins Event Timing and Long Animation Frames to the React fiber tree.",
+        "Writes a plain-language verdict for each slow click, tap or key press, and adds tracks to Chrome's Performance panel.",
+        "Setups for Next.js 14.2 or later and Vite, plus React Router, Remix, TanStack Start and Astro.",
+        "Zero dependencies.",
+        "On four open-source apps, built with and without it, INP did not move on any of them.",
+        "Everything in the demo is slow on purpose, which is the only time I will ever say that about my code."
+      ]
+    },
+    {
+      "name": "adityareddy.dev",
+      "summary": "Personal site. Static, no build step, index.html is the whole thing.",
+      "url": "https://github.com/adityareddy-dev/adityareddy-dev.github.io",
+      "demo": "https://adityareddy.dev",
+      "stats": {},
+      "highlights": [
+        "Served by GitHub Pages from main at adityareddy.dev.",
+        "A particle film on a canvas that plays as you scroll.",
+        "Falls back to a static stacked page with no JavaScript or with reduced motion turned on."
+      ]
+    }
+  ],
+  "contributions": {
+    "merged": [
+      {
+        "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
+        "title": "docs: add browser instrumentation research",
+        "url": "https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1216",
+        "date": "2026-10-03"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "fix(sdk): parse export URLs without URL.parse",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/447",
+        "date": "2026-10-02"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-helm-charts",
+        "title": "fix(opentelemetry-operator): make the metrics helm test honour manage…",
+        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2423",
+        "date": "2026-10-01"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-helm-charts",
+        "title": "fix(opentelemetry-collector): fail when both event presets are enabled",
+        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2421",
+        "date": "2026-10-01"
+      }
+    ],
+    "open": [
+      {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "feat(web-vitals): add reportAllChanges option",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/450",
+        "date": "2026-10-02"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "fix(user-action): report middle and right clicks through auxclick",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/448",
+        "date": "2026-10-02"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-js",
+        "title": "fix(sdk-trace, sdk-logs): listen for pagehide on window, not document",
+        "url": "https://github.com/open-telemetry/opentelemetry-js/pull/7153",
+        "date": "2026-10-02"
+      },
+      {
+        "repo": "mdn/content",
+        "title": "New guide: Fetch priority",
+        "url": "https://github.com/mdn/content/pull/45950",
+        "date": "2026-10-02"
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions-conformance",
+        "title": "Add a browser events conformance scenario",
+        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/258",
+        "date": "2026-10-02"
+      },
+      {
+        "repo": "vercel/next.js",
+        "title": "docs: fix two links broken by the middleware to proxy rename",
+        "url": "https://github.com/vercel/next.js/pull/99375",
+        "date": "2026-09-28"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-helm-charts",
+        "title": "fix(opentelemetry-demo): cap the Prometheus TSDB size instead of raising the memory limit",
+        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2422",
+        "date": "2026-09-22"
+      },
+      {
+        "repo": "vercel/next.js",
+        "title": "fix(app-router): handle primitive state in pushState and replaceState",
+        "url": "https://github.com/vercel/next.js/pull/98969",
+        "date": "2026-09-20"
+      },
+      {
+        "repo": "vercel/next.js",
+        "title": "docs: document custom metrics through reportWebVitals instead of the hook",
+        "url": "https://github.com/vercel/next.js/pull/98968",
+        "date": "2026-09-20"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry.io",
+        "title": "Describe the recommendation service after its Spring Boot rewrite",
+        "url": "https://github.com/open-telemetry/opentelemetry.io/pull/11667",
+        "date": "2026-09-10"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-helm-charts",
+        "title": "[opentelemetry-demo] Point the recommendation service at the collector's HTTP port",
+        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2398",
+        "date": "2026-09-10"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-demo",
+        "title": "Rewrite the recommendation service in Spring Boot 4",
+        "url": "https://github.com/open-telemetry/opentelemetry-demo/pull/3966",
+        "date": "2026-09-10"
+      }
+    ],
+    "byProject": [
+      {
+        "repo": "open-telemetry/opentelemetry-helm-charts",
+        "merged": 2,
+        "open": 2
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "merged": 1,
+        "open": 2
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
+        "merged": 1,
+        "open": 0
+      },
+      {
+        "repo": "vercel/next.js",
+        "merged": 0,
+        "open": 3
+      },
+      {
+        "repo": "mdn/content",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-demo",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-js",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "open-telemetry/opentelemetry.io",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions-conformance",
+        "merged": 0,
+        "open": 1
+      }
+    ]
+  },
+  "articles": [
+    {
+      "title": "Working out which change actually fixed our INP",
+      "summary": "Two teams shipped in the same window and both claimed the win. A lab sweep of injected latency from 0 to 1800ms, plus field data segmented by the element each interaction landed on, settled it. Draft is in progress.",
+      "url": null,
+      "date": null,
+      "status": "In the works"
+    }
+  ],
+  "judging": [],
+  "generated": "2026-10-03"
+}

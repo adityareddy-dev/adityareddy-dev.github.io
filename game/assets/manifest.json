@@ -1,0 +1,737 @@
+{
+ "models": {
+  "bed": {
+   "file": "assets/furniture/bedDouble.glb",
+   "scale": 1,
+   "size": [
+    0.96,
+    0.38,
+    1.12
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.48,
+    0.19,
+    -0.56
+   ],
+   "minY": 0.0
+  },
+  "bed_single": {
+   "file": "assets/furniture/bedSingle.glb",
+   "scale": 1,
+   "size": [
+    0.57,
+    0.37,
+    1.12
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.67,
+    0.19,
+    -0.56
+   ],
+   "minY": 0.0
+  },
+  "nightstand": {
+   "file": "assets/furniture/sideTable.glb",
+   "scale": 1,
+   "size": [
+    0.53,
+    0.38,
+    0.22
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.26,
+    0.19,
+    -0.1
+   ],
+   "minY": 0.0
+  },
+  "lamp": {
+   "file": "assets/furniture/lampRoundTable.glb",
+   "scale": 1,
+   "size": [
+    0.15,
+    0.31,
+    0.18
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.06,
+    0.16,
+    -0.06
+   ],
+   "minY": 0.0
+  },
+  "lamp_floor": {
+   "file": "assets/furniture/lampSquareFloor.glb",
+   "scale": 1,
+   "size": [
+    0.12,
+    0.86,
+    0.12
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.06,
+    0.43,
+    -0.06
+   ],
+   "minY": 0.0
+  },
+  "desk": {
+   "file": "assets/furniture/desk.glb",
+   "scale": 1,
+   "size": [
+    0.73,
+    0.38,
+    0.39
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.36,
+    0.19,
+    -0.18
+   ],
+   "minY": 0.0
+  },
+  "desk_corner": {
+   "file": "assets/furniture/deskCorner.glb",
+   "scale": 1,
+   "size": [
+    0.97,
+    0.38,
+    0.97
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.49,
+    0.19,
+    -0.49
+   ],
+   "minY": 0.0
+  },
+  "chair_office": {
+   "file": "assets/furniture/chairDesk.glb",
+   "scale": 1,
+   "size": [
+    0.33,
+    0.61,
+    0.31
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.17,
+    0.3,
+    -0.16
+   ],
+   "minY": 0.0
+  },
+  "monitor": {
+   "file": "assets/furniture/computerScreen.glb",
+   "scale": 1,
+   "size": [
+    0.39,
+    0.29,
+    0.1
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.2,
+    0.15,
+    -0.05
+   ],
+   "minY": -0.0
+  },
+  "laptop": {
+   "file": "assets/furniture/laptop.glb",
+   "scale": 1,
+   "size": [
+    0.26,
+    0.16,
+    0.24
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.13,
+    0.08,
+    -0.12
+   ],
+   "minY": 0.0
+  },
+  "keyboard": {
+   "file": "assets/furniture/computerKeyboard.glb",
+   "scale": 1,
+   "size": [
+    0.28,
+    0.03,
+    0.12
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.14,
+    0.01,
+    -0.06
+   ],
+   "minY": 0.0
+  },
+  "bookshelf": {
+   "file": "assets/furniture/bookcaseClosed.glb",
+   "scale": 1,
+   "size": [
+    0.4,
+    0.85,
+    0.25
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.2,
+    0.42,
+    -0.12
+   ],
+   "minY": 0.0
+  },
+  "bookshelf_open": {
+   "file": "assets/furniture/bookcaseOpen.glb",
+   "scale": 1,
+   "size": [
+    0.4,
+    0.88,
+    0.25
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.2,
+    0.44,
+    -0.12
+   ],
+   "minY": 0.0
+  },
+  "sofa": {
+   "file": "assets/furniture/loungeSofa.glb",
+   "scale": 1,
+   "size": [
+    0.98,
+    0.46,
+    0.41
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.49,
+    0.23,
+    -0.21
+   ],
+   "minY": 0.0
+  },
+  "coffee_table": {
+   "file": "assets/furniture/tableCoffee.glb",
+   "scale": 1,
+   "size": [
+    0.66,
+    0.23,
+    0.4
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    -0.13,
+    0.11,
+    -0.1
+   ],
+   "minY": -0.0
+  },
+  "tv": {
+   "file": "assets/furniture/televisionModern.glb",
+   "scale": 1,
+   "size": [
+    0.68,
+    0.45,
+    0.13
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.0,
+    0.23,
+    0.0
+   ],
+   "minY": 0.0
+  },
+  "tv_cabinet": {
+   "file": "assets/furniture/cabinetTelevision.glb",
+   "scale": 1,
+   "size": [
+    0.8,
+    0.31,
+    0.25
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.4,
+    0.15,
+    -0.12
+   ],
+   "minY": 0.0
+  },
+  "counter": {
+   "file": "assets/furniture/kitchenCabinet.glb",
+   "scale": 1,
+   "size": [
+    0.43,
+    0.45,
+    0.45
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.21,
+    0.23,
+    -0.23
+   ],
+   "minY": 0.0
+  },
+  "counter_upper": {
+   "file": "assets/furniture/kitchenCabinetUpper.glb",
+   "scale": 1,
+   "size": [
+    0.43,
+    0.39,
+    0.22
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.21,
+    0.2,
+    -0.1
+   ],
+   "minY": 0.0
+  },
+  "sink": {
+   "file": "assets/furniture/kitchenSink.glb",
+   "scale": 1,
+   "size": [
+    0.43,
+    0.49,
+    0.45
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.21,
+    0.24,
+    -0.23
+   ],
+   "minY": 0.0
+  },
+  "stove": {
+   "file": "assets/furniture/kitchenStove.glb",
+   "scale": 1,
+   "size": [
+    0.43,
+    0.45,
+    0.45
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.21,
+    0.23,
+    -0.23
+   ],
+   "minY": 0.0
+  },
+  "fridge": {
+   "file": "assets/furniture/kitchenFridge.glb",
+   "scale": 1,
+   "size": [
+    0.43,
+    0.92,
+    0.29
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.21,
+    0.46,
+    -0.14
+   ],
+   "minY": 0.0
+  },
+  "coffee_machine": {
+   "file": "assets/furniture/kitchenCoffeeMachine.glb",
+   "scale": 1,
+   "size": [
+    0.19,
+    0.18,
+    0.24
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.09,
+    0.09,
+    -0.12
+   ],
+   "minY": 0.0
+  },
+  "kitchen_bar": {
+   "file": "assets/furniture/kitchenBar.glb",
+   "scale": 1,
+   "size": [
+    0.43,
+    0.42,
+    0.21
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.21,
+    0.21,
+    -0.1
+   ],
+   "minY": 0.0
+  },
+  "table": {
+   "file": "assets/furniture/table.glb",
+   "scale": 1,
+   "size": [
+    0.84,
+    0.33,
+    0.45
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.42,
+    0.16,
+    -0.22
+   ],
+   "minY": 0.0
+  },
+  "chair": {
+   "file": "assets/furniture/chair.glb",
+   "scale": 1,
+   "size": [
+    0.2,
+    0.47,
+    0.2
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.1,
+    0.23,
+    -0.1
+   ],
+   "minY": 0.0
+  },
+  "stool": {
+   "file": "assets/furniture/stoolBar.glb",
+   "scale": 1,
+   "size": [
+    0.27,
+    0.43,
+    0.23
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.13,
+    0.22,
+    -0.11
+   ],
+   "minY": 0.0
+  },
+  "plant": {
+   "file": "assets/furniture/pottedPlant.glb",
+   "scale": 1,
+   "size": [
+    0.21,
+    0.65,
+    0.24
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    -0.0,
+    0.33,
+    -0.0
+   ],
+   "minY": 0.0
+  },
+  "rug": {
+   "file": "assets/furniture/rugRectangle.glb",
+   "scale": 1,
+   "size": [
+    1.57,
+    0.01,
+    0.92
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.78,
+    0.01,
+    -0.46
+   ],
+   "minY": 0.0
+  },
+  "rug_round": {
+   "file": "assets/furniture/rugRound.glb",
+   "scale": 1,
+   "size": [
+    0.92,
+    0.01,
+    0.92
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.46,
+    0.01,
+    -0.46
+   ],
+   "minY": 0.0
+  },
+  "bench": {
+   "file": "assets/furniture/benchCushionLow.glb",
+   "scale": 1,
+   "size": [
+    0.42,
+    0.2,
+    0.22
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.2,
+    0.1,
+    -0.1
+   ],
+   "minY": 0.0
+  },
+  "door": {
+   "file": "assets/furniture/doorway.glb",
+   "scale": 1,
+   "size": [
+    0.49,
+    1.01,
+    0.11
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.24,
+    0.5,
+    -0.04
+   ],
+   "minY": 0.0
+  },
+  "door_front": {
+   "file": "assets/furniture/doorwayFront.glb",
+   "scale": 1,
+   "size": [
+    0.49,
+    1.01,
+    0.11
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.24,
+    0.5,
+    -0.04
+   ],
+   "minY": 0.0
+  },
+  "wall": {
+   "file": "assets/furniture/wall.glb",
+   "scale": 1,
+   "size": [
+    1.0,
+    1.29,
+    0.05
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.5,
+    0.64,
+    -0.03
+   ],
+   "minY": 0.0
+  },
+  "wall_door": {
+   "file": "assets/furniture/wallDoorway.glb",
+   "scale": 1,
+   "size": [
+    1.0,
+    1.29,
+    0.09
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.5,
+    0.64,
+    -0.03
+   ],
+   "minY": 0.0
+  },
+  "wall_window": {
+   "file": "assets/furniture/wallWindow.glb",
+   "scale": 1,
+   "size": [
+    1.0,
+    1.29,
+    0.09
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.5,
+    0.64,
+    -0.03
+   ],
+   "minY": 0.0
+  },
+  "floor": {
+   "file": "assets/furniture/floorFull.glb",
+   "scale": 1,
+   "size": [
+    1,
+    0.05,
+    1
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.5,
+    0.03,
+    -0.5
+   ],
+   "minY": 0
+  },
+  "stairs": {
+   "file": "assets/furniture/stairs.glb",
+   "scale": 1,
+   "size": [
+    1.82,
+    1.34,
+    0.79
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.91,
+    0.67,
+    -0.39
+   ],
+   "minY": 0.0
+  },
+  "stairs_open": {
+   "file": "assets/furniture/stairsOpen.glb",
+   "scale": 1,
+   "size": [
+    1.82,
+    1.34,
+    0.79
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.91,
+    0.67,
+    -0.39
+   ],
+   "minY": 0.0
+  },
+  "books": {
+   "file": "assets/furniture/books.glb",
+   "scale": 1,
+   "size": [
+    0.15,
+    0.1,
+    0.09
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.08,
+    0.05,
+    -0.05
+   ],
+   "minY": 0.0
+  },
+  "trashcan": {
+   "file": "assets/furniture/trashcan.glb",
+   "scale": 1,
+   "size": [
+    0.21,
+    0.43,
+    0.23
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    -0.0,
+    0.21,
+    0.01
+   ],
+   "minY": -0.0
+  },
+  "toaster": {
+   "file": "assets/furniture/toaster.glb",
+   "scale": 1,
+   "size": [
+    0.19,
+    0.13,
+    0.1
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.0,
+    0.07,
+    0.0
+   ],
+   "minY": 0.0
+  },
+  "pillow": {
+   "file": "assets/furniture/pillow.glb",
+   "scale": 1,
+   "size": [
+    0.23,
+    0.22,
+    0.09
+   ],
+   "notes": "Kenney Furniture Kit. size is w,h,d at scale 1 (kit units). Check center and minY when placing.",
+   "center": [
+    0.12,
+    0.11,
+    -0.04
+   ],
+   "minY": 0.0
+  },
+  "character": {
+   "file": "assets/character/character-male-a.glb",
+   "scale": 1,
+   "notes": "Kenney Mini Characters, rigged. Needs Textures/colormap.png beside it.",
+   "animations": [
+    "static",
+    "idle",
+    "walk",
+    "sprint",
+    "jump",
+    "fall",
+    "crouch",
+    "sit",
+    "drive",
+    "die",
+    "pick-up",
+    "emote-yes",
+    "emote-no",
+    "holding-right",
+    "holding-left",
+    "holding-both",
+    "holding-right-shoot",
+    "holding-left-shoot",
+    "holding-both-shoot",
+    "attack-melee-right",
+    "attack-melee-left",
+    "attack-kick-right",
+    "attack-kick-left",
+    "interact-right",
+    "interact-left",
+    "wheelchair-sit",
+    "wheelchair-look-left",
+    "wheelchair-look-right",
+    "wheelchair-move-forward",
+    "wheelchair-move-back",
+    "wheelchair-move-left",
+    "wheelchair-move-right"
+   ],
+   "size": [
+    0.77,
+    0.67,
+    0.34
+   ]
+  }
+ },
+ "character": "character"
+}
