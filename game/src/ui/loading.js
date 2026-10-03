@@ -82,6 +82,12 @@ export function createLoading(ctx, { openResume } = {}) {
           icon('person', 16),
           el('span', {}, 'About me, no walking required'),
         );
+        const tool = el(
+          'a',
+          { class: 'loading-resume', href: 'https://adityareddy.dev/react-inp-blame/' },
+          icon('bolt', 16),
+          el('span', {}, 'react-inp-blame'),
+        );
         const keys = coarse
           ? el('p', { class: 'loading-keys' }, 'Tap the floor to walk. Tap things to use them.')
           : el(
@@ -108,7 +114,7 @@ export function createLoading(ctx, { openResume } = {}) {
         }
 
         root.classList.add('is-ready');
-        box.append(el('div', { class: 'loading-actions' }, start, resume, about), keys);
+        box.append(el('div', { class: 'loading-actions' }, start, resume, about, tool), keys);
         start.focus({ preventScroll: true });
       });
     },
