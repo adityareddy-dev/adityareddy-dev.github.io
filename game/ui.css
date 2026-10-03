@@ -2781,6 +2781,7 @@ body:has(#round-layer:not([hidden])) #phone-layer:not(.phone-open) .notice-rail 
   color: var(--ui-text);
   font-size: 15px;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.15s ease;
 }

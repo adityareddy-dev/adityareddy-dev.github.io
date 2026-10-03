@@ -76,6 +76,12 @@ export function createLoading(ctx, { openResume } = {}) {
           icon('resume', 16),
           el('span', {}, 'Just the resume'),
         );
+        const about = el(
+          'a',
+          { class: 'loading-resume', href: new URL('../../../about-me/', import.meta.url).href },
+          icon('person', 16),
+          el('span', {}, 'About me, no walking required'),
+        );
         const keys = coarse
           ? el('p', { class: 'loading-keys' }, 'Tap the floor to walk. Tap things to use them.')
           : el(
@@ -102,7 +108,7 @@ export function createLoading(ctx, { openResume } = {}) {
         }
 
         root.classList.add('is-ready');
-        box.append(el('div', { class: 'loading-actions' }, start, resume), keys);
+        box.append(el('div', { class: 'loading-actions' }, start, resume, about), keys);
         start.focus({ preventScroll: true });
       });
     },
