@@ -3,7 +3,7 @@ import { icon } from './icons.js';
 import { trapTab } from './util.js';
 
 const TYPES = ['writeup', 'door', 'note'];
-const GAME_URL = 'https://adityareddy.dev/game/';
+const GAME_URL = 'https://adityareddy.dev/';
 const SAFE_CLOSE = ['leave', 'ok', 'close', 'cancel'];
 
 function wrap(g, text, maxWidth) {

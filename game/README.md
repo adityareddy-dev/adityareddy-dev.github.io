@@ -1,6 +1,6 @@
 # A Day in the Life of Adi
 
-A small 3D game that doubles as a portfolio. You walk around a house, get through one working day, and the resume is in the phone the whole time. Static files only, no build step. GitHub Pages serves this folder at https://adityareddy.dev/game/.
+A small 3D game that doubles as a portfolio. You walk around a house, get through one working day, and the resume is in the phone the whole time. Static files only, no build step. The page itself is `index.html` at the repo root, with a `<base href="game/">` so every path still resolves in this folder. It is live at https://adityareddy.dev/, and `game/index.html` only forwards there.
 
 ## Run it
 
@@ -8,7 +8,7 @@ A small 3D game that doubles as a portfolio. You walk around a house, get throug
 python -m http.server 8101 --directory <repo root>
 ```
 
-Then open http://localhost:8101/game/. It has to be served, the browser won't load modules from a file path.
+Then open http://localhost:8101/. It has to be served, the browser won't load modules from a file path.
 
 | URL bit | What it does |
 | --- | --- |
