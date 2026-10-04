@@ -178,22 +178,28 @@
       },
       {
         "repo": "open-telemetry/opentelemetry-helm-charts",
-        "title": "fix(opentelemetry-operator): make the metrics helm test honour manage…",
-        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2423",
+        "title": "fix(opentelemetry-collector): fail when both event presets are enabled",
+        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2421",
         "date": "2026-10-01"
       },
       {
         "repo": "open-telemetry/opentelemetry-helm-charts",
-        "title": "fix(opentelemetry-collector): fail when both event presets are enabled",
-        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2421",
+        "title": "fix(opentelemetry-operator): make the metrics helm test honour manage…",
+        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2423",
         "date": "2026-10-01"
       }
     ],
     "open": [
       {
-        "repo": "open-telemetry/opentelemetry-browser",
-        "title": "feat(web-vitals): add reportAllChanges option",
-        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/450",
+        "repo": "prometheus-community/helm-charts",
+        "title": "[kube-prometheus-stack] Default Linux-only workloads to kubernetes.io/os: linux",
+        "url": "https://github.com/prometheus-community/helm-charts/pull/7344",
+        "date": "2026-10-03"
+      },
+      {
+        "repo": "mdn/content",
+        "title": "New guide: Fetch priority",
+        "url": "https://github.com/mdn/content/pull/45950",
         "date": "2026-10-02"
       },
       {
@@ -203,15 +209,15 @@
         "date": "2026-10-02"
       },
       {
-        "repo": "open-telemetry/opentelemetry-js",
-        "title": "fix(sdk-trace, sdk-logs): listen for pagehide on window, not document",
-        "url": "https://github.com/open-telemetry/opentelemetry-js/pull/7153",
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "feat(web-vitals): add reportAllChanges option",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/450",
         "date": "2026-10-02"
       },
       {
-        "repo": "mdn/content",
-        "title": "New guide: Fetch priority",
-        "url": "https://github.com/mdn/content/pull/45950",
+        "repo": "open-telemetry/opentelemetry-js",
+        "title": "fix(sdk-trace, sdk-logs): listen for pagehide on window, not document",
+        "url": "https://github.com/open-telemetry/opentelemetry-js/pull/7153",
         "date": "2026-10-02"
       },
       {
@@ -234,20 +240,20 @@
       },
       {
         "repo": "vercel/next.js",
-        "title": "fix(app-router): handle primitive state in pushState and replaceState",
-        "url": "https://github.com/vercel/next.js/pull/98969",
-        "date": "2026-09-20"
-      },
-      {
-        "repo": "vercel/next.js",
         "title": "docs: document custom metrics through reportWebVitals instead of the hook",
         "url": "https://github.com/vercel/next.js/pull/98968",
         "date": "2026-09-20"
       },
       {
-        "repo": "open-telemetry/opentelemetry.io",
-        "title": "Describe the recommendation service after its Spring Boot rewrite",
-        "url": "https://github.com/open-telemetry/opentelemetry.io/pull/11667",
+        "repo": "vercel/next.js",
+        "title": "fix(app-router): handle primitive state in pushState and replaceState",
+        "url": "https://github.com/vercel/next.js/pull/98969",
+        "date": "2026-09-20"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-demo",
+        "title": "Rewrite the recommendation service in Spring Boot 4",
+        "url": "https://github.com/open-telemetry/opentelemetry-demo/pull/3966",
         "date": "2026-09-10"
       },
       {
@@ -257,9 +263,9 @@
         "date": "2026-09-10"
       },
       {
-        "repo": "open-telemetry/opentelemetry-demo",
-        "title": "Rewrite the recommendation service in Spring Boot 4",
-        "url": "https://github.com/open-telemetry/opentelemetry-demo/pull/3966",
+        "repo": "open-telemetry/opentelemetry.io",
+        "title": "Describe the recommendation service after its Spring Boot rewrite",
+        "url": "https://github.com/open-telemetry/opentelemetry.io/pull/11667",
         "date": "2026-09-10"
       }
     ],
@@ -308,6 +314,11 @@
         "repo": "open-telemetry/semantic-conventions-conformance",
         "merged": 0,
         "open": 1
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "merged": 0,
+        "open": 1
       }
     ]
   },
@@ -321,5 +332,5 @@
     }
   ],
   "judging": [],
-  "generated": "2026-10-03"
+  "generated": "2026-10-04"
 }
