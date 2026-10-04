@@ -485,7 +485,7 @@ export function createPhone(ctx, layer) {
     // A banner under the pointer waits.
     node.addEventListener('pointerenter', () => window.clearTimeout(rec.timer));
     node.addEventListener('pointerleave', () => {
-      if (page || !rec.banner) return;
+      if (page || n.sticky || !rec.banner) return;
       window.clearTimeout(rec.timer);
       rec.timer = window.setTimeout(() => settleBanner(rec, 'timeout'), BANNER_MS / 2);
     });
@@ -576,7 +576,7 @@ export function createPhone(ctx, layer) {
     stackList.prepend(rec.row);
     rec.banner = buildBanner(rec);
     rail.append(rec.banner);
-    if (!page) rec.timer = window.setTimeout(() => settleBanner(rec, 'timeout'), BANNER_MS);
+    if (!page && !n.sticky) rec.timer = window.setTimeout(() => settleBanner(rec, 'timeout'), BANNER_MS);
 
     const banners = [...notes.values()].filter((r) => r.banner && !r.page);
     for (const old of banners.slice(0, Math.max(0, banners.length - MAX_BANNERS))) settleBanner(old, 'timeout');

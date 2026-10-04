@@ -45,9 +45,10 @@ export function createStorm(ctx, { tell }) {
     cancel();
     const want = Math.max(1, Number(task.count) || 5);
     const queue = [];
-    for (let i = 0; i < want + 2; i += 1) {
+    for (let i = 0; i < want; i += 1) {
       const n = take(task.kinds);
-      if (n) queue.push(n);
+      // Morning ones wait to be swiped, they don't fade by themselves.
+      if (n) queue.push({ ...n, sticky: true });
     }
     return new Promise((resolve) => {
       junk = { want, queue, ids: new Set(), wait: 0.7, dismissed: 0, resolve };
@@ -159,7 +160,7 @@ export function createStorm(ctx, { tell }) {
     if (held) return;
     if (junk) {
       junk.wait -= dt;
-      if (junk.wait <= 0 && junk.queue.length) {
+      if (junk.wait <= 0 && junk.queue.length && junk.ids.size < 4) {
         const n = junk.queue.shift();
         junk.wait = 0.95;
         if (ui.phone.notify(n) !== false) junk.ids.add(n.id);

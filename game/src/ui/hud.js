@@ -188,6 +188,11 @@ export function createHud(ctx, layer) {
     if (changed.includes('streak')) paintStreak();
     if (changed.includes('muted')) paintMute();
     if (changed.includes('phase')) paintPhase();
+    // The day is over, so the counter shows the final score as the card does.
+    if (changed.includes('phase') && state.phase === 'ended') {
+      shownScore = state.score;
+      scoreNum.textContent = String(state.score);
+    }
     if (changed.some((k) => k === 'energy' || k === 'energyMax' || k === 'focus' || k === 'irritation')) {
       paintMeters();
       for (const { id } of METERS) {
