@@ -87,12 +87,12 @@ export function createGuide(ctx, { onSkip } = {}) {
   const pointerLabel = el('span', { class: 'story-pointer-label' });
   const pointerArrow = el('i', { class: 'story-pointer-arrow', 'aria-hidden': 'true' });
   const pointer = el('div', { class: 'story-pointer', hidden: true, 'aria-hidden': 'true' }, pointerArrow, pointerLabel);
-  // Clicking it walks him there, or to the stairs if it's on the other floor.
+  // Clicking it walks him all the way there, down or up the stairs if he has to.
   let via = null;
   pointer.addEventListener('click', () => {
     const item = target ? interact.get(target.id) : null;
     if (!item || !ctx.player || ctx.state.paused) return;
-    ctx.player.moveTo(via || interact.standPoint(item, ctx.player.position));
+    ctx.player.moveTo(interact.standPoint(item, ctx.player.position));
   });
   const hudLayer = document.getElementById('hud-layer') || document.body;
   hudLayer.append(pointer);

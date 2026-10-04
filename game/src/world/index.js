@@ -239,16 +239,39 @@ export async function createWorld(ctx) {
   const ramp = new THREE.Plane().setFromNormalAndCoplanarPoint(new THREE.Vector3(0, STAIR.run, STAIR.rise).normalize(), new THREE.Vector3(0, 0, STAIR.topZ));
   const hit = new THREE.Vector3();
 
+  // The flight itself in the basement, and the hole it leaves upstairs.
+  const underFlight = (p) => onStairs(p) && p.z < STAIR.bottomZ;
+  const inHole = (p) => onStairs(p) && p.z < HOUSE.maxZ;
+
+  // A floor spot he can stand on. Otherwise the nearest one that isn't on the stairs,
+  // or the path finder picks a spot halfway down them.
+  function standable(p, onFlight) {
+    const blocked = (q) => onFlight(q) || !!ctx.collide?.blocked?.(q);
+    if (!blocked(p)) return p;
+    const q = p.clone();
+    for (let r = 0.05; r <= 3; r += 0.05) {
+      for (let i = 0; i < 16; i += 1) {
+        const a = (i / 16) * Math.PI * 2;
+        q.set(p.x + Math.cos(a) * r, p.y, p.z + Math.sin(a) * r);
+        if (!blocked(q)) return q;
+      }
+    }
+    return p;
+  }
+
   // Where a click lands. A click on the stairs means the other end of them.
   function groundAt(ray) {
     if (storey === 'down') {
       if (ray.intersectPlane(ramp, hit) && onStairs(hit) && hit.y > DOWN + 0.2 && hit.y < 0) return stair.top.clone();
       if (!ray.intersectPlane(down, hit)) return null;
-      return new THREE.Vector3(clamp(hit.x, STAIR.minX + EDGE, HOUSE.maxX - EDGE), DOWN, clamp(hit.z, HOUSE.minZ + EDGE, HOUSE.maxZ - EDGE));
+      if (underFlight(hit)) return stair.top.clone();
+      const p = new THREE.Vector3(clamp(hit.x, STAIR.minX + EDGE, HOUSE.maxX - EDGE), DOWN, clamp(hit.z, HOUSE.minZ + EDGE, HOUSE.maxZ - EDGE));
+      return standable(p, underFlight);
     }
     if (!ray.intersectPlane(up, hit)) return null;
-    if (onStairs(hit) && hit.z < HOUSE.maxZ) return stair.bottom.clone();
-    return new THREE.Vector3(clamp(hit.x, HOUSE.minX + EDGE, HOUSE.maxX - EDGE), 0, clamp(hit.z, HOUSE.minZ + EDGE, HOUSE.maxZ - EDGE));
+    if (inHole(hit)) return stair.bottom.clone();
+    const p = new THREE.Vector3(clamp(hit.x, HOUSE.minX + EDGE, HOUSE.maxX - EDGE), 0, clamp(hit.z, HOUSE.minZ + EDGE, HOUSE.maxZ - EDGE));
+    return standable(p, inHole);
   }
 
   function update(dt) {
