@@ -127,6 +127,25 @@
   ],
   "projects": [
     {
+      "name": "Desk Studio",
+      "summary": "A design studio inside the coding agent you already use. Ask for a launch card or a brand kit in plain words, and a small team of model desks makes it, scores it and signs it off.",
+      "url": "https://github.com/adityareddy-dev/deskstudio",
+      "demo": "https://deskstudio.ai",
+      "stats": {
+        "npmVersion": "1.0.0",
+        "firstPublished": "2026-10-19",
+        "githubStars": 41,
+        "license": "MIT"
+      },
+      "highlights": [
+        "A Claude Code plugin, and one npx command for Codex, Cursor, Gemini CLI, Copilot, Windsurf and OpenCode.",
+        "Each job is routed by cost: three roughs on Sonnet, the pick on Opus, polish on Haiku, then a proof step with no model at all.",
+        "Every job leaves a note with who did what, the scores and the cost. A chart costs under a dollar, a full brand kit about ten.",
+        "Runs on your machine through the CLI you're already signed in to.",
+        "The studio designed its own brand kit, which is either a good sign or a conflict of interest."
+      ]
+    },
+    {
       "name": "react-inp-blame",
       "summary": "When a click, tap or key press in your React app is slow, this names the component or the handler behind it and says where the time went.",
       "url": "https://github.com/adityareddy-dev/react-inp-blame",
