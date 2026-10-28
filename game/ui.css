@@ -2806,6 +2806,50 @@ body:has(#round-layer:not([hidden])) #phone-layer:not(.phone-open) .notice-rail 
   margin-right: 3px;
 }
 
+.loading-plug {
+  order: 4;
+  max-width: 440px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ui-edge-strong);
+  color: rgba(247, 242, 234, 0.78);
+  font-size: 13.5px;
+  line-height: 1.6;
+  text-align: center;
+  text-wrap: balance;
+}
+
+@media (max-width: 520px) {
+  .loading-plug {
+    margin-top: 18px;
+    padding: 14px 0 0;
+    font-size: 13px;
+  }
+}
+
+#loading:not(.is-ready) .loading-plug {
+  display: none;
+}
+
+.loading-plug strong {
+  color: var(--ui-text);
+}
+
+.loading-plug a {
+  color: var(--ui-warm);
+  font-weight: 600;
+}
+
+.loading-plug code {
+  padding: 1px 7px;
+  border: 1px solid var(--ui-edge-strong);
+  border-radius: 6px;
+  background: rgba(255, 244, 232, 0.07);
+  color: var(--ui-text);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
 /* ---- the frame around a round ------------------------------------------- */
 
 .round {
@@ -2874,7 +2918,8 @@ body:has(#round-layer:not([hidden])) #phone-layer:not(.phone-open) .notice-rail 
 .phone .slider:focus-visible,
 .notice button:focus-visible,
 .loading-start:focus-visible,
-.loading-resume:focus-visible {
+.loading-resume:focus-visible,
+.loading-plug a:focus-visible {
   outline: 2.5px solid var(--ui-warm);
   outline-offset: 2px;
 }

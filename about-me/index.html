@@ -194,6 +194,9 @@ section.ed{padding:clamp(90px,13vh,160px) var(--pad);position:relative}
 .writing .tag{font-size:12px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:var(--glow)}
 .writing h3{font-size:clamp(22px,3.2vw,32px);font-weight:700;letter-spacing:-.015em;margin:14px 0 16px;line-height:1.25;color:#fff}
 .writing p{color:var(--dim);font-size:16px;line-height:1.7;max-width:58ch}
+.writing .card + .card{margin-top:22px}
+.writing h3 a{text-decoration:none}
+.writing h3 a:hover{text-decoration:underline}
 
 .contact{text-align:center}
 .contact h2{font-family:var(--serif);font-weight:560;letter-spacing:-.02em;
@@ -382,6 +385,16 @@ html.js .reveal.in{opacity:1;transform:none}
     <div class="reveal">
       <div class="eyebrow">Writing</div>
       <h2 class="dh" style="margin-bottom:34px">Proof over opinion.</h2>
+    </div>
+    <div class="card reveal">
+      <div class="tag">DEV · October 20, 2026</div>
+      <h3><a href="https://dev.to/adityareddy_dev/how-one-desk-studio-job-gets-from-roughs-to-sign-off-4h22">How one Desk Studio job gets from roughs to sign-off</a></h3>
+      <p>The studio's own launch card, followed from three roughs through the pick, three polish rounds, proof and sign-off, with the saved scores and what it cost.</p>
+    </div>
+    <div class="card reveal">
+      <div class="tag">DEV · October 2, 2026</div>
+      <h3><a href="https://dev.to/adityareddy_dev/why-the-opentelemetry-browser-sdk-wouldnt-start-on-safari-17-55j5">Why the OpenTelemetry browser SDK wouldn't start on Safari 17</a></h3>
+      <p>One call to URL.parse kept the SDK from starting on Safari 17 and on Chrome and Firefox older than 126. The fix, how I tested it without an old browser, and why lint let it through.</p>
     </div>
     <div class="card reveal">
       <div class="tag">In the works</div>

@@ -132,7 +132,7 @@
       "url": "https://github.com/adityareddy-dev/deskstudio",
       "demo": "https://deskstudio.ai",
       "stats": {
-        "npmVersion": "1.0.0",
+        "npmVersion": "1.0.3",
         "firstPublished": "2026-10-19",
         "githubStars": 41,
         "license": "MIT"
@@ -366,6 +366,20 @@
     ]
   },
   "articles": [
+    {
+      "title": "How one Desk Studio job gets from roughs to sign-off",
+      "summary": "The studio's own launch card, followed from three roughs through the pick, three polish rounds, proof and sign-off, with the saved scores and what it cost.",
+      "url": "https://dev.to/adityareddy_dev/how-one-desk-studio-job-gets-from-roughs-to-sign-off-4h22",
+      "date": "2026-10-20",
+      "status": "DEV"
+    },
+    {
+      "title": "Why the OpenTelemetry browser SDK wouldn't start on Safari 17",
+      "summary": "One call to URL.parse kept the SDK from starting on Safari 17 and on Chrome and Firefox older than 126. The fix, how I tested it without an old browser, and why lint let it through.",
+      "url": "https://dev.to/adityareddy_dev/why-the-opentelemetry-browser-sdk-wouldnt-start-on-safari-17-55j5",
+      "date": "2026-10-02",
+      "status": "DEV"
+    },
     {
       "title": "Working out which change actually fixed our INP",
       "summary": "Two teams shipped in the same window and both claimed the win. A lab sweep of injected latency from 0 to 1800ms, plus field data segmented by the element each interaction landed on, settled it. Draft is in progress.",
