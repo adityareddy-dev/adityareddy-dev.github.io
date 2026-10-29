@@ -19,7 +19,7 @@
   --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --serif:'Fraunces',Georgia,serif;
   --pad:clamp(20px,5vw,72px);
-  --film-h:600svh;          /* film scroll length; the beat timeline range derives from it */
+  --film-h:600svh;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -80,44 +80,101 @@ footer{padding:34px var(--pad);text-align:center;font-size:13px;color:#6b7a91;
 <h1 class="dh">Open-source record</h1>
 <p>I’m a senior software engineer in Milwaukee working on browser performance and observability, mostly with OpenTelemetry and web-vitals. I also write <a href="https://github.com/adityareddy-dev/react-inp-blame">react-inp-blame</a>, a library that shows which React component owns a slow interaction.</p>
 <p>My own open-source product is <a href="https://github.com/adityareddy-dev/deskstudio">Desk Studio</a>, a design studio that runs inside coding agents. It is MIT licensed and has been on npm since 19 October 2026.</p>
-<p>This page is a dated record of my merged open-source work: 11 pull requests I wrote, and 25 pull requests by others that were merged after I approved them. Every row links to the public pull request. Dates are UTC merge dates. Last updated 28 October 2026.</p>
+<p>This page is a dated record of my merged open-source work: 35 pull requests I wrote, and 30 pull requests by others that were merged after I approved them. Every row links to the public pull request. Dates are UTC merge dates. Last checked against GitHub on 29 October 2026, 01:12 CDT (06:12 UTC).</p>
 </div></section>
 <section class="ed" id="merged"><div class="wrap">
 <div class="eyebrow">MERGED CHANGES</div>
-<h2 class="dh">11 pull requests I wrote.</h2>
-<h3><a href="https://github.com/GoogleChrome/web-vitals">GoogleChrome/web-vitals</a></h3>
-<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT FIXED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
-<tr><td><a href="https://github.com/GoogleChrome/web-vitals/pull/809">#809</a></td><td>Reports pending INP entries when the page hides before idle processing.</td><td><a href="https://github.com/tunetheweb">tunetheweb</a></td><td>2026-10-15</td></tr>
-<tr><td><a href="https://github.com/GoogleChrome/web-vitals/pull/810">#810</a></td><td>Fixes a negative unattributed duration on non-rendering frames.</td><td><a href="https://github.com/tunetheweb">tunetheweb</a></td><td>2026-10-15</td></tr>
-<tr><td><a href="https://github.com/GoogleChrome/web-vitals/pull/811">#811</a></td><td>Drains queued LCP entries before disconnecting.</td><td><a href="https://github.com/tunetheweb">tunetheweb</a></td><td>2026-10-16</td></tr>
-</tbody></table></div>
+<h2 class="dh">35 pull requests I wrote.</h2>
 <h3><a href="https://github.com/open-telemetry/opentelemetry-browser">open-telemetry/opentelemetry-browser</a></h3>
-<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT FIXED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
-<tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/447">#447</a></td><td>Parses export URLs without URL.parse; the SDK failed to start on older Safari.</td><td><a href="https://github.com/david-luna">david-luna</a></td><td>2026-10-02</td></tr>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/447">#447</a></td><td>Parses export URLs without URL.parse. The SDK failed to start on older Safari.</td><td><a href="https://github.com/david-luna">david-luna</a></td><td>2026-10-02</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/452">#452</a></td><td>Stops the fetch instrumentation from writing trace headers onto the caller’s request options.</td><td><a href="https://github.com/david-luna">david-luna</a></td><td>2026-10-07</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/467">#467</a></td><td>Counts every sibling when it builds the :nth-child index in the CSS selector sent with each click.</td><td><a href="https://github.com/overbalance">overbalance</a></td><td>2026-10-08</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/448">#448</a></td><td>Captures middle clicks and right-click context menus in the user-action instrumentation.</td><td><a href="https://github.com/martinkuba">martinkuba</a></td><td>2026-10-15</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/450">#450</a></td><td>Adds a reportAllChanges option for web-vitals.</td><td><a href="https://github.com/david-luna">david-luna</a></td><td>2026-10-20</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/451">#451</a></td><td>The session store no longer throws where storage is blocked.</td><td><a href="https://github.com/martinkuba">martinkuba</a></td><td>2026-10-21</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/453">#453</a></td><td>Resource-timing entries are processed when the idle callback times out.</td><td><a href="https://github.com/martinkuba">martinkuba</a></td><td>2026-10-21</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/479">#479</a></td><td>Adds a migration guide for moving from the JS and contrib browser packages.</td><td><a href="https://github.com/martinkuba">martinkuba</a></td><td>2026-10-22</td></tr>
 </tbody></table></div>
-<h3><a href="https://github.com/open-telemetry/semantic-conventions-client-side">open-telemetry/semantic-conventions-client-side</a></h3>
-<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT FIXED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
-<tr><td><a href="https://github.com/open-telemetry/semantic-conventions-client-side/pull/33">#33</a></td><td>Moves enduser.id and enduser.pseudo.id into the client-side registry.</td><td><a href="https://github.com/martinkuba">martinkuba</a></td><td>2026-10-27</td></tr>
+<h3><a href="https://github.com/open-telemetry/opentelemetry-helm-charts">open-telemetry/opentelemetry-helm-charts</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2423">#2423</a></td><td>Makes the operator chart’s metrics test respect the manager.metrics.secure setting.</td><td><a href="https://github.com/TylerHelmuth">TylerHelmuth</a></td><td>2026-10-01</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2421">#2421</a></td><td>Fails the install when both Kubernetes event presets are on, since every event was recorded twice.</td><td><a href="https://github.com/TylerHelmuth">TylerHelmuth</a></td><td>2026-10-01</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2422">#2422</a></td><td>Raises the bundled Prometheus memory limit in the demo chart from 400Mi to 512Mi.</td><td><a href="https://github.com/TylerHelmuth">TylerHelmuth</a></td><td>2026-10-21</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer">open-telemetry/opentelemetry-ecosystem-explorer</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1216">#1216</a></td><td>Adds research notes on how to show browser instrumentation in the explorer.</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-03</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1272">#1272</a></td><td>Teaches the JS watcher to read browser instrumentation release tags and module lists.</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-18</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1286">#1286</a></td><td>Reads each browser module’s optional scope name in the JS watcher.</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-18</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/GoogleChrome/web-vitals">GoogleChrome/web-vitals</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/GoogleChrome/web-vitals/pull/810">#810</a></td><td>Fixes a negative unattributed duration on non-rendering frames.</td><td><a href="https://github.com/tunetheweb">tunetheweb</a></td><td>2026-10-15</td></tr>
+<tr><td><a href="https://github.com/GoogleChrome/web-vitals/pull/809">#809</a></td><td>Reports pending INP entries when the page hides before idle processing.</td><td><a href="https://github.com/tunetheweb">tunetheweb</a></td><td>2026-10-15</td></tr>
+<tr><td><a href="https://github.com/GoogleChrome/web-vitals/pull/811">#811</a></td><td>Drains queued LCP entries before disconnecting.</td><td><a href="https://github.com/tunetheweb">tunetheweb</a></td><td>2026-10-16</td></tr>
 </tbody></table></div>
 <h3><a href="https://github.com/open-telemetry/opentelemetry-js">open-telemetry/opentelemetry-js</a></h3>
-<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT FIXED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-js/pull/7153">#7153</a></td><td>Removes the pagehide listener from the browser batch processors. It was set on document, where the event never fires.</td><td><a href="https://github.com/pichlermarc">pichlermarc</a></td><td>2026-10-08</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-js/pull/7236">#7236</a></td><td>Updates the W3C trace-context test harness for Python 3.14.</td><td><a href="https://github.com/trentm">trentm</a></td><td>2026-10-27</td></tr>
 </tbody></table></div>
+<h3><a href="https://github.com/open-telemetry/opentelemetry-demo">open-telemetry/opentelemetry-demo</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/3966">#3966</a></td><td>Rewrites the recommendation service in Java on Spring Boot 4, replacing the Python version.</td><td><a href="https://github.com/julianocosta89">julianocosta89</a></td><td>2026-10-13</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/4115">#4115</a></td><td>Documents the collector memory limiter workaround for Docker Desktop on WSL2.</td><td><a href="https://github.com/julianocosta89">julianocosta89</a></td><td>2026-10-15</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/open-telemetry/opentelemetry.io">open-telemetry/opentelemetry.io</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry.io/pull/11667">#11667</a></td><td>Updates the demo docs for the recommendation service rewrite.</td><td><a href="https://github.com/tiffany76">tiffany76</a></td><td>2026-10-14</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry.io/pull/12116">#12116</a></td><td>Clarifies the count connector example on the Collector configuration page.</td><td><a href="https://github.com/tiffany76">tiffany76</a></td><td>2026-10-23</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/mdn/content">mdn/content</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/mdn/content/pull/46158">#46158</a></td><td>Fixes the InteractionContentfulPaint examples and the soft navigation interactionId summary.</td><td><a href="https://github.com/Josh-Cena">Josh-Cena</a></td><td>2026-10-15</td></tr>
+<tr><td><a href="https://github.com/mdn/content/pull/46157">#46157</a></td><td>Fixes the interactionId example, which called .has() on a plain object.</td><td><a href="https://github.com/Josh-Cena">Josh-Cena</a></td><td>2026-10-22</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib">open-telemetry/opentelemetry-collector-contrib</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52068">#52068</a></td><td>The Faro exporter returns an error for stack frames it cannot parse.</td><td><a href="https://github.com/songy23">songy23</a></td><td>2026-10-16</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52107">#52107</a></td><td>Adds generated status sections to two package READMEs.</td><td><a href="https://github.com/codeboten">codeboten</a></td><td>2026-10-16</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/prometheus-community/helm-charts">prometheus-community/helm-charts</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/prometheus-community/helm-charts/pull/7344">#7344</a></td><td>Defaults Linux-only kube-prometheus-stack workloads to the kubernetes.io/os: linux node selector.</td><td><a href="https://github.com/jkroepke">jkroepke</a></td><td>2026-10-06</td></tr>
+</tbody></table></div>
 <h3><a href="https://github.com/TanStack/virtual">TanStack/virtual</a></h3>
-<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT FIXED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/TanStack/virtual/pull/1326">#1326</a></td><td>Measures the visible scroll viewport.</td><td><a href="https://github.com/piecyk">piecyk</a></td><td>2026-10-16</td></tr>
 </tbody></table></div>
 <h3><a href="https://github.com/getsentry/sentry-javascript">getsentry/sentry-javascript</a></h3>
-<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT FIXED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/getsentry/sentry-javascript/pull/25377">#25377</a></td><td>Re-exports missing tracing and feature-flag helpers on the Vercel Edge package.</td><td><a href="https://github.com/isaacs">isaacs</a></td><td>2026-10-18</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/hyperdxio/hyperdx">hyperdxio/hyperdx</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/hyperdxio/hyperdx/pull/3383">#3383</a></td><td>Fixes request bodies being dropped by the ClickHouse proxy after Express reads them.</td><td><a href="https://github.com/karl-power">karl-power</a> (via auto-merge)</td><td>2026-10-20</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/elastic/elastic-otel-rum-js">elastic/elastic-otel-rum-js</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/elastic/elastic-otel-rum-js/pull/114">#114</a></td><td>Adds a CI report of browser bundle sizes (raw, gzip and Brotli).</td><td><a href="https://github.com/david-luna">david-luna</a></td><td>2026-10-20</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/microsoft/ApplicationInsights-JS">microsoft/ApplicationInsights-JS</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/microsoft/ApplicationInsights-JS/pull/2783">#2783</a></td><td>Documents the format of manual dependency correlation IDs and adds tests for it.</td><td><a href="https://github.com/hectorhdzg">hectorhdzg</a></td><td>2026-10-22</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/open-telemetry/semantic-conventions-client-side">open-telemetry/semantic-conventions-client-side</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/open-telemetry/semantic-conventions-client-side/pull/33">#33</a></td><td>Moves enduser.id and enduser.pseudo.id into the client-side registry.</td><td><a href="https://github.com/martinkuba">martinkuba</a></td><td>2026-10-27</td></tr>
+</tbody></table></div>
+<h3><a href="https://github.com/openobserve/openobserve-docs">openobserve/openobserve-docs</a></h3>
+<div class="tw"><table><thead><tr><th>PR</th><th>WHAT IT CHANGED</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/openobserve/openobserve-docs/pull/635">#635</a></td><td>Adds a guide for sending Vector host metrics to OpenObserve.</td><td><a href="https://github.com/prabhatsharma">prabhatsharma</a></td><td>2026-10-28</td></tr>
 </tbody></table></div>
 </div></section>
 <section class="ed" id="reviews"><div class="wrap">
 <div class="eyebrow">REVIEWS</div>
-<h2 class="dh">25 pull requests merged after I approved them.</h2>
+<h2 class="dh">30 pull requests merged after I approved them.</h2>
 <p>These were written by other people. I submitted an approving review, and the maintainer listed merged the pull request afterwards.</p>
 <div class="tw"><table><thead><tr><th>PR</th><th>REPOSITORY</th><th>MERGED BY</th><th>MERGED</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/437">#437</a> fix(sdk): print console export for every level above DEBUG</td><td>open-telemetry/opentelemetry-browser</td><td><a href="https://github.com/david-luna">david-luna</a></td><td>2026-10-10</td></tr>
@@ -127,11 +184,11 @@ footer{padding:34px var(--pad);text-align:center;font-size:13px;color:#6b7a91;
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/459">#459</a> feat(sdk): move browser detector from opentelemetry-js</td><td>open-telemetry/opentelemetry-browser</td><td><a href="https://github.com/martinkuba">martinkuba</a></td><td>2026-10-19</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/4122">#4122</a> [collector] Include prometheus/ad in the full collector config</td><td>open-telemetry/opentelemetry-demo</td><td><a href="https://github.com/ps48">ps48</a></td><td>2026-10-21</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1304">#1304</a> fix: resolve findings from type-aware lint rules</td><td>open-telemetry/opentelemetry-ecosystem-explorer</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-21</td></tr>
-<tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1288">#1288</a> fix(java-agent): restore configuration, docs links and total count on V1 landing</td><td>open-telemetry/opentelemetry-ecosystem-explorer</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-21</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1288">#1288</a> fix: restore configuration, docs links and total count on V1 landing</td><td>open-telemetry/opentelemetry-ecosystem-explorer</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-21</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/semantic-conventions-genai/pull/602">#602</a> Record only positive inference usage contributions</td><td>open-telemetry/semantic-conventions-genai</td><td><a href="https://github.com/lmolkova">lmolkova</a></td><td>2026-10-21</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry.io/pull/12264">#12264</a> Fix(Demo): Added Missing Flagd connections to architecture diagram</td><td>open-telemetry/opentelemetry.io</td><td><a href="https://github.com/maryliag">maryliag</a></td><td>2026-10-22</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/278">#278</a> refactor(instrumentation)!: add browser-native InstrumentationBase and migrate instrumentations</td><td>open-telemetry/opentelemetry-browser</td><td><a href="https://github.com/overbalance">overbalance</a></td><td>2026-10-24</td></tr>
-<tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1317">#1317</a> fix(java-agent): restore news and announcements on V1 landing</td><td>open-telemetry/opentelemetry-ecosystem-explorer</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-26</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1317">#1317</a> fix: restore news and announcements on V1 landing</td><td>open-telemetry/opentelemetry-ecosystem-explorer</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-26</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1309">#1309</a> feat(javascript): add data layer for the JS instrumentation pages</td><td>open-telemetry/opentelemetry-ecosystem-explorer</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-26</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/semantic-conventions/pull/4238">#4238</a> Deprecate enduser attributes in favor of the client-side registry</td><td>open-telemetry/semantic-conventions</td><td><a href="https://github.com/lmolkova">lmolkova</a></td><td>2026-10-26</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/semantic-conventions/pull/4056">#4056</a> [db] Add MongoDB trace context propagation via the comment field</td><td>open-telemetry/semantic-conventions</td><td><a href="https://github.com/lmolkova">lmolkova</a></td><td>2026-10-26</td></tr>
@@ -139,12 +196,17 @@ footer{padding:34px var(--pad);text-align:center;font-size:13px;color:#6b7a91;
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/520">#520</a> chore: dedupe msw in lockfile</td><td>open-telemetry/opentelemetry-browser</td><td><a href="https://github.com/overbalance">overbalance</a></td><td>2026-10-26</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/semantic-conventions/pull/3970">#3970</a> Define JVM executor metric semantic conventions</td><td>open-telemetry/semantic-conventions</td><td><a href="https://github.com/trask">trask</a></td><td>2026-10-26</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/semantic-conventions-genai/pull/628">#628</a> Record server.port wherever the LiteLLM scenario records server.address</td><td>open-telemetry/semantic-conventions-genai</td><td><a href="https://github.com/lmolkova">lmolkova</a></td><td>2026-10-27</td></tr>
-<tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/4161">#4161</a> [frontend] Complete the response on 405 for unsupported API methods</td><td>open-telemetry/opentelemetry-demo</td><td><a href="https://github.com/julianocosta89">julianocosta89</a></td><td>2026-10-27</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/4177">#4177</a> ci: skip advanced CodeQL workflow in forks</td><td>open-telemetry/opentelemetry-demo</td><td><a href="https://github.com/julianocosta89">julianocosta89</a></td><td>2026-10-27</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/4161">#4161</a> [frontend] Complete the response on 405 for unsupported API methods</td><td>open-telemetry/opentelemetry-demo</td><td><a href="https://github.com/julianocosta89">julianocosta89</a></td><td>2026-10-27</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/4188">#4188</a> fix(frontend): bump frontend Node.js images for the October 2026 security releases</td><td>open-telemetry/opentelemetry-demo</td><td><a href="https://github.com/julianocosta89">julianocosta89</a></td><td>2026-10-27</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/4190">#4190</a> fix(payment): move runtime to distroless nodejs24 for the October 2026 Node.js security releases</td><td>open-telemetry/opentelemetry-demo</td><td><a href="https://github.com/julianocosta89">julianocosta89</a></td><td>2026-10-27</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/semantic-conventions/pull/4249">#4249</a> [chore] Clarify RPC migration notices</td><td>open-telemetry/semantic-conventions</td><td><a href="https://github.com/joaopgrassi">joaopgrassi</a></td><td>2026-10-27</td></tr>
 <tr><td><a href="https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1343">#1343</a> feat(dotnet): remove SNAPSHOT tracking from registry</td><td>open-telemetry/opentelemetry-ecosystem-explorer</td><td><a href="https://github.com/jaydeluca">jaydeluca</a></td><td>2026-10-28</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-demo/pull/4217">#4217</a> fix(cart): enable nullable reference types</td><td>open-telemetry/opentelemetry-demo</td><td><a href="https://github.com/julianocosta89">julianocosta89</a></td><td>2026-10-28</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/semantic-conventions/pull/4250">#4250</a> Rename system-specific messaging attributes</td><td>open-telemetry/semantic-conventions</td><td><a href="https://github.com/trask">trask</a></td><td>2026-10-28</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/semantic-conventions/pull/4251">#4251</a> Rename messaging.system to messaging.system.name</td><td>open-telemetry/semantic-conventions</td><td><a href="https://github.com/trask">trask</a></td><td>2026-10-28</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/opentelemetry-browser/pull/511">#511</a> docs(web-vitals): clarify reportAllChanges docs</td><td>open-telemetry/opentelemetry-browser</td><td><a href="https://github.com/overbalance">overbalance</a></td><td>2026-10-28</td></tr>
+<tr><td><a href="https://github.com/open-telemetry/semantic-conventions-genai/pull/608">#608</a> Reject malformed function tools and give guidance on vendor-specific tools</td><td>open-telemetry/semantic-conventions-genai</td><td><a href="https://github.com/lmolkova">lmolkova</a></td><td>2026-10-28</td></tr>
 </tbody></table></div>
 </div></section>
 <section class="ed" id="recognition"><div class="wrap">
@@ -152,7 +214,7 @@ footer{padding:34px var(--pad);text-align:center;font-size:13px;color:#6b7a91;
 <h2 class="dh">What maintainers wrote.</h2>
 <ul class="rec">
 <li><span class="d">2026-10-02</span> david-luna, on opentelemetry-browser #447: “thanks for your contribution :)” <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/447#pullrequestreview-5389300696">Source</a></li>
-<li><span class="d">2026-10-08</span> jaydeluca, julianocosta89, arminru, on OpenTelemetry organization membership: jaydeluca and julianocosta89 each wrote “I support” on my membership request; arminru replied “Invite sent.” and I joined the organization. <a href="https://github.com/open-telemetry/community/issues/3758">Source</a></li>
+<li><span class="d">2026-10-08</span> jaydeluca, julianocosta89, arminru, on OpenTelemetry organization membership: jaydeluca and julianocosta89 each wrote “I support” on my membership request. Then arminru replied “Invite sent.” and I joined the organization. <a href="https://github.com/open-telemetry/community/issues/3758">Source</a></li>
 <li><span class="d">2026-10-16</span> piecyk, on TanStack/virtual #1326: “Thanks for this!” <a href="https://github.com/TanStack/virtual/pull/1326#pullrequestreview-5545831831">Source</a></li>
 <li><span class="d">2026-10-16</span> tunetheweb, on web-vitals #811: “Thanks. Again, not sure how likely this is (the LCP would need to have happened just before the click), but better to have this fix in.” <a href="https://github.com/GoogleChrome/web-vitals/pull/811#pullrequestreview-5551033927">Source</a></li>
 <li><span class="d">2026-10-18</span> isaacs, on sentry-javascript #25377: “This is good, thanks!” <a href="https://github.com/getsentry/sentry-javascript/pull/25377#pullrequestreview-5561392335">Source</a></li>
