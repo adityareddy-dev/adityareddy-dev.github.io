@@ -84,7 +84,7 @@ export function createLoading(ctx, { openResume } = {}) {
         );
         const tool = el(
           'a',
-          { class: 'loading-resume', href: 'https://adityareddy.dev/react-inp-blame/' },
+          { class: 'loading-resume', href: 'https://reactinpblame.com/' },
           icon('bolt', 16),
           el('span', {}, 'react-inp-blame'),
         );

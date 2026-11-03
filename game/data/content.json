@@ -149,7 +149,7 @@
       "name": "react-inp-blame",
       "summary": "When a click, tap or key press in your React app is slow, this names the component or the handler behind it and says where the time went.",
       "url": "https://github.com/adityareddy-dev/react-inp-blame",
-      "demo": "https://adityareddy.dev/react-inp-blame/",
+      "demo": "https://reactinpblame.com/",
       "stats": {
         "npmVersion": "0.26.0",
         "npmReleases": 19,
