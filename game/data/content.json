@@ -184,6 +184,42 @@
   "contributions": {
     "merged": [
       {
+        "repo": "grafana/k6",
+        "title": "fix(browser): Serve browser test fixtures on Windows",
+        "url": "https://github.com/grafana/k6/pull/6635",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "newrelic/node-newrelic",
+        "title": "docs: clarify datastore reporting configuration",
+        "url": "https://github.com/newrelic/node-newrelic/pull/4434",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
+        "title": "Fix Markdown requests for agent documentation",
+        "url": "https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1386",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-js",
+        "title": "fix(propagator-b3): reject invalid trace id lengths",
+        "url": "https://github.com/open-telemetry/opentelemetry-js/pull/7262",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "PostHog/posthog-js",
+        "title": "fix(replay): avoid duplicate iframe observers on checkout",
+        "url": "https://github.com/PostHog/posthog-js/pull/5542",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "PostHog/posthog-js",
+        "title": "fix(replay): use native sibling positions for recorded inserts",
+        "url": "https://github.com/PostHog/posthog-js/pull/5560",
+        "date": "2026-11-05"
+      },
+      {
         "repo": "elastic/kibana",
         "title": "[Fleet] Show dataset validation errors after editing",
         "url": "https://github.com/elastic/kibana/pull/303036",
@@ -214,6 +250,12 @@
         "date": "2026-11-04"
       },
       {
+        "repo": "GoogleChrome/web-vitals",
+        "title": "Only count INP script time up to the next paint",
+        "url": "https://github.com/GoogleChrome/web-vitals/pull/817",
+        "date": "2026-11-04"
+      },
+      {
         "repo": "grafana/faro-web-sdk",
         "title": "feat(replay): expose custom text masking",
         "url": "https://github.com/grafana/faro-web-sdk/pull/2362",
@@ -232,6 +274,18 @@
         "date": "2026-11-04"
       },
       {
+        "repo": "open-telemetry/opentelemetry-collector-contrib",
+        "title": "[chore][pkg/translator/faro] Add fuzz tests for the Faro translations",
+        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52646",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-collector-contrib",
+        "title": "[chore][pkg/translator/faro] Return the meta encoding error from TranslateFromLogs",
+        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52647",
+        "date": "2026-11-04"
+      },
+      {
         "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
         "title": "Rebuild JavaScript registry entries with platform metadata",
         "url": "https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1372",
@@ -247,6 +301,18 @@
         "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
         "title": "Load Java Agent landing sections together",
         "url": "https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1378",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-js",
+        "title": "docs(migration): note that API 1.10.0 needs SDK 3.x",
+        "url": "https://github.com/open-telemetry/opentelemetry-js/pull/7253",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions-client-side",
+        "title": "semconv: pin enduser dependency to core v1.45.0",
+        "url": "https://github.com/open-telemetry/semantic-conventions-client-side/pull/49",
         "date": "2026-11-04"
       },
       {
@@ -534,6 +600,138 @@
     ],
     "open": [
       {
+        "repo": "aws-observability/aws-otel-js-instrumentation",
+        "title": "fix: avoid repeated AgentCore IDs after snapshot restore",
+        "url": "https://github.com/aws-observability/aws-otel-js-instrumentation/pull/587",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "aws-observability/aws-rum-web",
+        "title": "fix: keep rrweb replay types out of public declarations",
+        "url": "https://github.com/aws-observability/aws-rum-web/pull/923",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "electron/electron",
+        "title": "docs: add content tracing guide",
+        "url": "https://github.com/electron/electron/pull/55614",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "grafana/mimir",
+        "title": "mixin: describe tenant query queue and expression length",
+        "url": "https://github.com/grafana/mimir/pull/17189",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "grafana/pyroscope",
+        "title": "docs: add Node.js sourceMapper setup example",
+        "url": "https://github.com/grafana/pyroscope/pull/6051",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "hashicorp/nomad",
+        "title": "core: fix blocked evaluation metric accounting",
+        "url": "https://github.com/hashicorp/nomad/pull/28747",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "hashicorp/nomad",
+        "title": "client: keep the task OOM counter visible",
+        "url": "https://github.com/hashicorp/nomad/pull/28748",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "helm/helm",
+        "title": "fix(values): read local filenames with invalid URL escapes",
+        "url": "https://github.com/helm/helm/pull/32852",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "microsoft/ApplicationInsights-JS",
+        "title": "docs: clarify correlation header configuration",
+        "url": "https://github.com/microsoft/ApplicationInsights-JS/pull/2795",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "microsoft/ApplicationInsights-JS",
+        "title": "docs: clarify lifecycle registration fallbacks",
+        "url": "https://github.com/microsoft/ApplicationInsights-JS/pull/2796",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "newrelic/docs-website",
+        "title": "fix(infrastructure): clarify process metric settings",
+        "url": "https://github.com/newrelic/docs-website/pull/26533",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "nodejs/doc-kit",
+        "title": "react: use link colors for inline type annotations",
+        "url": "https://github.com/nodejs/doc-kit/pull/1245",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-collector-contrib",
+        "title": "[receiver/awscloudwatch] Don't crash when the STS account ID lookup fails",
+        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52772",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
+        "title": "docs: update browser instrumentation roadmap",
+        "url": "https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/pull/1387",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-lambda",
+        "title": "fix(nodejs): flush logs before invocation completion",
+        "url": "https://github.com/open-telemetry/opentelemetry-lambda/pull/2724",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "open-telemetry/weaver",
+        "title": "Warn on malformed markdown snippet markers",
+        "url": "https://github.com/open-telemetry/weaver/pull/1889",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "prometheus-community/postgres_exporter",
+        "title": "Warn when deprecated PG_EXPORTER environment variables are used",
+        "url": "https://github.com/prometheus-community/postgres_exporter/pull/1451",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "rrweb-io/rrweb",
+        "title": "fix(replay): keep autocomplete disabled after attribute mutations",
+        "url": "https://github.com/rrweb-io/rrweb/pull/2004",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "storybookjs/storybook",
+        "title": "Addon Vitest: Find workspace config above an overridden project root",
+        "url": "https://github.com/storybookjs/storybook/pull/37198",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "sveltejs/svelte.dev",
+        "title": "docs: use createContext in the context tutorial",
+        "url": "https://github.com/sveltejs/svelte.dev/pull/2343",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "TanStack/virtual",
+        "title": "docs(react-virtual): explain element measurements in unit tests",
+        "url": "https://github.com/TanStack/virtual/pull/1369",
+        "date": "2026-11-05"
+      },
+      {
+        "repo": "visjs/vis-network",
+        "title": "fix: parse escaped quotes in DOT strings",
+        "url": "https://github.com/visjs/vis-network/pull/2563",
+        "date": "2026-11-05"
+      },
+      {
         "repo": "elastic/elastic-otel-rum-js",
         "title": "docs: list web-vitals key rename in 0.4.0 breaking changes",
         "url": "https://github.com/elastic/elastic-otel-rum-js/pull/150",
@@ -625,20 +823,14 @@
       },
       {
         "repo": "GoogleChrome/web-vitals",
-        "title": "Only count INP script time up to the next paint",
-        "url": "https://github.com/GoogleChrome/web-vitals/pull/817",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "GoogleChrome/web-vitals",
         "title": "test: check types for public package entry points",
         "url": "https://github.com/GoogleChrome/web-vitals/pull/818",
         "date": "2026-11-04"
       },
       {
         "repo": "GoogleChrome/web-vitals",
-        "title": "feat: include TTFB subparts in LCP attribution",
-        "url": "https://github.com/GoogleChrome/web-vitals/pull/819",
+        "title": "Only count INP style and layout time up to the next paint",
+        "url": "https://github.com/GoogleChrome/web-vitals/pull/822",
         "date": "2026-11-04"
       },
       {
@@ -663,12 +855,6 @@
         "repo": "grafana/k6",
         "title": "fix(browser): Honor click modifiers and restore held keys",
         "url": "https://github.com/grafana/k6/pull/6634",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "grafana/k6",
-        "title": "fix(browser): Serve browser test fixtures on Windows",
-        "url": "https://github.com/grafana/k6/pull/6635",
         "date": "2026-11-04"
       },
       {
@@ -714,6 +900,18 @@
         "date": "2026-11-04"
       },
       {
+        "repo": "helm/helm-www",
+        "title": "docs: complete install commands in the chart guide",
+        "url": "https://github.com/helm/helm-www/pull/2341",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "helm/helm-www",
+        "title": "docs: explain Helm 3 resource upgrade behavior",
+        "url": "https://github.com/helm/helm-www/pull/2342",
+        "date": "2026-11-04"
+      },
+      {
         "repo": "mdn/content",
         "title": "Fix LayoutShiftAttribution examples",
         "url": "https://github.com/mdn/content/pull/46372",
@@ -732,6 +930,24 @@
         "date": "2026-11-04"
       },
       {
+        "repo": "nodejs/node",
+        "title": "doc: clarify inspector user timing limitations",
+        "url": "https://github.com/nodejs/node/pull/67244",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "nodejs/node",
+        "title": "doc: correct buffer pool allocation threshold",
+        "url": "https://github.com/nodejs/node/pull/67247",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "nodejs/node",
+        "title": "perf_hooks: copy shared data before importing histograms",
+        "url": "https://github.com/nodejs/node/pull/67249",
+        "date": "2026-11-04"
+      },
+      {
         "repo": "nodejs/undici",
         "title": "fix(fetch): report content type and encoding in resource timing",
         "url": "https://github.com/nodejs/undici/pull/6154",
@@ -744,9 +960,21 @@
         "date": "2026-11-04"
       },
       {
+        "repo": "nodejs/undici",
+        "title": "fix(fetch): record first interim response start in resource timing",
+        "url": "https://github.com/nodejs/undici/pull/6159",
+        "date": "2026-11-04"
+      },
+      {
         "repo": "open-telemetry/opentelemetry-collector-contrib",
         "title": "[cmd/opampsupervisor] Keep the final passthrough log lines when the Collector exits",
         "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52732",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-collector",
+        "title": "[config/confighttp] Preserve the connection remote address",
+        "url": "https://github.com/open-telemetry/opentelemetry-collector/pull/16305",
         "date": "2026-11-04"
       },
       {
@@ -756,21 +984,51 @@
         "date": "2026-11-04"
       },
       {
+        "repo": "open-telemetry/semantic-conventions-client-side",
+        "title": "semconv: migrate device namespace",
+        "url": "https://github.com/open-telemetry/semantic-conventions-client-side/pull/51",
+        "date": "2026-11-04"
+      },
+      {
         "repo": "open-telemetry/semantic-conventions-conformance",
         "title": "runner: wait for Weaver live-check startup with a timeout",
         "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/462",
         "date": "2026-11-04"
       },
       {
-        "repo": "PostHog/posthog-js",
-        "title": "fix(replay): avoid duplicate iframe observers on checkout",
-        "url": "https://github.com/PostHog/posthog-js/pull/5542",
+        "repo": "open-telemetry/semantic-conventions-conformance",
+        "title": "Cache coverage models for --registry dirs by content",
+        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/467",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions",
+        "title": "semconv: deprecate device in core",
+        "url": "https://github.com/open-telemetry/semantic-conventions/pull/4308",
         "date": "2026-11-04"
       },
       {
         "repo": "PostHog/posthog-js",
         "title": "perf(replay): collapse repeated buffered text mutations",
         "url": "https://github.com/PostHog/posthog-js/pull/5546",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "PostHog/posthog-js",
+        "title": "fix(replay): skip mutation operations with invalid parents",
+        "url": "https://github.com/PostHog/posthog-js/pull/5559",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "PostHog/posthog-js",
+        "title": "fix(replay): include hidden inputs in maskAllInputs",
+        "url": "https://github.com/PostHog/posthog-js/pull/5561",
+        "date": "2026-11-04"
+      },
+      {
+        "repo": "PostHog/posthog-js",
+        "title": "fix(replay): preserve nonempty CDATA content",
+        "url": "https://github.com/PostHog/posthog-js/pull/5562",
         "date": "2026-11-04"
       },
       {
@@ -876,6 +1134,12 @@
         "date": "2026-11-04"
       },
       {
+        "repo": "prometheus/prometheus-mcp",
+        "title": "fix(mcp): stop comparing RoundTrippers in doHTTPRequest",
+        "url": "https://github.com/prometheus/prometheus-mcp/pull/214",
+        "date": "2026-11-04"
+      },
+      {
         "repo": "SigNoz/signoz",
         "title": "perf(query-builder): omit default blocks from query URLs",
         "url": "https://github.com/SigNoz/signoz/pull/13410",
@@ -894,6 +1158,12 @@
         "date": "2026-11-04"
       },
       {
+        "repo": "w3c/largest-contentful-paint",
+        "title": "docs: explain how to calculate LCP",
+        "url": "https://github.com/w3c/largest-contentful-paint/pull/179",
+        "date": "2026-11-04"
+      },
+      {
         "repo": "web-platform-tests/wpt",
         "title": "Remove obsolete cross-origin LCP renderTime test",
         "url": "https://github.com/web-platform-tests/wpt/pull/64722",
@@ -907,7 +1177,7 @@
       },
       {
         "repo": "detailobsessed/awesome-devin",
-        "title": "add: add Desk Studio to community resources",
+        "title": "Add Desk Studio to community resources",
         "url": "https://github.com/detailobsessed/awesome-devin/pull/351",
         "date": "2026-11-03"
       },
@@ -948,18 +1218,6 @@
         "date": "2026-11-03"
       },
       {
-        "repo": "open-telemetry/opentelemetry-collector-contrib",
-        "title": "[chore][pkg/translator/faro] Add fuzz tests for the Faro translations",
-        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52646",
-        "date": "2026-11-03"
-      },
-      {
-        "repo": "open-telemetry/opentelemetry-collector-contrib",
-        "title": "[chore][pkg/translator/faro] Return the meta encoding error from TranslateFromLogs",
-        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52647",
-        "date": "2026-11-03"
-      },
-      {
         "repo": "open-telemetry/opentelemetry-js-contrib",
         "title": "chore(instrumentation-user-interaction): deprecate legacy instrumentation",
         "url": "https://github.com/open-telemetry/opentelemetry-js-contrib/pull/3877",
@@ -972,21 +1230,9 @@
         "date": "2026-11-03"
       },
       {
-        "repo": "open-telemetry/opentelemetry-js",
-        "title": "fix(propagator-b3): reject invalid trace id lengths",
-        "url": "https://github.com/open-telemetry/opentelemetry-js/pull/7262",
-        "date": "2026-11-03"
-      },
-      {
         "repo": "open-telemetry/semantic-conventions-client-side",
         "title": "semconv: migrate session and app namespaces",
         "url": "https://github.com/open-telemetry/semantic-conventions-client-side/pull/48",
-        "date": "2026-11-03"
-      },
-      {
-        "repo": "open-telemetry/semantic-conventions-client-side",
-        "title": "semconv: pin enduser dependency to core v1.45.0",
-        "url": "https://github.com/open-telemetry/semantic-conventions-client-side/pull/49",
         "date": "2026-11-03"
       },
       {
@@ -999,12 +1245,6 @@
         "repo": "open-telemetry/semantic-conventions-conformance",
         "title": "Preserve span and metric refinement attributes in coverage",
         "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/446",
-        "date": "2026-11-03"
-      },
-      {
-        "repo": "open-telemetry/semantic-conventions-conformance",
-        "title": "Add a browser Fetch client scenario on a shared browser runner",
-        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/455",
         "date": "2026-11-03"
       },
       {
@@ -1023,12 +1263,6 @@
         "repo": "open-telemetry/semantic-conventions-genai",
         "title": "Keep MCP prompt variables on spans",
         "url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/683",
-        "date": "2026-11-03"
-      },
-      {
-        "repo": "open-telemetry/semantic-conventions-genai",
-        "title": "Refresh reference coverage after deleting registry sources",
-        "url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/684",
         "date": "2026-11-03"
       },
       {
@@ -1075,20 +1309,8 @@
       },
       {
         "repo": "open-telemetry/opentelemetry-demo",
-        "title": "feat(business-metrics): add an optional order consumer",
+        "title": "feat(fraud-detection): record order and sales metrics",
         "url": "https://github.com/open-telemetry/opentelemetry-demo/pull/4233",
-        "date": "2026-11-02"
-      },
-      {
-        "repo": "open-telemetry/opentelemetry-helm-charts",
-        "title": "[opentelemetry-demo] Add optional business metrics consumer",
-        "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2527",
-        "date": "2026-11-02"
-      },
-      {
-        "repo": "open-telemetry/opentelemetry.io",
-        "title": "docs(demo): document the optional business metrics service",
-        "url": "https://github.com/open-telemetry/opentelemetry.io/pull/12504",
         "date": "2026-11-02"
       },
       {
@@ -1141,12 +1363,6 @@
       },
       {
         "repo": "open-telemetry/opentelemetry-js",
-        "title": "docs(migration): note that API 1.10.0 needs SDK 3.x",
-        "url": "https://github.com/open-telemetry/opentelemetry-js/pull/7253",
-        "date": "2026-10-29"
-      },
-      {
-        "repo": "open-telemetry/opentelemetry-js",
         "title": "fix(otlp-exporter-base): warn when a hidden page sends an export without keepalive",
         "url": "https://github.com/open-telemetry/opentelemetry-js/pull/7231",
         "date": "2026-10-25"
@@ -1173,12 +1389,6 @@
         "repo": "jamesmurdza/awesome-ai-devtools",
         "title": "Add Desk Studio",
         "url": "https://github.com/jamesmurdza/awesome-ai-devtools/pull/1275",
-        "date": "2026-10-20"
-      },
-      {
-        "repo": "open-telemetry/opentelemetry-browser",
-        "title": "feat(examples): add optional React INP log processor example",
-        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/513",
         "date": "2026-10-20"
       },
       {
@@ -1371,23 +1581,33 @@
     "byProject": [
       {
         "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
-        "merged": 10,
-        "open": 0
+        "merged": 11,
+        "open": 1
       },
       {
         "repo": "open-telemetry/opentelemetry-browser",
         "merged": 8,
-        "open": 16
+        "open": 15
       },
       {
         "repo": "GoogleChrome/web-vitals",
-        "merged": 5,
-        "open": 3
+        "merged": 6,
+        "open": 2
       },
       {
         "repo": "prometheus-community/helm-charts",
         "merged": 4,
         "open": 17
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-js",
+        "merged": 4,
+        "open": 4
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-collector-contrib",
+        "merged": 4,
+        "open": 2
       },
       {
         "repo": "elastic/kibana",
@@ -1400,9 +1620,9 @@
         "open": 4
       },
       {
-        "repo": "open-telemetry/opentelemetry-helm-charts",
+        "repo": "PostHog/posthog-js",
         "merged": 3,
-        "open": 2
+        "open": 4
       },
       {
         "repo": "open-telemetry/opentelemetry-demo",
@@ -1410,19 +1630,14 @@
         "open": 1
       },
       {
-        "repo": "open-telemetry/opentelemetry-js",
-        "merged": 2,
-        "open": 6
+        "repo": "open-telemetry/opentelemetry-helm-charts",
+        "merged": 3,
+        "open": 1
       },
       {
         "repo": "helm/helm-www",
         "merged": 2,
-        "open": 4
-      },
-      {
-        "repo": "open-telemetry/opentelemetry.io",
-        "merged": 2,
-        "open": 4
+        "open": 6
       },
       {
         "repo": "mdn/content",
@@ -1430,9 +1645,19 @@
         "open": 3
       },
       {
-        "repo": "open-telemetry/opentelemetry-collector-contrib",
+        "repo": "open-telemetry/opentelemetry.io",
         "merged": 2,
         "open": 3
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions-client-side",
+        "merged": 2,
+        "open": 3
+      },
+      {
+        "repo": "grafana/k6",
+        "merged": 1,
+        "open": 7
       },
       {
         "repo": "grafana/faro-web-sdk",
@@ -1440,17 +1665,17 @@
         "open": 6
       },
       {
-        "repo": "open-telemetry/semantic-conventions-client-side",
-        "merged": 1,
-        "open": 3
-      },
-      {
-        "repo": "PostHog/posthog-js",
+        "repo": "microsoft/ApplicationInsights-JS",
         "merged": 1,
         "open": 2
       },
       {
         "repo": "elastic/elastic-otel-rum-js",
+        "merged": 1,
+        "open": 1
+      },
+      {
+        "repo": "TanStack/virtual",
         "merged": 1,
         "open": 1
       },
@@ -1465,7 +1690,7 @@
         "open": 0
       },
       {
-        "repo": "microsoft/ApplicationInsights-JS",
+        "repo": "newrelic/node-newrelic",
         "merged": 1,
         "open": 0
       },
@@ -1475,27 +1700,37 @@
         "open": 0
       },
       {
-        "repo": "TanStack/virtual",
-        "merged": 1,
-        "open": 0
-      },
-      {
         "repo": "GoogleChrome/lighthouse",
         "merged": 0,
         "open": 8
       },
       {
-        "repo": "grafana/k6",
+        "repo": "nodejs/node",
         "merged": 0,
-        "open": 8
+        "open": 4
       },
       {
         "repo": "open-telemetry/semantic-conventions-genai",
         "merged": 0,
-        "open": 5
+        "open": 4
+      },
+      {
+        "repo": "nodejs/undici",
+        "merged": 0,
+        "open": 3
       },
       {
         "repo": "open-telemetry/opentelemetry-js-contrib",
+        "merged": 0,
+        "open": 3
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions",
+        "merged": 0,
+        "open": 3
+      },
+      {
+        "repo": "prometheus/prometheus-mcp",
         "merged": 0,
         "open": 3
       },
@@ -1510,22 +1745,27 @@
         "open": 3
       },
       {
+        "repo": "electron/electron",
+        "merged": 0,
+        "open": 2
+      },
+      {
         "repo": "grafana/alloy",
         "merged": 0,
         "open": 2
       },
       {
-        "repo": "nodejs/undici",
+        "repo": "hashicorp/nomad",
         "merged": 0,
         "open": 2
       },
       {
-        "repo": "open-telemetry/semantic-conventions",
+        "repo": "open-telemetry/opentelemetry-collector",
         "merged": 0,
         "open": 2
       },
       {
-        "repo": "prometheus/prometheus-mcp",
+        "repo": "rrweb-io/rrweb",
         "merged": 0,
         "open": 2
       },
@@ -1541,6 +1781,16 @@
       },
       {
         "repo": "appsignal/appsignal-javascript",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "aws-observability/aws-otel-js-instrumentation",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "aws-observability/aws-rum-web",
         "merged": 0,
         "open": 1
       },
@@ -1565,7 +1815,17 @@
         "open": 1
       },
       {
-        "repo": "electron/electron",
+        "repo": "grafana/mimir",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "grafana/pyroscope",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "helm/helm",
         "merged": 0,
         "open": 1
       },
@@ -1585,12 +1845,17 @@
         "open": 1
       },
       {
-        "repo": "nodejs/node",
+        "repo": "newrelic/docs-website",
         "merged": 0,
         "open": 1
       },
       {
-        "repo": "open-telemetry/opentelemetry-collector",
+        "repo": "nodejs/doc-kit",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-lambda",
         "merged": 0,
         "open": 1
       },
@@ -1600,17 +1865,42 @@
         "open": 1
       },
       {
+        "repo": "open-telemetry/weaver",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "prometheus-community/postgres_exporter",
+        "merged": 0,
+        "open": 1
+      },
+      {
         "repo": "remix-run/react-router",
         "merged": 0,
         "open": 1
       },
       {
-        "repo": "rrweb-io/rrweb",
+        "repo": "storybookjs/storybook",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "sveltejs/svelte.dev",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "visjs/vis-network",
         "merged": 0,
         "open": 1
       },
       {
         "repo": "w3c/event-timing",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "w3c/largest-contentful-paint",
         "merged": 0,
         "open": 1
       },
@@ -1654,5 +1944,5 @@
       "url": "https://hack.osu.edu/2026"
     }
   ],
-  "generated": "2026-11-04"
+  "generated": "2026-11-05"
 }
