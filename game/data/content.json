@@ -184,6 +184,42 @@
   "contributions": {
     "merged": [
       {
+        "repo": "open-telemetry/semantic-conventions-conformance",
+        "title": "Add a browser events conformance scenario",
+        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/258",
+        "date": "2026-11-07"
+      },
+      {
+        "repo": "openobserve/openobserve",
+        "title": "fix: accept milliseconds in pasted ISO timestamps",
+        "url": "https://github.com/openobserve/openobserve/pull/16530",
+        "date": "2026-11-07"
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "title": "[prometheus-smartctl-exporter] Match ServiceMonitor telemetry path",
+        "url": "https://github.com/prometheus-community/helm-charts/pull/7488",
+        "date": "2026-11-07"
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "title": "[prometheus-kafka-exporter] Honor server TLS settings",
+        "url": "https://github.com/prometheus-community/helm-charts/pull/7491",
+        "date": "2026-11-07"
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "title": "[prometheus-pgbouncer-exporter] Use a supported disruption budget API",
+        "url": "https://github.com/prometheus-community/helm-charts/pull/7496",
+        "date": "2026-11-07"
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "title": "[prometheus-mongodb-exporter] Quote environment values safely",
+        "url": "https://github.com/prometheus-community/helm-charts/pull/7497",
+        "date": "2026-11-07"
+      },
+      {
         "repo": "grafana/mimir",
         "title": "mixin: describe tenant query queue and expression length",
         "url": "https://github.com/grafana/mimir/pull/17189",
@@ -202,6 +238,24 @@
         "date": "2026-11-06"
       },
       {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "fix(instrumentation): use entry start time for timing events",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/540",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "docs: add Aditya Reddy as approver",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/549",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-collector-contrib",
+        "title": "[cmd/opampsupervisor] Keep the final passthrough log lines when the Collector exits",
+        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52732",
+        "date": "2026-11-06"
+      },
+      {
         "repo": "PostHog/posthog-js",
         "title": "fix(replay): include hidden inputs in maskAllInputs",
         "url": "https://github.com/PostHog/posthog-js/pull/5561",
@@ -211,6 +265,12 @@
         "repo": "PostHog/posthog-js",
         "title": "fix(replay): preserve nonempty CDATA content",
         "url": "https://github.com/PostHog/posthog-js/pull/5562",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "title": "[prometheus-mongodb-exporter] Correct README configuration examples",
+        "url": "https://github.com/prometheus-community/helm-charts/pull/7479",
         "date": "2026-11-06"
       },
       {
@@ -496,15 +556,15 @@
         "date": "2026-10-21"
       },
       {
-        "repo": "elastic/elastic-otel-rum-js",
-        "title": "ci: report browser bundle sizes",
-        "url": "https://github.com/elastic/elastic-otel-rum-js/pull/114",
+        "repo": "ClickHouse/ClickStack",
+        "title": "fix(api): forward parsed ClickHouse proxy bodies",
+        "url": "https://github.com/ClickHouse/ClickStack/pull/3383",
         "date": "2026-10-20"
       },
       {
-        "repo": "hyperdxio/hyperdx",
-        "title": "fix(api): forward parsed ClickHouse proxy bodies",
-        "url": "https://github.com/hyperdxio/hyperdx/pull/3383",
+        "repo": "elastic/elastic-otel-rum-js",
+        "title": "ci: report browser bundle sizes",
+        "url": "https://github.com/elastic/elastic-otel-rum-js/pull/114",
         "date": "2026-10-20"
       },
       {
@@ -647,6 +707,90 @@
       }
     ],
     "open": [
+      {
+        "repo": "aws-observability/aws-rum-web",
+        "title": "feat: record HTTP response status for resources",
+        "url": "https://github.com/aws-observability/aws-rum-web/pull/924",
+        "date": "2026-11-07"
+      },
+      {
+        "repo": "open-telemetry/opamp-go",
+        "title": "Support HTTP agents in the example server",
+        "url": "https://github.com/open-telemetry/opamp-go/pull/684",
+        "date": "2026-11-07"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-kotlin",
+        "title": "Fix protobuf trace-state entry order",
+        "url": "https://github.com/open-telemetry/opentelemetry-kotlin/pull/1501",
+        "date": "2026-11-07"
+      },
+      {
+        "repo": "aws-observability/aws-otel-collector",
+        "title": "docs: replace dpkg-sig in Debian package verification",
+        "url": "https://github.com/aws-observability/aws-otel-collector/pull/3256",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "ClickHouse/ClickStack",
+        "title": "fix: skip exhausted search windows",
+        "url": "https://github.com/ClickHouse/ClickStack/pull/3587",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "dequelabs/axe-core",
+        "title": "fix(text): ignore fully transparent label text",
+        "url": "https://github.com/dequelabs/axe-core/pull/5527",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "getsentry/sentry-conventions",
+        "title": "docs: Link service attributes to OpenTelemetry",
+        "url": "https://github.com/getsentry/sentry-conventions/pull/781",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "grafana/tempo",
+        "title": "chore: add multi-tenancy examples for teams and customers",
+        "url": "https://github.com/grafana/tempo/pull/8349",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "lit/lit",
+        "title": "Warn when HTML and SVG templates use the wrong namespace",
+        "url": "https://github.com/lit/lit/pull/5425",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "micrometer-metrics/micrometer",
+        "title": "Document LoggingMeterRegistry",
+        "url": "https://github.com/micrometer-metrics/micrometer/pull/8164",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "microsoft/opentelemetry-distro-browser",
+        "title": "fix: preserve sampled log enrichment",
+        "url": "https://github.com/microsoft/opentelemetry-distro-browser/pull/171",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "parcel-bundler/parcel",
+        "title": "Preload compiled module scripts",
+        "url": "https://github.com/parcel-bundler/parcel/pull/10382",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "vitejs/vite",
+        "title": "fix(css): resolve composed module asset URLs (fix #15410)",
+        "url": "https://github.com/vitejs/vite/pull/24008",
+        "date": "2026-11-06"
+      },
+      {
+        "repo": "WICG/soft-navigations",
+        "title": "Clarify navigationId grouping",
+        "url": "https://github.com/WICG/soft-navigations/pull/94",
+        "date": "2026-11-06"
+      },
       {
         "repo": "aws-observability/aws-otel-community",
         "title": "Fix peer requests in the JavaScript sample",
@@ -990,12 +1134,6 @@
         "date": "2026-11-04"
       },
       {
-        "repo": "open-telemetry/opentelemetry-collector-contrib",
-        "title": "[cmd/opampsupervisor] Keep the final passthrough log lines when the Collector exits",
-        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52732",
-        "date": "2026-11-04"
-      },
-      {
         "repo": "open-telemetry/opentelemetry-collector",
         "title": "[config/confighttp] Preserve the connection remote address",
         "url": "https://github.com/open-telemetry/opentelemetry-collector/pull/16305",
@@ -1051,12 +1189,6 @@
       },
       {
         "repo": "prometheus-community/helm-charts",
-        "title": "[prometheus-mongodb-exporter] Correct README configuration examples",
-        "url": "https://github.com/prometheus-community/helm-charts/pull/7479",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "prometheus-community/helm-charts",
         "title": "[prometheus-redis-exporter] Correct secret authentication instructions",
         "url": "https://github.com/prometheus-community/helm-charts/pull/7480",
         "date": "2026-11-04"
@@ -1087,20 +1219,8 @@
       },
       {
         "repo": "prometheus-community/helm-charts",
-        "title": "[prometheus-smartctl-exporter] Match ServiceMonitor telemetry path",
-        "url": "https://github.com/prometheus-community/helm-charts/pull/7488",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "prometheus-community/helm-charts",
         "title": "[prometheus-nginx-exporter] Render boolean options correctly",
         "url": "https://github.com/prometheus-community/helm-charts/pull/7490",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "prometheus-community/helm-charts",
-        "title": "[prometheus-kafka-exporter] Honor server TLS settings",
-        "url": "https://github.com/prometheus-community/helm-charts/pull/7491",
         "date": "2026-11-04"
       },
       {
@@ -1119,18 +1239,6 @@
         "repo": "prometheus-community/helm-charts",
         "title": "[prometheus-sql-exporter] Use the stable disruption budget API",
         "url": "https://github.com/prometheus-community/helm-charts/pull/7495",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "prometheus-community/helm-charts",
-        "title": "[prometheus-pgbouncer-exporter] Use a supported disruption budget API",
-        "url": "https://github.com/prometheus-community/helm-charts/pull/7496",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "prometheus-community/helm-charts",
-        "title": "[prometheus-mongodb-exporter] Quote environment values safely",
-        "url": "https://github.com/prometheus-community/helm-charts/pull/7497",
         "date": "2026-11-04"
       },
       {
@@ -1296,12 +1404,6 @@
         "date": "2026-11-02"
       },
       {
-        "repo": "open-telemetry/opentelemetry-browser",
-        "title": "docs: add Aditya Reddy as approver",
-        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/549",
-        "date": "2026-11-02"
-      },
-      {
         "repo": "open-telemetry/opentelemetry-demo",
         "title": "feat(fraud-detection): record order and sales metrics",
         "url": "https://github.com/open-telemetry/opentelemetry-demo/pull/4233",
@@ -1315,15 +1417,9 @@
       },
       {
         "repo": "w3c/event-timing",
-        "title": "Add a non-normative section on computing INP",
+        "title": "Explain how to compute INP from Event Timing",
         "url": "https://github.com/w3c/event-timing/pull/175",
         "date": "2026-11-02"
-      },
-      {
-        "repo": "open-telemetry/opentelemetry-browser",
-        "title": "fix(instrumentation): use entry start time for timing events",
-        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/540",
-        "date": "2026-11-01"
       },
       {
         "repo": "open-telemetry/opentelemetry-browser",
@@ -1542,12 +1638,6 @@
         "date": "2026-10-02"
       },
       {
-        "repo": "open-telemetry/semantic-conventions-conformance",
-        "title": "Add a browser events conformance scenario",
-        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/258",
-        "date": "2026-10-02"
-      },
-      {
         "repo": "vercel/next.js",
         "title": "docs: fix two links broken by the middleware to proxy rename",
         "url": "https://github.com/vercel/next.js/pull/99375",
@@ -1580,12 +1670,22 @@
       },
       {
         "repo": "open-telemetry/opentelemetry-browser",
-        "merged": 8,
-        "open": 15
+        "merged": 10,
+        "open": 13
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "merged": 9,
+        "open": 12
       },
       {
         "repo": "GoogleChrome/web-vitals",
         "merged": 6,
+        "open": 2
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions-conformance",
+        "merged": 5,
         "open": 2
       },
       {
@@ -1594,24 +1694,14 @@
         "open": 2
       },
       {
-        "repo": "prometheus-community/helm-charts",
-        "merged": 4,
-        "open": 17
+        "repo": "open-telemetry/opentelemetry-collector-contrib",
+        "merged": 5,
+        "open": 1
       },
       {
         "repo": "open-telemetry/opentelemetry-js",
         "merged": 4,
         "open": 4
-      },
-      {
-        "repo": "open-telemetry/semantic-conventions-conformance",
-        "merged": 4,
-        "open": 3
-      },
-      {
-        "repo": "open-telemetry/opentelemetry-collector-contrib",
-        "merged": 4,
-        "open": 2
       },
       {
         "repo": "elastic/kibana",
@@ -1669,6 +1759,11 @@
         "open": 2
       },
       {
+        "repo": "ClickHouse/ClickStack",
+        "merged": 1,
+        "open": 1
+      },
+      {
         "repo": "elastic/elastic-otel-rum-js",
         "merged": 1,
         "open": 1
@@ -1689,17 +1784,17 @@
         "open": 0
       },
       {
-        "repo": "hyperdxio/hyperdx",
-        "merged": 1,
-        "open": 0
-      },
-      {
         "repo": "newrelic/docs-website",
         "merged": 1,
         "open": 0
       },
       {
         "repo": "newrelic/node-newrelic",
+        "merged": 1,
+        "open": 0
+      },
+      {
+        "repo": "openobserve/openobserve",
         "merged": 1,
         "open": 0
       },
@@ -1744,12 +1839,22 @@
         "open": 3
       },
       {
+        "repo": "aws-observability/aws-rum-web",
+        "merged": 0,
+        "open": 2
+      },
+      {
         "repo": "electron/electron",
         "merged": 0,
         "open": 2
       },
       {
         "repo": "grafana/alloy",
+        "merged": 0,
+        "open": 2
+      },
+      {
+        "repo": "micrometer-metrics/micrometer",
         "merged": 0,
         "open": 2
       },
@@ -1784,17 +1889,17 @@
         "open": 1
       },
       {
+        "repo": "aws-observability/aws-otel-collector",
+        "merged": 0,
+        "open": 1
+      },
+      {
         "repo": "aws-observability/aws-otel-community",
         "merged": 0,
         "open": 1
       },
       {
         "repo": "aws-observability/aws-otel-js-instrumentation",
-        "merged": 0,
-        "open": 1
-      },
-      {
-        "repo": "aws-observability/aws-rum-web",
         "merged": 0,
         "open": 1
       },
@@ -1809,6 +1914,11 @@
         "open": 1
       },
       {
+        "repo": "dequelabs/axe-core",
+        "merged": 0,
+        "open": 1
+      },
+      {
         "repo": "detailobsessed/awesome-devin",
         "merged": 0,
         "open": 1
@@ -1819,7 +1929,17 @@
         "open": 1
       },
       {
+        "repo": "getsentry/sentry-conventions",
+        "merged": 0,
+        "open": 1
+      },
+      {
         "repo": "grafana/pyroscope",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "grafana/tempo",
         "merged": 0,
         "open": 1
       },
@@ -1839,12 +1959,27 @@
         "open": 1
       },
       {
-        "repo": "micrometer-metrics/micrometer",
+        "repo": "lit/lit",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "microsoft/opentelemetry-distro-browser",
         "merged": 0,
         "open": 1
       },
       {
         "repo": "nodejs/doc-kit",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "open-telemetry/opamp-go",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-kotlin",
         "merged": 0,
         "open": 1
       },
@@ -1860,6 +1995,11 @@
       },
       {
         "repo": "open-telemetry/weaver",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "parcel-bundler/parcel",
         "merged": 0,
         "open": 1
       },
@@ -1894,6 +2034,11 @@
         "open": 1
       },
       {
+        "repo": "vitejs/vite",
+        "merged": 0,
+        "open": 1
+      },
+      {
         "repo": "w3c/event-timing",
         "merged": 0,
         "open": 1
@@ -1905,6 +2050,11 @@
       },
       {
         "repo": "WICG/layout-instability",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "WICG/soft-navigations",
         "merged": 0,
         "open": 1
       }
@@ -1943,5 +2093,5 @@
       "url": "https://hack.osu.edu/2026"
     }
   ],
-  "generated": "2026-11-06"
+  "generated": "2026-11-07"
 }
