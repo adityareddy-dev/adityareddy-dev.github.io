@@ -786,6 +786,12 @@
     ],
     "open": [
       {
+        "repo": "GoogleChrome/web-vitals",
+        "title": "Don't count INP scripts during style and layout twice",
+        "url": "https://github.com/GoogleChrome/web-vitals/pull/825",
+        "date": "2026-11-10"
+      },
+      {
         "repo": "web-platform-tests/wpt",
         "title": "Cover MessageChannel attribution in soft navigation smoke tests",
         "url": "https://github.com/web-platform-tests/wpt/pull/64938",
@@ -1687,7 +1693,7 @@
       {
         "repo": "GoogleChrome/web-vitals",
         "merged": 8,
-        "open": 0
+        "open": 1
       },
       {
         "repo": "PostHog/posthog-js",
@@ -2113,5 +2119,5 @@
       "url": "https://hack.osu.edu/2026"
     }
   ],
-  "generated": "2026-11-09"
+  "generated": "2026-11-10"
 }
