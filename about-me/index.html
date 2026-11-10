@@ -369,7 +369,7 @@ html.js .reveal.in{opacity:1;transform:none}
   <div class="wrap reveal">
     <div class="eyebrow">Open source</div>
     <h2 class="dh" style="margin-bottom:30px">Browser performance and OpenTelemetry.</h2>
-    <p class="lead">I'm an <a href="https://github.com/open-telemetry/community/issues/3758">OpenTelemetry organization member</a>. I replaced the demo's Python recommendation service with Java on Spring Boot 4. The <a href="https://github.com/open-telemetry/opentelemetry-demo/pull/3966">service</a> and <a href="https://github.com/open-telemetry/opentelemetry.io/pull/11667">docs</a> merged on October 13, 2026. The <a href="https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2398">companion chart change</a> is still open.</p>
+    <p class="lead">I'm an <a href="https://github.com/open-telemetry/community/issues/3758">OpenTelemetry organization member</a> and an <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/549">approver for OpenTelemetry Browser</a>, where I <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/557#pullrequestreview-5832081712">review changes</a>. I replaced the demo's Python recommendation service with Java on Spring Boot 4. The <a href="https://github.com/open-telemetry/opentelemetry-demo/pull/3966">service</a> and <a href="https://github.com/open-telemetry/opentelemetry.io/pull/11667">docs</a> both merged. I've also had changes merged into <a href="https://github.com/GoogleChrome/web-vitals/pull/822">web-vitals</a>, <a href="https://github.com/PostHog/posthog-js/pull/5546">PostHog</a>, <a href="https://github.com/vercel/next.js/pull/99375">Next.js</a> and the <a href="https://github.com/prometheus-community/helm-charts/pull/7490">Prometheus Helm charts</a>.</p>
     <p class="lead">I also build <a href="https://github.com/adityareddy-dev/react-inp-blame">react-inp-blame</a> for React interaction attribution, <a href="https://github.com/adityareddy-dev/otel-js-upgrade">otel-js-upgrade</a> for previewing the OpenTelemetry JavaScript SDK 3 migration, and <a href="https://github.com/adityareddy-dev/otel-zoneless-context">otel-zoneless-context</a> for restoring context across native await in code rewritten by its plugin.</p>
   </div>
 </section>
@@ -397,6 +397,21 @@ html.js .reveal.in{opacity:1;transform:none}
       <h2 class="dh" style="margin-bottom:34px">Proof over opinion.</h2>
     </div>
     <div class="card reveal">
+      <div class="tag">DEV · November 7, 2026</div>
+      <h3><a href="https://dev.to/adityareddy_dev/the-pagehide-listener-that-never-ran-3k3e">The pagehide listener that never ran</a></h3>
+      <p>I removed a pagehide listener that never ran during navigation. Moving it to window could have made logs flush too early and miss final web-vitals records.</p>
+    </div>
+    <div class="card reveal">
+      <div class="tag">DEV · November 4, 2026</div>
+      <h3><a href="https://dev.to/adityareddy_dev/what-broke-when-i-moved-grafana-faro-to-opentelemetry-js-30-imb">What broke when I moved Grafana Faro to OpenTelemetry JS 3.0</a></h3>
+      <p>While preparing Grafana Faro's OpenTelemetry JS 3.0 upgrade, I found a blocked deep import and tests running the Node build. Disabled XHR instrumentation was still creating spans too.</p>
+    </div>
+    <div class="card reveal">
+      <div class="tag">DEV · November 2, 2026</div>
+      <h3><a href="https://dev.to/adityareddy_dev/why-your-inp-can-fall-after-one-more-click-2p2k">Why your INP can fall after one more click</a></h3>
+      <p>A fast click can lower a page's INP without fixing its slowest interaction. I explain what changes at interaction 50, and why a late observer can miss earlier fast events.</p>
+    </div>
+    <div class="card reveal">
       <div class="tag">DEV · October 20, 2026</div>
       <h3><a href="https://dev.to/adityareddy_dev/how-one-desk-studio-job-gets-from-roughs-to-sign-off-4h22">How one Desk Studio job gets from roughs to sign-off</a></h3>
       <p>The studio's own launch card, followed from three roughs through the pick, three polish rounds, proof and sign-off, with the saved scores and what it cost.</p>
@@ -405,11 +420,6 @@ html.js .reveal.in{opacity:1;transform:none}
       <div class="tag">DEV · October 2, 2026</div>
       <h3><a href="https://dev.to/adityareddy_dev/why-the-opentelemetry-browser-sdk-wouldnt-start-on-safari-17-55j5">Why the OpenTelemetry browser SDK wouldn't start on Safari 17</a></h3>
       <p>One call to URL.parse kept the SDK from starting on Safari 17 and on Chrome and Firefox older than 126. The fix, how I tested it without an old browser, and why lint let it through.</p>
-    </div>
-    <div class="card reveal">
-      <div class="tag">In the works</div>
-      <h3>Working out which change actually fixed our INP</h3>
-      <p>Two teams shipped in the same window and both claimed the win. A lab sweep of injected latency from 0 to 1800ms, plus field data segmented by the element each interaction landed on, settled it. Draft is in progress.</p>
     </div>
   </div>
 </section>

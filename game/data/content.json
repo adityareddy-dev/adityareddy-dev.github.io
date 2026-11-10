@@ -2069,18 +2069,21 @@
   "articles": [
     {
       "title": "The pagehide listener that never ran",
+      "summary": "I removed a pagehide listener that never ran during navigation. Moving it to window could have made logs flush too early and miss final web-vitals records.",
       "url": "https://dev.to/adityareddy_dev/the-pagehide-listener-that-never-ran-3k3e",
       "date": "2026-11-07",
       "status": "DEV"
     },
     {
       "title": "What broke when I moved Grafana Faro to OpenTelemetry JS 3.0",
+      "summary": "While preparing Grafana Faro's OpenTelemetry JS 3.0 upgrade, I found a blocked deep import and tests running the Node build. Disabled XHR instrumentation was still creating spans too.",
       "url": "https://dev.to/adityareddy_dev/what-broke-when-i-moved-grafana-faro-to-opentelemetry-js-30-imb",
       "date": "2026-11-04",
       "status": "DEV"
     },
     {
       "title": "Why your INP can fall after one more click",
+      "summary": "A fast click can lower a page's INP without fixing its slowest interaction. I explain what changes at interaction 50, and why a late observer can miss earlier fast events.",
       "url": "https://dev.to/adityareddy_dev/why-your-inp-can-fall-after-one-more-click-2p2k",
       "date": "2026-11-02",
       "status": "DEV"
@@ -2098,13 +2101,6 @@
       "url": "https://dev.to/adityareddy_dev/why-the-opentelemetry-browser-sdk-wouldnt-start-on-safari-17-55j5",
       "date": "2026-10-02",
       "status": "DEV"
-    },
-    {
-      "title": "Working out which change actually fixed our INP",
-      "summary": "Two teams shipped in the same window and both claimed the win. A lab sweep of injected latency from 0 to 1800ms, plus field data segmented by the element each interaction landed on, settled it. Draft is in progress.",
-      "url": null,
-      "date": null,
-      "status": "In the works"
     }
   ],
   "judging": [
