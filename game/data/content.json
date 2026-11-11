@@ -15,7 +15,9 @@
   "about": [
     "Right now I lead observability for a major application rebuild at Northwestern Mutual. The legacy and rebuilt stacks run side by side, and the monitoring has to referee between them fairly or the comparison is worthless. I defined the SLI framework the stakeholders signed off on, and moved measurement to the gateway instead of trusting what each application reports about itself.",
     "Before that I was a core engineer on straight-through processing of insurance applications: 16 Node microservices, 3 React apps, an event-driven architecture on AWS. I took the team's DevSecOps role cause someone had to, and it turned out I liked the pipelines as much as the product. PagerDuty on-call too. You should carry the pager for what you build though.",
-    "Nine years in software, seven of them building and operating production web systems in the US, across financial services, healthcare and retail supply chain."
+    "Nine years in software, seven of them building and operating production web systems in the US, across financial services, healthcare and retail supply chain.",
+    "OpenTelemetry Browser's November 11 release (https://github.com/open-telemetry/opentelemetry-browser/pull/554) shipped my fix (https://github.com/open-telemetry/opentelemetry-browser/pull/540) that times events from each entry's start time. I reviewed and approved the new browser-api package (https://github.com/open-telemetry/opentelemetry-browser/pull/552) it introduced.",
+    "Google's Firebase JS SDK started depending on OpenTelemetry Browser on November 2 through Crashlytics, and weekly downloads of browser-instrumentation (https://www.npmjs.com/package/@opentelemetry/browser-instrumentation) went to about 840,000. I opened a PR (https://github.com/firebase/firebase-js-sdk/pull/10612) to move Crashlytics to the current release, which carries my user action and timing fixes."
   ],
   "story": [
     {
