@@ -184,6 +184,36 @@
   "contributions": {
     "merged": [
       {
+        "repo": "vercel/next.js",
+        "title": "docs: explain complementary Web Vitals and custom metrics APIs",
+        "url": "https://github.com/vercel/next.js/pull/98968",
+        "date": "2026-11-11"
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions-conformance",
+        "title": "Cache coverage models for --registry dirs by content",
+        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/467",
+        "date": "2026-11-10"
+      },
+      {
+        "repo": "open-telemetry/semantic-conventions-conformance",
+        "title": "Record contract semantic checks as conformance findings",
+        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/482",
+        "date": "2026-11-10"
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "title": "[prometheus-postgres-exporter] Fix README links",
+        "url": "https://github.com/prometheus-community/helm-charts/pull/7481",
+        "date": "2026-11-10"
+      },
+      {
+        "repo": "grafana/k6",
+        "title": "fix(browser): Keep context pages in attachment order",
+        "url": "https://github.com/grafana/k6/pull/6637",
+        "date": "2026-11-10"
+      },
+      {
         "repo": "GoogleChrome/web-vitals",
         "title": "Only count INP style and layout time up to the next paint",
         "url": "https://github.com/GoogleChrome/web-vitals/pull/822",
@@ -786,6 +816,12 @@
     ],
     "open": [
       {
+        "repo": "open-telemetry/opentelemetry-lambda",
+        "title": "feat(nodejs): switch the layer to NodeSDK and OTel JS SDK 3",
+        "url": "https://github.com/open-telemetry/opentelemetry-lambda/pull/2749",
+        "date": "2026-11-10"
+      },
+      {
         "repo": "GoogleChrome/web-vitals",
         "title": "Don't count INP scripts during style and layout twice",
         "url": "https://github.com/GoogleChrome/web-vitals/pull/825",
@@ -795,12 +831,6 @@
         "repo": "web-platform-tests/wpt",
         "title": "Cover MessageChannel attribution in soft navigation smoke tests",
         "url": "https://github.com/web-platform-tests/wpt/pull/64938",
-        "date": "2026-11-09"
-      },
-      {
-        "repo": "open-telemetry/semantic-conventions-conformance",
-        "title": "Record contract semantic checks as conformance findings",
-        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/482",
         "date": "2026-11-09"
       },
       {
@@ -858,12 +888,6 @@
         "date": "2026-11-06"
       },
       {
-        "repo": "getsentry/sentry-conventions",
-        "title": "docs: Link service attributes to OpenTelemetry",
-        "url": "https://github.com/getsentry/sentry-conventions/pull/781",
-        "date": "2026-11-06"
-      },
-      {
         "repo": "dequelabs/axe-core",
         "title": "fix(text): ignore fully transparent label text",
         "url": "https://github.com/dequelabs/axe-core/pull/5527",
@@ -915,12 +939,6 @@
         "repo": "aws-observability/aws-rum-web",
         "title": "fix: keep rrweb replay types out of public declarations",
         "url": "https://github.com/aws-observability/aws-rum-web/pull/923",
-        "date": "2026-11-05"
-      },
-      {
-        "repo": "open-telemetry/opentelemetry-lambda",
-        "title": "fix(nodejs): flush logs before invocation completion",
-        "url": "https://github.com/open-telemetry/opentelemetry-lambda/pull/2724",
         "date": "2026-11-05"
       },
       {
@@ -1000,12 +1018,6 @@
         "title": "docs: clarify correlation header configuration",
         "url": "https://github.com/microsoft/ApplicationInsights-JS/pull/2795",
         "date": "2026-11-05"
-      },
-      {
-        "repo": "open-telemetry/semantic-conventions-conformance",
-        "title": "Cache coverage models for --registry dirs by content",
-        "url": "https://github.com/open-telemetry/semantic-conventions-conformance/pull/467",
-        "date": "2026-11-04"
       },
       {
         "repo": "open-telemetry/opentelemetry-collector",
@@ -1095,12 +1107,6 @@
         "repo": "elastic/kibana",
         "title": "[SLO] Reject incomplete timeslice metrics in the edit form",
         "url": "https://github.com/elastic/kibana/pull/303073",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "grafana/k6",
-        "title": "fix(browser): Keep context pages in attachment order",
-        "url": "https://github.com/grafana/k6/pull/6637",
         "date": "2026-11-04"
       },
       {
@@ -1269,12 +1275,6 @@
         "repo": "grafana/k6",
         "title": "test(browser): cover option enum JSON serialization",
         "url": "https://github.com/grafana/k6/pull/6632",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "prometheus-community/helm-charts",
-        "title": "[prometheus-postgres-exporter] Fix README links",
-        "url": "https://github.com/prometheus-community/helm-charts/pull/7481",
         "date": "2026-11-04"
       },
       {
@@ -1662,12 +1662,6 @@
         "date": "2026-09-20"
       },
       {
-        "repo": "vercel/next.js",
-        "title": "docs: explain complementary Web Vitals and custom metrics APIs",
-        "url": "https://github.com/vercel/next.js/pull/98968",
-        "date": "2026-09-20"
-      },
-      {
         "repo": "open-telemetry/opentelemetry-helm-charts",
         "title": "[opentelemetry-demo] Point the recommendation service at the collector's HTTP port",
         "url": "https://github.com/open-telemetry/opentelemetry-helm-charts/pull/2398",
@@ -1677,8 +1671,8 @@
     "byProject": [
       {
         "repo": "prometheus-community/helm-charts",
-        "merged": 12,
-        "open": 10
+        "merged": 13,
+        "open": 9
       },
       {
         "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
@@ -1696,14 +1690,14 @@
         "open": 1
       },
       {
-        "repo": "PostHog/posthog-js",
+        "repo": "open-telemetry/semantic-conventions-conformance",
         "merged": 7,
         "open": 0
       },
       {
-        "repo": "open-telemetry/semantic-conventions-conformance",
-        "merged": 5,
-        "open": 2
+        "repo": "PostHog/posthog-js",
+        "merged": 7,
+        "open": 0
       },
       {
         "repo": "open-telemetry/opentelemetry-collector-contrib",
@@ -1741,6 +1735,11 @@
         "open": 1
       },
       {
+        "repo": "grafana/k6",
+        "merged": 2,
+        "open": 6
+      },
+      {
         "repo": "open-telemetry/opentelemetry.io",
         "merged": 2,
         "open": 3
@@ -1751,14 +1750,14 @@
         "open": 3
       },
       {
+        "repo": "vercel/next.js",
+        "merged": 2,
+        "open": 1
+      },
+      {
         "repo": "elastic/elastic-otel-rum-js",
         "merged": 2,
         "open": 0
-      },
-      {
-        "repo": "grafana/k6",
-        "merged": 1,
-        "open": 7
       },
       {
         "repo": "grafana/faro-web-sdk",
@@ -1772,11 +1771,6 @@
       },
       {
         "repo": "microsoft/ApplicationInsights-JS",
-        "merged": 1,
-        "open": 2
-      },
-      {
-        "repo": "vercel/next.js",
         "merged": 1,
         "open": 2
       },
@@ -1942,11 +1936,6 @@
       },
       {
         "repo": "detailobsessed/awesome-devin",
-        "merged": 0,
-        "open": 1
-      },
-      {
-        "repo": "getsentry/sentry-conventions",
         "merged": 0,
         "open": 1
       },
@@ -2119,5 +2108,5 @@
       "url": "https://hack.osu.edu/2026"
     }
   ],
-  "generated": "2026-11-10"
+  "generated": "2026-11-11"
 }
