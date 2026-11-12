@@ -250,7 +250,7 @@ html.js .reveal.in{opacity:1;transform:none}
     </div>
 
     <div class="beat0" data-b="0">
-      <div class="kicker">Browser · GenAI · OpenTelemetry</div>
+      <div class="kicker">Full stack · Observability · OpenTelemetry</div>
       <p class="sub">Senior software engineer. I build and run production systems for companies where downtime has a dollar sign attached to it.</p>
     </div>
 
@@ -325,15 +325,23 @@ html.js .reveal.in{opacity:1;transform:none}
     <div class="job reveal"><div class="when">2022 · now</div><div>
       <h3>Senior Software Engineer</h3><div class="org">Northwestern Mutual · Milwaukee</div>
       <p>Observability lead for an enterprise application rebuild spanning 4 backend services, 16 user interfaces and 2 databases. SLI design, gateway-level measurement, distributed tracing, release trains, and the CI/CD and security scanning the team ships through.</p>
+      <p>The backends there are Spring Boot in Kotlin, Spring Boot in Java and Node.js in TypeScript, so I end up in all three, plus the React on top.</p>
     </div></div>
     <div class="job reveal"><div class="when">2021 · 2022</div><div>
       <h3>Software Engineer</h3><div class="org">Northwestern Mutual · Milwaukee</div>
       <p>Core engineer on straight-through processing of underwriting applications. Converted the platform to a multi-case, event-driven design on AWS SQS and SNS, provisioned the messaging infrastructure in Terraform, and shipped reverse approval and decline handling end to end.</p>
     </div></div>
-    <div class="job reveal"><div class="when">2019 · 2021</div><div>
-      <h3>Software Developer</h3><div class="org">Egen Solutions · Chicago</div>
-      <p>Consulting engineer with enterprise clients in healthcare distribution and retail supply chain. React, Redux and Java Spring Boot on an enterprise reporting platform, D3 dashboard visualizations, and a home delivery scheduling platform.</p>
-      <div class="clients">Clients: McKesson · Sears, Innovel Solutions</div>
+    <div class="job reveal"><div class="when">2021</div><div>
+      <h3>Software Developer</h3><div class="org">Egen · Chicago</div>
+      <p>A React data tracking board with animated time series, and a grocery store backend prototype in Go with GORM.</p>
+    </div></div>
+    <div class="job reveal"><div class="when">2020 · 2021</div><div>
+      <h3>Software Developer (contract)</h3><div class="org">McKesson · Minneapolis, remote</div>
+      <p>React, Redux and Java Spring Boot on the enterprise reporting and analytics platform, D3 dashboard visualizations, and backend changes in Go to the vaccine tracking dashboard on GCP and Kafka.</p>
+    </div></div>
+    <div class="job reveal"><div class="when">2019 · 2020</div><div>
+      <h3>Software Developer (contract)</h3><div class="org">Sears, Innovel Solutions · Chicago</div>
+      <p>React and Java Spring Boot on the Innovel home delivery scheduling platform, and a proof-of-delivery app for appliance orders built end to end in React and Go, from purchase through delivery, installation scheduling, installation and inspection.</p>
     </div></div>
     <div class="job reveal"><div class="when">2017 · 2019</div><div>
       <h3>MS, Computer Information Systems</h3><div class="org">Colorado State University · Fort Collins</div>
@@ -371,7 +379,8 @@ html.js .reveal.in{opacity:1;transform:none}
     <h2 class="dh" style="margin-bottom:30px">Browser performance and OpenTelemetry.</h2>
     <p class="lead">I'm an <a href="https://github.com/open-telemetry/community/issues/3758">OpenTelemetry organization member</a> and an <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/549">approver for OpenTelemetry Browser</a>, where I <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/557#pullrequestreview-5832081712">review changes</a>. I replaced the demo's Python recommendation service with Java on Spring Boot 4. The <a href="https://github.com/open-telemetry/opentelemetry-demo/pull/3966">service</a> and <a href="https://github.com/open-telemetry/opentelemetry.io/pull/11667">docs</a> both merged. I've also had changes merged into <a href="https://github.com/GoogleChrome/web-vitals/pull/822">web-vitals</a>, <a href="https://github.com/PostHog/posthog-js/pull/5546">PostHog</a>, <a href="https://github.com/vercel/next.js/pull/99375">Next.js</a> and the <a href="https://github.com/prometheus-community/helm-charts/pull/7490">Prometheus Helm charts</a>.</p>
     <p class="lead">OpenTelemetry Browser's <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/554">November 11 release</a> shipped <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/540">my fix</a> that times events from each entry's start time. I reviewed and approved the <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/552">new browser-api package</a> it introduced.</p>
-    <p class="lead">Google's Firebase JS SDK <a href="https://github.com/firebase/firebase-js-sdk/tree/main/packages/crashlytics">started depending on OpenTelemetry Browser</a> on November 2 through Crashlytics, and weekly downloads of <a href="https://www.npmjs.com/package/@opentelemetry/browser-instrumentation">browser-instrumentation</a> went to about 840,000. I opened <a href="https://github.com/firebase/firebase-js-sdk/pull/10612">a PR</a> to move Crashlytics to the current release, which carries my <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/448">user action</a> and <a href="https://github.com/open-telemetry/opentelemetry-browser/pull/540">timing</a> fixes.</p>
+    <p class="lead">Google's Firebase JS SDK <a href="https://github.com/firebase/firebase-js-sdk/tree/main/packages/crashlytics">started depending on OpenTelemetry Browser</a> on November 2 through Crashlytics, and weekly downloads of <a href="https://www.npmjs.com/package/@opentelemetry/browser-instrumentation">browser-instrumentation</a> jumped to 840,000. I tracked the jump down to Firebase, 814k of it was their pinned 0.6.0. At the November 12 Browser SIG, Chris Chestnut from Firebase presented the Crashlytics launch, installs included. They're doing their own move to OpenTelemetry JS 3.0 though, so I closed <a href="https://github.com/firebase/firebase-js-sdk/pull/10612">my upgrade PR</a>.</p>
+    <p class="lead">On the Grafana side, <a href="https://github.com/grafana/mimir/pull/17189">my Mimir mixin change</a> in Jsonnet merged, so did two k6 browser fixes in Go and <a href="https://github.com/grafana/faro-web-sdk/pull/2362">text masking for Faro's session replay</a>. <a href="https://github.com/grafana/alloy/pull/7618">Two Alloy changes in Go</a> are still in review.</p>
     <p class="lead">I also build <a href="https://github.com/adityareddy-dev/react-inp-blame">react-inp-blame</a> for React interaction attribution, <a href="https://github.com/adityareddy-dev/otel-js-upgrade">otel-js-upgrade</a> for previewing the OpenTelemetry JavaScript SDK 3 migration, and <a href="https://github.com/adityareddy-dev/otel-zoneless-context">otel-zoneless-context</a> for restoring context across native await in code rewritten by its plugin.</p>
   </div>
 </section>
@@ -381,10 +390,10 @@ html.js .reveal.in{opacity:1;transform:none}
     <div class="eyebrow">Toolkit</div>
     <h2 class="dh" style="margin-bottom:30px">Tools I reach for.</h2>
     <div class="chips">
-      <span class="chip hot">React</span><span class="chip hot">Kubernetes</span><span class="chip hot">Observability</span>
-      <span class="chip hot">Web performance</span>
-      <span class="chip">TypeScript</span><span class="chip">Node.js</span>
-      <span class="chip">Java · Spring Boot</span><span class="chip">Terraform</span><span class="chip">Docker</span>
+      <span class="chip hot">Observability</span><span class="chip hot">OpenTelemetry</span><span class="chip hot">React</span>
+      <span class="chip hot">Go</span><span class="chip hot">Kubernetes</span><span class="chip hot">Web performance</span>
+      <span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">Prometheus · Grafana</span><span class="chip">Jsonnet</span>
+      <span class="chip">Java · Kotlin · Spring Boot</span><span class="chip">Terraform</span><span class="chip">Docker</span>
       <span class="chip">AWS</span><span class="chip">Vault</span><span class="chip">GitLab CI/CD</span>
       <span class="chip">Dynatrace</span><span class="chip">OpenSearch</span><span class="chip">Playwright</span>
       <span class="chip">SLI · SLO design</span><span class="chip">DevSecOps</span><span class="chip">Microservices</span>

@@ -13,11 +13,12 @@
     }
   },
   "about": [
-    "Right now I lead observability for a major application rebuild at Northwestern Mutual. The legacy and rebuilt stacks run side by side, and the monitoring has to referee between them fairly or the comparison is worthless. I defined the SLI framework the stakeholders signed off on, and moved measurement to the gateway instead of trusting what each application reports about itself.",
+    "Right now I lead observability for a major application rebuild at Northwestern Mutual. The legacy and rebuilt stacks run side by side, and the monitoring has to referee between them fairly or the comparison is worthless. I defined the SLI framework the stakeholders signed off on, and moved measurement to the gateway instead of trusting what each application reports about itself. The backends there are Spring Boot in Kotlin, Spring Boot in Java and Node.js in TypeScript, so I end up in all three, plus the React on top.",
     "Before that I was a core engineer on straight-through processing of insurance applications: 16 Node microservices, 3 React apps, an event-driven architecture on AWS. I took the team's DevSecOps role cause someone had to, and it turned out I liked the pipelines as much as the product. PagerDuty on-call too. You should carry the pager for what you build though.",
     "Nine years in software, seven of them building and operating production web systems in the US, across financial services, healthcare and retail supply chain.",
     "OpenTelemetry Browser's November 11 release (https://github.com/open-telemetry/opentelemetry-browser/pull/554) shipped my fix (https://github.com/open-telemetry/opentelemetry-browser/pull/540) that times events from each entry's start time. I reviewed and approved the new browser-api package (https://github.com/open-telemetry/opentelemetry-browser/pull/552) it introduced.",
-    "Google's Firebase JS SDK started depending on OpenTelemetry Browser on November 2 through Crashlytics, and weekly downloads of browser-instrumentation (https://www.npmjs.com/package/@opentelemetry/browser-instrumentation) went to about 840,000. I opened a PR (https://github.com/firebase/firebase-js-sdk/pull/10612) to move Crashlytics to the current release, which carries my user action and timing fixes."
+    "Google's Firebase JS SDK started depending on OpenTelemetry Browser on November 2 through Crashlytics, and weekly downloads of browser-instrumentation (https://www.npmjs.com/package/@opentelemetry/browser-instrumentation) jumped to 840,000. I tracked the jump down to Firebase, 814k of it was their pinned 0.6.0. At the November 12 Browser SIG, Chris Chestnut from Firebase presented the Crashlytics launch, installs included. They're doing their own move to OpenTelemetry JS 3.0 though, so I closed my upgrade PR (https://github.com/firebase/firebase-js-sdk/pull/10612).",
+    "On the Grafana side, my Mimir mixin change (https://github.com/grafana/mimir/pull/17189) in Jsonnet merged, so did two k6 browser fixes in Go and text masking for Faro's session replay (https://github.com/grafana/faro-web-sdk/pull/2362). Two Alloy changes in Go (https://github.com/grafana/alloy/pull/7618) are still in review."
   ],
   "story": [
     {
@@ -56,7 +57,8 @@
       "place": "Milwaukee",
       "period": "2022 · now",
       "points": [
-        "Observability lead for an enterprise application rebuild spanning 4 backend services, 16 user interfaces and 2 databases. SLI design, gateway-level measurement, distributed tracing, release trains, and the CI/CD and security scanning the team ships through."
+        "Observability lead for an enterprise application rebuild spanning 4 backend services, 16 user interfaces and 2 databases. SLI design, gateway-level measurement, distributed tracing, release trains, and the CI/CD and security scanning the team ships through.",
+        "Backends in Spring Boot (Kotlin and Java) and Node.js with TypeScript, React on top."
       ]
     },
     {
@@ -70,12 +72,29 @@
     },
     {
       "role": "Software Developer",
-      "org": "Egen Solutions",
+      "org": "Egen",
       "place": "Chicago",
-      "period": "2019 · 2021",
+      "period": "2021",
       "points": [
-        "Consulting engineer with enterprise clients in healthcare distribution and retail supply chain. React, Redux and Java Spring Boot on an enterprise reporting platform, D3 dashboard visualizations, and a home delivery scheduling platform.",
-        "Clients: McKesson · Sears, Innovel Solutions"
+        "A React data tracking board with animated time series, and a grocery store backend prototype in Go with GORM."
+      ]
+    },
+    {
+      "role": "Software Developer (contract)",
+      "org": "McKesson",
+      "place": "Minneapolis, remote",
+      "period": "2020 · 2021",
+      "points": [
+        "React, Redux and Java Spring Boot on the enterprise reporting and analytics platform, D3 dashboard visualizations, and backend changes in Go to the vaccine tracking dashboard on GCP and Kafka."
+      ]
+    },
+    {
+      "role": "Software Developer (contract)",
+      "org": "Sears, Innovel Solutions",
+      "place": "Chicago",
+      "period": "2019 · 2020",
+      "points": [
+        "React and Java Spring Boot on the Innovel home delivery scheduling platform, and a proof-of-delivery app for appliance orders built end to end in React and Go, from purchase through delivery, installation scheduling, installation and inspection."
       ]
     },
     {
@@ -101,9 +120,11 @@
     {
       "group": "Focus",
       "items": [
-        "React",
-        "Kubernetes",
         "Observability",
+        "OpenTelemetry",
+        "React",
+        "Go",
+        "Kubernetes",
         "Web performance"
       ]
     },
@@ -112,7 +133,9 @@
       "items": [
         "TypeScript",
         "Node.js",
-        "Java · Spring Boot",
+        "Prometheus · Grafana",
+        "Jsonnet",
+        "Java · Kotlin · Spring Boot",
         "Terraform",
         "Docker",
         "AWS",
