@@ -157,7 +157,7 @@
         "npmReleases": 20,
         "firstPublished": "2026-09-17",
         "githubStars": 35,
-        "mergedPullRequests": 76,
+        "mergedPullRequests": 79,
         "dependencies": 0,
         "license": "MIT"
       },
@@ -818,6 +818,18 @@
     ],
     "open": [
       {
+        "repo": "madd86/awesome-system-design",
+        "title": "Add System Designer",
+        "url": "https://github.com/madd86/awesome-system-design/pull/54",
+        "date": "2026-11-12"
+      },
+      {
+        "repo": "firebase/firebase-js-sdk",
+        "title": "chore(crashlytics): update @opentelemetry/browser-instrumentation to 0.11.0",
+        "url": "https://github.com/firebase/firebase-js-sdk/pull/10612",
+        "date": "2026-11-11"
+      },
+      {
         "repo": "open-telemetry/opentelemetry-lambda",
         "title": "feat(nodejs): switch the layer to NodeSDK and OTel JS SDK 3",
         "url": "https://github.com/open-telemetry/opentelemetry-lambda/pull/2749",
@@ -869,12 +881,6 @@
         "repo": "micrometer-metrics/micrometer",
         "title": "Document LoggingMeterRegistry",
         "url": "https://github.com/micrometer-metrics/micrometer/pull/8164",
-        "date": "2026-11-06"
-      },
-      {
-        "repo": "parcel-bundler/parcel",
-        "title": "Preload compiled module scripts",
-        "url": "https://github.com/parcel-bundler/parcel/pull/10382",
         "date": "2026-11-06"
       },
       {
@@ -1942,6 +1948,11 @@
         "open": 1
       },
       {
+        "repo": "firebase/firebase-js-sdk",
+        "merged": 0,
+        "open": 1
+      },
+      {
         "repo": "grafana/pyroscope",
         "merged": 0,
         "open": 1
@@ -1968,6 +1979,11 @@
       },
       {
         "repo": "lit/lit",
+        "merged": 0,
+        "open": 1
+      },
+      {
+        "repo": "madd86/awesome-system-design",
         "merged": 0,
         "open": 1
       },
@@ -2003,11 +2019,6 @@
       },
       {
         "repo": "open-telemetry/weaver",
-        "merged": 0,
-        "open": 1
-      },
-      {
-        "repo": "parcel-bundler/parcel",
         "merged": 0,
         "open": 1
       },
@@ -2110,5 +2121,5 @@
       "url": "https://hack.osu.edu/2026"
     }
   ],
-  "generated": "2026-11-11"
+  "generated": "2026-11-12"
 }
