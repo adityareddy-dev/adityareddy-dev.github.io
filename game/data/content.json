@@ -209,6 +209,48 @@
   "contributions": {
     "merged": [
       {
+        "repo": "micrometer-metrics/micrometer",
+        "title": "Document LoggingMeterRegistry",
+        "url": "https://github.com/micrometer-metrics/micrometer/pull/8164",
+        "date": "2026-11-12"
+      },
+      {
+        "repo": "microsoft/opentelemetry-distro-browser",
+        "title": "fix: preserve sampled log enrichment",
+        "url": "https://github.com/microsoft/opentelemetry-distro-browser/pull/171",
+        "date": "2026-11-12"
+      },
+      {
+        "repo": "prometheus-community/helm-charts",
+        "title": "[prometheus-adapter] Preserve zero disruption budget constraints",
+        "url": "https://github.com/prometheus-community/helm-charts/pull/7492",
+        "date": "2026-11-12"
+      },
+      {
+        "repo": "prometheus-community/postgres_exporter",
+        "title": "Warn when deprecated PG_EXPORTER environment variables are used",
+        "url": "https://github.com/prometheus-community/postgres_exporter/pull/1451",
+        "date": "2026-11-12"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-collector-contrib",
+        "title": "[receiver/awscloudwatch] Don't crash when the STS account ID lookup fails",
+        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52772",
+        "date": "2026-11-12"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "feat(instrumentation): add document load span",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/504",
+        "date": "2026-11-12"
+      },
+      {
+        "repo": "elastic/kibana",
+        "title": "[Service Accounts] Show unexpected create failures in a toast",
+        "url": "https://github.com/elastic/kibana/pull/303057",
+        "date": "2026-11-12"
+      },
+      {
         "repo": "vercel/next.js",
         "title": "docs: explain complementary Web Vitals and custom metrics APIs",
         "url": "https://github.com/vercel/next.js/pull/98968",
@@ -841,16 +883,22 @@
     ],
     "open": [
       {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "feat(document-load): join the server trace from meta tags",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/564",
+        "date": "2026-11-13"
+      },
+      {
+        "repo": "open-telemetry/opentelemetry-browser",
+        "title": "feat(instrumentation): share document load context with timing events",
+        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/563",
+        "date": "2026-11-13"
+      },
+      {
         "repo": "madd86/awesome-system-design",
         "title": "Add System Designer",
         "url": "https://github.com/madd86/awesome-system-design/pull/54",
         "date": "2026-11-12"
-      },
-      {
-        "repo": "firebase/firebase-js-sdk",
-        "title": "chore(crashlytics): update @opentelemetry/browser-instrumentation to 0.11.0",
-        "url": "https://github.com/firebase/firebase-js-sdk/pull/10612",
-        "date": "2026-11-11"
       },
       {
         "repo": "open-telemetry/opentelemetry-lambda",
@@ -898,18 +946,6 @@
         "repo": "vitejs/vite",
         "title": "fix(css): resolve composed module asset URLs (fix #15410)",
         "url": "https://github.com/vitejs/vite/pull/24008",
-        "date": "2026-11-06"
-      },
-      {
-        "repo": "micrometer-metrics/micrometer",
-        "title": "Document LoggingMeterRegistry",
-        "url": "https://github.com/micrometer-metrics/micrometer/pull/8164",
-        "date": "2026-11-06"
-      },
-      {
-        "repo": "microsoft/opentelemetry-distro-browser",
-        "title": "fix: preserve sampled log enrichment",
-        "url": "https://github.com/microsoft/opentelemetry-distro-browser/pull/171",
         "date": "2026-11-06"
       },
       {
@@ -1009,18 +1045,6 @@
         "date": "2026-11-05"
       },
       {
-        "repo": "prometheus-community/postgres_exporter",
-        "title": "Warn when deprecated PG_EXPORTER environment variables are used",
-        "url": "https://github.com/prometheus-community/postgres_exporter/pull/1451",
-        "date": "2026-11-05"
-      },
-      {
-        "repo": "open-telemetry/opentelemetry-collector-contrib",
-        "title": "[receiver/awscloudwatch] Don't crash when the STS account ID lookup fails",
-        "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/52772",
-        "date": "2026-11-05"
-      },
-      {
         "repo": "rrweb-io/rrweb",
         "title": "fix(replay): keep autocomplete disabled after attribute mutations",
         "url": "https://github.com/rrweb-io/rrweb/pull/2004",
@@ -1117,12 +1141,6 @@
         "date": "2026-11-04"
       },
       {
-        "repo": "prometheus-community/helm-charts",
-        "title": "[prometheus-adapter] Preserve zero disruption budget constraints",
-        "url": "https://github.com/prometheus-community/helm-charts/pull/7492",
-        "date": "2026-11-04"
-      },
-      {
         "repo": "helm/helm-www",
         "title": "docs: clarify dry-run modes and lookup behavior",
         "url": "https://github.com/helm/helm-www/pull/2334",
@@ -1156,12 +1174,6 @@
         "repo": "grafana/k6",
         "title": "fix(browser): Invoke function init scripts without undefined args",
         "url": "https://github.com/grafana/k6/pull/6636",
-        "date": "2026-11-04"
-      },
-      {
-        "repo": "elastic/kibana",
-        "title": "[Service Accounts] Show unexpected create failures in a toast",
-        "url": "https://github.com/elastic/kibana/pull/303057",
         "date": "2026-11-04"
       },
       {
@@ -1537,12 +1549,6 @@
         "date": "2026-10-20"
       },
       {
-        "repo": "open-telemetry/opentelemetry-browser",
-        "title": "feat(instrumentation): add document load span",
-        "url": "https://github.com/open-telemetry/opentelemetry-browser/pull/504",
-        "date": "2026-10-18"
-      },
-      {
         "repo": "open-telemetry/opentelemetry-collector",
         "title": "[cmd/mdatagen] Require README status section markers",
         "url": "https://github.com/open-telemetry/opentelemetry-collector/pull/16193",
@@ -1702,8 +1708,8 @@
     "byProject": [
       {
         "repo": "prometheus-community/helm-charts",
-        "merged": 13,
-        "open": 9
+        "merged": 14,
+        "open": 8
       },
       {
         "repo": "open-telemetry/opentelemetry-ecosystem-explorer",
@@ -1712,8 +1718,8 @@
       },
       {
         "repo": "open-telemetry/opentelemetry-browser",
-        "merged": 10,
-        "open": 13
+        "merged": 11,
+        "open": 14
       },
       {
         "repo": "GoogleChrome/web-vitals",
@@ -1732,18 +1738,18 @@
       },
       {
         "repo": "open-telemetry/opentelemetry-collector-contrib",
-        "merged": 5,
-        "open": 1
+        "merged": 6,
+        "open": 0
+      },
+      {
+        "repo": "elastic/kibana",
+        "merged": 4,
+        "open": 5
       },
       {
         "repo": "open-telemetry/opentelemetry-js",
         "merged": 4,
         "open": 4
-      },
-      {
-        "repo": "elastic/kibana",
-        "merged": 3,
-        "open": 6
       },
       {
         "repo": "helm/helm-www",
@@ -1816,6 +1822,11 @@
         "open": 1
       },
       {
+        "repo": "micrometer-metrics/micrometer",
+        "merged": 1,
+        "open": 1
+      },
+      {
         "repo": "TanStack/virtual",
         "merged": 1,
         "open": 1
@@ -1827,6 +1838,11 @@
       },
       {
         "repo": "grafana/mimir",
+        "merged": 1,
+        "open": 0
+      },
+      {
+        "repo": "microsoft/opentelemetry-distro-browser",
         "merged": 1,
         "open": 0
       },
@@ -1852,6 +1868,11 @@
       },
       {
         "repo": "openobserve/openobserve-docs",
+        "merged": 1,
+        "open": 0
+      },
+      {
+        "repo": "prometheus-community/postgres_exporter",
         "merged": 1,
         "open": 0
       },
@@ -1897,11 +1918,6 @@
       },
       {
         "repo": "grafana/alloy",
-        "merged": 0,
-        "open": 2
-      },
-      {
-        "repo": "micrometer-metrics/micrometer",
         "merged": 0,
         "open": 2
       },
@@ -1971,11 +1987,6 @@
         "open": 1
       },
       {
-        "repo": "firebase/firebase-js-sdk",
-        "merged": 0,
-        "open": 1
-      },
-      {
         "repo": "grafana/pyroscope",
         "merged": 0,
         "open": 1
@@ -2011,11 +2022,6 @@
         "open": 1
       },
       {
-        "repo": "microsoft/opentelemetry-distro-browser",
-        "merged": 0,
-        "open": 1
-      },
-      {
         "repo": "nodejs/doc-kit",
         "merged": 0,
         "open": 1
@@ -2042,11 +2048,6 @@
       },
       {
         "repo": "open-telemetry/weaver",
-        "merged": 0,
-        "open": 1
-      },
-      {
-        "repo": "prometheus-community/postgres_exporter",
         "merged": 0,
         "open": 1
       },
@@ -2144,5 +2145,5 @@
       "url": "https://hack.osu.edu/2026"
     }
   ],
-  "generated": "2026-11-12"
+  "generated": "2026-11-13"
 }
