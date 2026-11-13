@@ -1,0 +1,4 @@
+/hub                 https://hub.adityareddy.dev/          302
+/hub/*               https://hub.adityareddy.dev/:splat    302
+/react-inp-blame     https://reactinpblame.com/            301
+/react-inp-blame/*   https://reactinpblame.com/:splat      301
